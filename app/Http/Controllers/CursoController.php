@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\DB;
 
 class CursoController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth')->only('matricular', 'review');
+    }
     
     public function index(Request $request)
     {
@@ -17,7 +22,7 @@ class CursoController extends Controller
         $status = $request->get('status');
 
         $cursos = Curso::latest('users_count')
-                    ->latest('id')
+                    ->latest()
                     ->where('status', '!=', 1)
                     ->categoria($categoria_id)
                     ->nivel($nivel_id)

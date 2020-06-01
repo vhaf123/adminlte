@@ -8,95 +8,69 @@ use App\Video;
 
 class CourseStatusController extends Controller
 {
-    public function __construct()
-    {
+
+    public function __construct(){
+
         $this->middleware('auth');
+
     }
 
     public function index(Curso $curso){
+
         $this->authorize('matriculado', $curso);
-        return view('course-status.index', compact('curso'));
-    }
 
-    public function indice(Request $request, Curso $curso){
+        $i = 0;
+        $j = 0;
 
-        if($request->get('id')){
+        foreach ($curso->modulos as $modulo) {
+            
+            foreach ($modulo->videos as $video) {
 
-            foreach ($curso->modulos as $modulo) {
-                
-                foreach ($modulo->videos as $video) {
+                $j++;
 
-                    if($video->users->contains(auth()->user()->id)){
-                        $video['visto'] = true;
+                if($video->users->contains(auth()->user()->id)){
+                    $video['cursado'] = true;
+
+                    if($i == 0 && $j == $curso->videos_count){
+
+                        $video['actual'] = true;
+
                     }else{
-                        $video['visto'] = false;
+
+                        $video['actual'] = false;
+
                     }
 
-                    if($video->id == $request->get('id')){
+                }else{
+                    
+                    $i++;
+                    $video['cursado'] = false;
+
+                    if($i == 1){
                         $video['actual'] = true;
                     }else{
                         $video['actual'] = false;
                     }
-                    
                 }
             }
-
-            return $curso;
-
-        }else{
-            $i = 0;
-            $j = 0;
-
-            foreach ($curso->modulos as $modulo) {
-                
-                foreach ($modulo->videos as $video) {
-
-                    $j++;
-
-                    if($video->users->contains(auth()->user()->id)){
-                        $video['visto'] = true;
-
-                        if($i == 0 && $j == $curso->videos_count){
-
-                            $video['actual'] = true;
-
-                        }else{
-
-                            $video['actual'] = false;
-
-                        }
-
-                    }else{
-                        
-                        $i++;
-                        $video['visto'] = false;
-
-                        if($i == 1){
-                            $video['actual'] = true;
-                        }else{
-                            $video['actual'] = false;
-                        }
-                    }
-                }
-            }
-
-            return $curso;
         }
+
+        return view('course-status.index', compact('curso'));
     }
 
     public function avance(Curso $curso){
 
-        $videos = $curso->videos;
+        $this->authorize('matriculado', $curso);
 
         $i = 0;
 
-        foreach ($videos as $video) {
+        foreach ($curso->videos as $video) {
             if($video->users->contains(auth()->user()->id)){
                 $i++;
             }
         }
 
-        $avance = ($i * 100)/($videos->count());
+        $avance = ($i * 100)/($curso->videos_count);
 
         return round($avance, 2);
 
@@ -104,6 +78,8 @@ class CourseStatusController extends Controller
 
     public function actual(Request $request, Curso $curso){
         
+        $this->authorize('matriculado', $curso);
+
         if($request->get('id')){
 
             $i = 0;
@@ -216,7 +192,7 @@ class CourseStatusController extends Controller
        
     }
 
-    public function visto(Request $request){
+    public function cursado(Request $request){
 
         $video = Video::find($request->get('id'));
 
@@ -226,4 +202,5 @@ class CourseStatusController extends Controller
             $video->users()->detach(auth()->user()->id);
         }
     }
+    
 }

@@ -8,6 +8,10 @@ class Creador extends Model
 {
     protected $table = 'creadores';
 
+    protected $fillable = [
+        'user_id', 'title', 'biografia', 'website_url'
+    ];
+
     /* Relación uno a uno inversa */
     public function user()
     {

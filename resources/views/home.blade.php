@@ -31,7 +31,7 @@
 
                         <form action="">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="¿Qué quieres aprender?" aria-label="" aria-describedby="basic-addon1">
+                                <input type="text" class="form-control" id= "search" placeholder="¿Qué quieres aprender?" aria-label="" aria-describedby="basic-addon1">
                                 <div class="input-group-append">
                                     <button class="btn btn-danger" type="button">Buscar</button>
                                 </div>
@@ -288,7 +288,7 @@
                 </div>
 
                 <div class="col-8 col-md-6 col-lg-4 col-xl-3 offset-lg-1 mt-5">
-                    <img class="img-fluid" src="{{asset('img/Recurso 2.png')}}" alt="">
+                    <img class="img-fluid" src="{{asset('img/home/Recurso 2.png')}}" alt="">
                 </div>
                 
             </div>
@@ -296,8 +296,4 @@
 
     </section> 
 
-@endsection
-
-@section('script')
-    
 @endsection

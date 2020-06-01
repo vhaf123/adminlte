@@ -38,7 +38,7 @@
 
                     <form action="">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="¿Qué quieres aprender?" aria-label="" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control"  id= "search" placeholder="¿Qué quieres aprender?" aria-label="" aria-describedby="basic-addon1">
                             <div class="input-group-append">
                                 <button class="btn btn-danger" type="button">Buscar</button>
                             </div>

@@ -34,4 +34,12 @@ class CursoPolicy
         }
 
     }
+
+    public function dictado(User $user, Curso $curso){
+        if($curso->profesor_id == $user->profesor->id){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

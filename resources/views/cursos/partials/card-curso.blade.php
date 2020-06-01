@@ -56,7 +56,20 @@
         <h1 class="card-title h6">
             <strong>{{Str::limit($curso->name, 40)}}</strong>
         </h1>
-        <p class="mb-1 text-secondary">Estado: {{$curso->estado}}</p>
+        <p class="mb-1 text-secondary">Estado: 
+            
+            @switch($curso->status)
+                @case(2)
+                    En elaboración
+                    @break
+                @case(3)
+                    Culminado
+                    @break
+                @default
+                    
+            @endswitch
+
+        </p>
         <p class="card-subtitle mb-1 text-muted">Prof. {{$curso->profesor->user->name}}</p>
 
         <ul class="list-inline estrellas">

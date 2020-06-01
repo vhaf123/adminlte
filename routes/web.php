@@ -14,13 +14,35 @@ Route::post('cursos/{curso}/matricular', 'CursoController@matricular')->name('cu
 Route::post('cursos/{curso}/review', 'CursoController@review')->name('cursos.review');
 
 Route::get('course-status/{curso}', 'CourseStatusController@index')->name('course-status.index');
-Route::post('course-status/indice/{curso}', 'CourseStatusController@indice')->name('course-status.indice');
 Route::post('course-status/avance/{curso}', 'CourseStatusController@avance')->name('course-status.avance');
 Route::post('course-status/actual/{curso}', 'CourseStatusController@actual')->name('course-status.actual');
-Route::post('course-status/visto', 'CourseStatusController@visto')->name('course-status.visto');
+Route::post('course-status/cursado', 'CourseStatusController@cursado')->name('course-status.cursado');
 
-Route::resource('manuales', 'ManualController')->parameters(['manuales' => 'manual']);
+Route::resource('manuales', 'ManualController')->parameters(['manuales' => 'manual'])->only('index', 'show');
 
 Route::get('contactanos', 'ContactanosController@index')->name('contactanos.index');
 
-Route::resource('blog', 'BlogController')->parameters(['blog' => 'post']);
+Route::resource('blog', 'BlogController')->parameters(['blog' => 'post'])->only('index', 'show');
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function() {
+    
+    Route::get('/', 'HomeController@index')->name('admin.home');
+    
+    Route::resource('users', 'UserController')->except('create', 'store', 'destroy')->names('admin.users');
+
+    Route::resource('cursos', 'CursoController')->names('admin.cursos');
+    Route::post('cursos/{curso}/dropzone', 'CursoController@dropzone')->name('admin.cursos.dropzone');
+
+    Route::resource('metas', 'MetaController')->names('admin.metas')->only(['store', 'update', 'destroy']);
+    Route::resource('modulos', 'ModuloController')->names('admin.modulos')->except('index', 'create', 'edit');
+    Route::resource('videos', 'VideoController')->names('admin.videos')->only(['store', 'update', 'destroy']);
+    Route::resource('requisitos', 'RequisitoController')->names('admin.requisitos')->only(['store', 'update', 'destroy']);
+    
+    Route::resource('manuales', 'ManualController')->names('admin.manuales')->parameters(['manuales' => 'manual']);
+    Route::resource('capitulos', 'CapituloController')->names('admin.capitulos')->only(['store', 'update', 'destroy']);
+    Route::resource('temas', 'TemaController')->names('admin.temas')->except('index', 'create', 'show');
+
+    Route::resource('posts', 'PostController')->names('admin.posts')->except('show');
+    Route::post('posts/{post}/dropzone', 'PostController@dropzone')->name('admin.posts.dropzone');
+    
+});

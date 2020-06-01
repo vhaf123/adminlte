@@ -21,6 +21,15 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
+    protected $withCount = ['roles'];
+
+    //Route Model Binding
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -38,6 +47,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /* Atributos */
+    public function getRolAttribute(){
+
+        $roles = "";
+
+        if($this->roles_count){
+            
+            foreach ($this->roles as $role) {
+                $roles = $roles . $role->name . ", " ;
+            }
+
+            return substr($roles, 0, -2);
+
+        }else{
+            return "No tiene ningún rol";
+        }
+        
+    }
 
 
     /* Relación uno a uno */

@@ -7,7 +7,7 @@
 
 
 <div class="custom-control custom-switch">
-    <input type="checkbox" class="custom-control-input" id="cursado" v-model = "checked" v-on:change = "visto">
+    <input type="checkbox" class="custom-control-input" id="cursado" v-model = "checked" v-on:change = "cursado">
     <label class="custom-control-label" for="cursado">Marcar esta unidad como culminada</label>
 </div>
 
