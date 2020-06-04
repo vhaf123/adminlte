@@ -59,11 +59,11 @@ class LoginController extends Controller
         
         $socialAccount =    SocialAccount::where('social', $provider)
                                         ->where('social_id', $socialUser->getId())
-                                        ->first();
+                                        ->count();
         
         if(!$socialAccount){
 
-            $user = User::where('email', $socialUser->getEmail())->first();
+            $user = User::where('email', $socialUser->getEmail())->count();
 
             if(!$user)
             {
