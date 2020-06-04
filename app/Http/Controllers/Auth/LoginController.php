@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Socialite;
 use App\user;
+use App\SocialAccount;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -50,25 +51,55 @@ class LoginController extends Controller
     public function handleProviderCallback(Request $request, $provider)
     {
 
-        //Verifica si se ha rechazado la solicitud
         if(! $request->has('code') || $request->has('denied') ){
             return redirect('login');
         }
+        
+        $socialUser = Socialite::driver($provider)->user();
+        
+        $socialAccount =    SocialAccount::where('social', $provider)
+                                        ->where('social_id', $socialUser->getId())
+                                        ->first();
+        
+        if(!$socialAccount){
 
-        //Almacena en una variable los datos devueltos por la red social
+            $user = User::where('email', $socialUser->getEmail())->first();
+
+            if(!$user)
+            {
+
+                $user = User::create([
+                    'name' => $socialUser->getName(),
+                    'email' => $socialUser->getEmail()
+                ]);
+
+            }
+
+            SocialAccount::create([
+                'user_id' => $user->id,
+                'social' => $provider,
+                'social_id' => $socialUser->getId(),
+                'avatar' => $socialUser->getAvatar()
+            ]);
+
+
+        }
+
+        auth()->login($socialAccount->user);
+     
+        return redirect()->intended('/');
+
+        /* 
         $socialUser = Socialite::driver($provider)->user();
 
-        //Recuperando nombre de usuario
         if($socialUser->name){
             $name = $socialUser->name;
         }else{
             $name = $socialUser->nickname;
         }
 
-        //Recuperando email de usuario
         $email = $socialUser->email;
 
-        //Verifica si existe un usuario registrado con ese correo, de no ser así, se crea uno
         $check = User::where('email', $email)->first();
 
         if($check){
@@ -82,7 +113,7 @@ class LoginController extends Controller
 
         auth()->login($user);
 
-        return redirect()->intended('/');
+        return redirect()->intended('/'); */
       
     }
 }

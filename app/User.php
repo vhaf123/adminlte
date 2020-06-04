@@ -69,6 +69,9 @@ class User extends Authenticatable
 
 
     /* Relación uno a uno */
+
+    
+
     public function profesor()
     {
         return $this->hasOne('App\Profesor');
@@ -86,6 +89,12 @@ class User extends Authenticatable
 
 
     /* Relación uno a muchos */
+
+    public function social_accounts()
+    {
+        return $this->hasMany('App\SocialAccount');
+    }
+
     public function reviews()
     {
         return $this->hasMany('App\Review');
