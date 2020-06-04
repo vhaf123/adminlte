@@ -47,7 +47,7 @@
 
             @can('matriculado', $curso)
 
-                <a href="{{route('course-status.index', $curso)}}" class="btn btn-warning text-white">
+                <a href="{{route('course-status.index', $curso)}}" class="btn btn-danger">
                     Continuar con el curso
                 </a>
 
@@ -55,7 +55,7 @@
 
                 {!! Form::open(['route' => ['cursos.matricular', $curso]]) !!}
 
-                    {!! Form::submit('Llevar este curso', ['class' => 'btn btn-warning text-white']) !!}
+                    {!! Form::submit('Llevar este curso', ['class' => 'btn btn-danger']) !!}
                 
                 {!! Form::close() !!}
             @endcan

@@ -30,6 +30,12 @@
 
     <script src="{{ asset('js/app.js') }}"></script>
 
+    @if (session('info'))
+        <script>
+            toastr.info("{{session('info')}}")
+        </script>
+    @endif
+
     @yield('script')
 </body>
 </html>

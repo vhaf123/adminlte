@@ -115,38 +115,7 @@ class CourseStatusController extends Controller
 
                     return $video;
                 }
-
-                /* if($video->users->contains(auth()->user()->id)){
-
-                    if($i == $curso->videos_count){
-
-                        $video['next'] = null;
-                        $video['anterior'] = $curso->videos[$i-2]->id;
-                        $video['actual'] = true;
-                        return $video;
-                    }
-
-                }else{
-
-                    if($i == 1){
-                        $video['anterior'] = null;
-                    }else{
-                        $video['anterior'] = $curso->videos[$i-2]->id;
-                    }
-
-                    if($i == $curso->videos_count){
-
-                        $video['next'] = null;
-
-                    }else{
-                        $video['next'] = $curso->videos[$i]->id;
-                    }
-
-                    $video['actual'] = false;
-
-                    return $video;
-
-                } */
+                
             }
 
         }else{

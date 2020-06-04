@@ -22,7 +22,7 @@ class CursoController extends Controller
         $status = $request->get('status');
 
         $cursos = Curso::latest('users_count')
-                    ->latest()
+                    ->latest('id')
                     ->where('status', '!=', 1)
                     ->categoria($categoria_id)
                     ->nivel($nivel_id)

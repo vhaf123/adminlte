@@ -21,6 +21,7 @@ Route::post('course-status/cursado', 'CourseStatusController@cursado')->name('co
 Route::resource('manuales', 'ManualController')->parameters(['manuales' => 'manual'])->only('index', 'show');
 
 Route::get('contactanos', 'ContactanosController@index')->name('contactanos.index');
+Route::post('contactanos/mensaje', 'ContactanosController@mensaje')->name('contactanos.mensaje');
 
 Route::resource('blog', 'BlogController')->parameters(['blog' => 'post'])->only('index', 'show');
 

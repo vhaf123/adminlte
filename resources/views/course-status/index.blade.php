@@ -89,10 +89,6 @@
 
 @section('script')
 <script>
-    
-    var urlAvance = "{{route('course-status.avance', $curso)}}";
-    var urlActual = "{{route('course-status.actual', $curso)}}";
-    var urlCursado = "{{route('course-status.cursado', $curso)}}";
 
     new Vue({
         el: '#app',
@@ -110,13 +106,13 @@
         methods: {
             getAvance() {
                 axios
-                .post(urlAvance)
+                .post("{{route('course-status.avance', $curso)}}")
                 .then(response => (this.avance = response.data))
             },
 
             getActual() {
                 axios
-                .post(urlActual)
+                .post("{{route('course-status.actual', $curso)}}")
                 .then(response => {
                     this.actual = response.data;
                     this.checked = response.data.actual;
@@ -125,7 +121,7 @@
 
             cambiarActual(id){
                 axios
-                .post(urlActual,{
+                .post("{{route('course-status.actual', $curso)}}",{
                     id: id
                 })
                 .then(response => {
@@ -141,7 +137,7 @@
             cursado(){
 
                 axios
-                .post(urlCursado,{
+                .post("{{route('course-status.cursado', $curso)}}",{
                     id: this.actual.id,
                     checked: this.checked
 
@@ -161,5 +157,6 @@
            
         }
     });
+    
 </script>
 @endsection

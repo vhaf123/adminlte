@@ -17,30 +17,30 @@
                         <h1 class="h3 font-weight-bold card-title">Ponte en contácto</h1>
                         <p class="card-text">Complete el formulario y nos pondremos en contácto lo más pronto posible</p>
 
-                        <form action="">
+                        {!! Form::open(['route' => 'contactanos.mensaje']) !!}
                             <div class="form-group">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Excribe tu nombre" aria-describedby="helpId">
+                                {!! Form::label('name', 'Nombre') !!}
+                                {!! Form::text('name', null, ['class' => 'form-control', "placeholder"=>"Escribe tu nombre", 'required']) !!}
+
                             </div>
 
                             <div class="form-group">
-                                <label for="nombre">Correo</label>
-                                <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Excribe tu correo" aria-describedby="helpId">
+                                {!! Form::label('email', "Correo") !!}
+                                {!! Form::text('email', null, ['class' => 'form-control', "placeholder"=>"Escribe tu correo", 'required']) !!}
                             </div>
 
                             <div class="form-group">
-                            <label for="telefono">Teléfono</label>
-                            <input type="text" name="telefono" id="telefono" class="form-control" placeholder="Escribe tu teléfono" aria-describedby="helpId">
+                                {!! Form::label('telefono', 'Teléfono') !!}
+                                {!! Form::text('telefono', null, ['class' => 'form-control', "placeholder"=>"Escribe tu teléfono", 'required']) !!}
                             </div>
-
 
                             <div class="form-group">
-                                <label for="">Mensaje</label>
-                                <textarea class="form-control" name="" id="" rows="3" placeholder="Escribe tu mensaje"></textarea>
+                                {!! Form::label('mensaje', 'Mensaje') !!}
+                                {!! Form::textarea('mensaje', null, ['rows' => '3', 'class' => 'form-control', "placeholder"=>"Escribe tu correo", 'required']) !!}
                             </div>
 
-                            <button type="submit" class="btn btn-danger font-weight-bold">Envíar mensaje</button>
-                        </form>
+                            {!! Form::submit('Envíar', ['class' => 'btn btn-danger font-weight-bold']) !!}
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>
