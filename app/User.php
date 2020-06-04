@@ -90,7 +90,7 @@ class User extends Authenticatable
 
     /* Relación uno a muchos */
 
-    public function social_accounts()
+    public function socialAccounts()
     {
         return $this->hasMany('App\SocialAccount');
     }
