@@ -64,9 +64,9 @@
             Inicia sesión con facebook
         </a>
 
-        <a href="{{url('login/github')}}" class="btn btn-github d-block my-2">
-            <i class="fab fa-github"></i>
-            Inicia sesión con github
+        <a href="{{url('login/google')}}" class="btn btn-google d-block my-2">
+            <i class="fab fa-google"></i>
+            Inicia sesión con google
         </a>
 
         <a class="btn btn-link" href="{{ route('password.request') }}">
