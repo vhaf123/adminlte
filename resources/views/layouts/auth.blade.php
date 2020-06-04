@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>AdminLTE | @yield('title')</title>
+    <title>CodersFree | @yield('title')</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -41,7 +41,7 @@
                     {{-- Logotipo --}}
                     <a class="navbar-brand text-secondary d-flex align-items-center" href="{{ url('/') }}">
                         <img src="{{asset('img/layouts/logo.png')}}" alt="" height="24px">
-                        <span class="font-weight-bold ml-1">dmin</span>LTE
+                        <span class="font-weight-bold ml-1">Coders</span>Free
                     </a>
     
                     

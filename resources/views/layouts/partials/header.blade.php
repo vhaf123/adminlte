@@ -6,7 +6,7 @@
                     {{-- Logotipo --}}
                     <a class="navbar-brand text-secondary d-flex align-items-center" href="{{ url('/') }}">
                         <img src="{{asset('img/layouts/logo.png')}}" alt="" height="24px">
-                        <span class="font-weight-bold ml-1">dmin</span>LTE
+                        <span class="font-weight-bold ml-1">Coders</span>Free
                     </a>
 
                     <button class="btn d-md-none boton-menu" id="boton-abrir">
