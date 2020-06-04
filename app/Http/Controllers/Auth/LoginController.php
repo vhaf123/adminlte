@@ -69,8 +69,6 @@ class LoginController extends Controller
                     'name' => $socialUser->getName(),
                     'email' => $socialUser->getEmail()
                 ]);
-            }else{
-                return $user;
             }
 
             $socialAccount = SocialAccount::create([
