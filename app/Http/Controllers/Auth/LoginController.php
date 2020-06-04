@@ -58,12 +58,15 @@ class LoginController extends Controller
                                         ->where('social_id', $socialUser->getId())
                                         ->first();
 
-        return $socialAccount;
+        
 
         if(!$socialAccount){
+
+            return $socialUser->getEmail();
+
             $user = User::where('email', $socialUser->getEmail())->first();
 
-            if(!$user){
+            /* if(!$user){
                 $user->name = $socialUser->getName();
                 $user->email = $socialUser->getEmail();
                 $user->save();
@@ -73,7 +76,7 @@ class LoginController extends Controller
             $socialAccount->social = $provider;
             $socialAccount->social_id = $socialUser->getId();
             $socialAccount->avatar = $socialUser->getAvatar();
-            $socialAccount->save();
+            $socialAccount->save(); */
         }
 
         auth()->login($socialAccount->user);
