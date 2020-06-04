@@ -118,4 +118,21 @@ class CursoController extends Controller
         $curso->save();
 
     }
+
+    public function status(Curso $curso){
+
+        switch ($curso->status) {
+            case 1:
+                $curso->update(['status' => 2]);
+                break;
+
+            case 2:
+                $curso->update(['status' => 3]);
+                break;
+
+        }
+
+        return redirect()->route('admin.cursos.show', $curso)->with('info', 'Se actualizó el estado con éxito');
+        
+    }
 }

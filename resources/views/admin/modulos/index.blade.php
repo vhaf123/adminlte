@@ -7,13 +7,13 @@
             @{{index + 1 + '. ' +modulo.name}}
         </h1>
 
-        <div class="ml-auto">
+        <div class="ml-auto d-flex flex-nowrap align-items-start ml-3">
 
             <a :href="'/admin/modulos/' + modulo.id" class="btn btn-primary btn-sm">
                 <i class="fas fa-eye"></i>
             </a>
 
-            <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modulosEdit" v-on:click = 'modulosEdit(modulo)'>
+            <button type="button" class="btn btn-success btn-sm mx-1" data-toggle="modal" data-target="#modulosEdit" v-on:click = 'modulosEdit(modulo)'>
                 <i class="fas fa-edit"></i>
             </button>
 

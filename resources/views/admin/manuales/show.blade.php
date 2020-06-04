@@ -17,7 +17,12 @@
     <p class="lead mb-1"><strong>Estado:</strong> 
         @switch($manual->status)
             @case(1)
-                <span class="badge badge-danger">Borrador</span>
+                
+                {!! Form::open(['route' => ['admin.manuales.status', $manual]]) !!}
+                    {!! Form::submit('Publicar', ['class' => 'btn btn-lg btn-dark']) !!}
+                {!! Form::close() !!}
+
+
                 @break
             @case(2)
                 <span class="badge badge-primary">Publicado</span>

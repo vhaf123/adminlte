@@ -80,4 +80,14 @@ class ManualController extends Controller
 
         return redirect()->route('admin.manuales.index')->with('info', "Eliminado con éxito");
     }
+
+    public function status(Manual $manual){
+        if($manual->status == 1){
+            $manual->update([
+                'status' => 2
+            ]);
+        }
+
+        return redirect()->route('admin.manuales.show', $manual)->with('info', 'El estado se actualizó con éxito');
+    }
 }

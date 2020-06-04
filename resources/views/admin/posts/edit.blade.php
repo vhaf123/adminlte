@@ -133,6 +133,23 @@
 
                 <form action="{{route('admin.posts.dropzone', $post)}}" method="POST" class="dropzone mb-4" id="my-dropzone">
                 </form>
+
+
+                @if ($post->status == 1)
+                
+                    {!! Form::open(['route' => ['admin.posts.status', $post]]) !!}
+                        {!! Form::submit('Publicar', ['class' => 'btn btn-lg btn-dark']) !!}
+                    {!! Form::close() !!}
+
+                    @else
+
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="lead mb-0"><strong>Estado: </strong>Publicado</p>
+                        </div>
+                    </div>
+                @endif
+
             </div>
         </div>
     </div>

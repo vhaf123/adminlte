@@ -49,16 +49,33 @@
     <p class="lead">{{$curso->descripcion}}</p>
 
 
-    @if ($curso->status != 3)
-    
-        <a href="{{route('admin.cursos.edit', $curso)}}" class="btn btn-primary mr-2">Editar</a>
+    @switch($curso->status)
+        @case(1)
 
-        {!! Form::open(['route' => ['admin.cursos.destroy', $curso], 'class' => 'd-inline formulario', 'method' => 'DELETE']) !!}
-            <button type="submit" class="btn btn-danger">
-                Eliminar
+            {!! Form::open(['route' => ['admin.cursos.status', $curso], 'class' => 'mb-0']) !!}
+            <button type="submit" class="btn btn-lg btn-dark">
+                Publicar
             </button>
-        {!! Form::close() !!}
-    @endif
+            {!! Form::close() !!}
+
+            @break
+
+        @case(2)
+            
+            {!! Form::open(['route' => ['admin.cursos.status', $curso], 'class' => 'mb-0']) !!}
+            <button type="submit" class="btn btn-lg btn-dark">
+                Marcar como culminado
+            </button>
+            {!! Form::close() !!}
+
+            @break
+
+        @case(3)
+            <p class="lead"><strong>Estado:</strong> Culminado</p>
+            @break
+            
+    @endswitch
+    
     
 </div>
 

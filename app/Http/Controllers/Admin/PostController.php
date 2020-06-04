@@ -113,4 +113,17 @@ class PostController extends Controller
             'picture' => $pictureUrl
         ]);
     }
+
+
+
+    public function status(Post $post){
+        if($post->status == 1){
+            $post->update([
+                'status' => 2
+            ]);
+        }
+
+        return redirect()->route('admin.posts.show', $post)->with('info', 'El estado se actualizó con éxito');
+    }
+
 }

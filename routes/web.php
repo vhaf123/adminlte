@@ -33,6 +33,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 
     Route::resource('cursos', 'CursoController')->names('admin.cursos');
     Route::post('cursos/{curso}/dropzone', 'CursoController@dropzone')->name('admin.cursos.dropzone');
+    Route::post('cursos/{curso}/status', 'CursoController@status')->name('admin.cursos.status');
 
     Route::resource('metas', 'MetaController')->names('admin.metas')->only(['store', 'update', 'destroy']);
     Route::resource('modulos', 'ModuloController')->names('admin.modulos')->except('index', 'create', 'edit');
@@ -40,10 +41,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::resource('requisitos', 'RequisitoController')->names('admin.requisitos')->only(['store', 'update', 'destroy']);
     
     Route::resource('manuales', 'ManualController')->names('admin.manuales')->parameters(['manuales' => 'manual']);
+    Route::post('manuales/{manual}/status', 'ManualController@status')->name('admin.manuales.status');
+
     Route::resource('capitulos', 'CapituloController')->names('admin.capitulos')->only(['store', 'update', 'destroy']);
     Route::resource('temas', 'TemaController')->names('admin.temas')->except('index', 'create', 'show');
 
     Route::resource('posts', 'PostController')->names('admin.posts')->except('show');
     Route::post('posts/{post}/dropzone', 'PostController@dropzone')->name('admin.posts.dropzone');
+    Route::post('posts/{post}/status', 'PostController@status')->name('admin.posts.status');
     
 });
