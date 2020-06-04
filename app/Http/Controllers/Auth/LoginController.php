@@ -58,6 +58,8 @@ class LoginController extends Controller
                                         ->where('social_id', $socialUser->getId())
                                         ->first();
 
+        return $socialAccount;
+
         if(!$socialAccount){
             $user = User::where('email', $socialUser->getEmail())->first();
 
