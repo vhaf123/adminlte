@@ -62,9 +62,9 @@ class LoginController extends Controller
 
         if(!$socialAccount){
 
-            return $socialUser->getEmail();
-
             $user = User::where('email', $socialUser->getEmail())->first();
+
+            return $user;
 
             /* if(!$user){
                 $user->name = $socialUser->getName();
