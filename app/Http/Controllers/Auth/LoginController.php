@@ -58,8 +58,6 @@ class LoginController extends Controller
                                         ->where('social_id', $socialUser->getId())
                                         ->first();
 
-        
-
         if(!$socialAccount){
 
             $user = User::where('email',$socialUser->getEmail())->first();
@@ -78,29 +76,8 @@ class LoginController extends Controller
                 'avatar' => $socialUser->getAvatar()
             ]);
             
-            return $socialAccount;
-
-            //$user = User::where('email', $socialUser->getEmail())->first();
-            //return "No existe el usuario";
-
-            /* if(!$user->exists){
-                return "No existe el usuario";
-            } */
-
-            /* if(!$user){
-                $user->name = $socialUser->getName();
-                $user->email = $socialUser->getEmail();
-                $user->save();
-            }
-
-            $socialAccount->user_id = $user->id;
-            $socialAccount->social = $provider;
-            $socialAccount->social_id = $socialUser->getId();
-            $socialAccount->avatar = $socialUser->getAvatar();
-            $socialAccount->save(); */
+            
         }
-
-        return "Ya se registró con esta red social";
 
         auth()->login($socialAccount->user);
 
