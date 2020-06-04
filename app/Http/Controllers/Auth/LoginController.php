@@ -51,7 +51,34 @@ class LoginController extends Controller
     public function handleProviderCallback(Request $request, $provider)
     {
 
-        try
+
+        $socialUser = Socialite::driver($provider)->user();
+
+        $socialAccount =    SocialAccount::where('social', $provider)
+                                        ->where('social_id', $socialUser->getId())
+                                        ->first();
+
+        if(!$socialAccount){
+            $user = User::where('email', $socialUser->getEmail())->first();
+
+            if(!$user){
+                $user->name = $socialUser->getName();
+                $user->email = $socialUser->getEmail();
+                $user->save();
+            }
+
+            $socialAccount->user_id = $user->id;
+            $socialAccount->social = $provider;
+            $socialAccount->social_id = $socialUser->getId();
+            $socialAccount->avatar = $socialUser->getAvatar();
+            $socialAccount->save();
+        }
+
+        auth()->login($socialAccount->user);
+
+        return redirect()->intended('/');
+
+        /* try
         {
             $socialUser = Socialite::driver($provider)->user();
         }
@@ -82,7 +109,7 @@ class LoginController extends Controller
 
         auth()->login($socialAccount->user);
 
-        return redirect()->intended('/');
+        return redirect()->intended('/'); */
 
 
 
