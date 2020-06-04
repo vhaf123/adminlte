@@ -64,10 +64,12 @@ class LoginController extends Controller
 
             $user = User::where('email',$socialUser->getEmail())->first();
 
-            return $user;
+            if(!$user){
+                return "no existe el usuario";
+            }
 
             //$user = User::where('email', $socialUser->getEmail())->first();
-            return "No existe el usuario";
+            //return "No existe el usuario";
 
             /* if(!$user->exists){
                 return "No existe el usuario";
