@@ -37,8 +37,7 @@ class UserSeeder extends Seeder
         ]);
 
 
-        /* Profesores */
-        factory(User::class, 10)->create()->each(function(User $user){
+        /* factory(User::class, 10)->create()->each(function(User $user){
 
             $user->update([
                 'picture' => 'img/users/' . $user->id . ".jpg"
@@ -52,7 +51,6 @@ class UserSeeder extends Seeder
 
         });
 
-        /* Bloggers */
         factory(User::class, 10)->create()->each(function(User $user){
 
             $user->update([
@@ -67,7 +65,6 @@ class UserSeeder extends Seeder
 
         });
 
-        /* Creadores */
         factory(User::class, 10)->create()->each(function(User $user){
 
             $user->update([
@@ -82,11 +79,10 @@ class UserSeeder extends Seeder
 
         });
 
-        /* Usuarios sin rol */
         factory(User::class, 40)->create()->each(function(User $user){
             $user->update([
                 'picture' => 'img/users/' . $user->id . ".jpg"
             ]);
-        });
+        }); */
     }
 }
