@@ -369,7 +369,7 @@
                     name: this.requisito_name,
                 }).then(response => {
                     
-                    this.name_requisito = "";
+                    this.requisito_name = "";
                     this.creado_exito('#requisitosCreate')
 
                 }).catch(error => {
