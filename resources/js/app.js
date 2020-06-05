@@ -4,3 +4,4 @@ window.Vue = require('vue');
 window.toastr = require('toastr');
 
 require('./autocomplete');
+require('./sidebar');

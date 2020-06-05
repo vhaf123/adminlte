@@ -52804,6 +52804,8 @@ window.toastr = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.
 
 __webpack_require__(/*! ./autocomplete */ "./resources/js/autocomplete.js");
 
+__webpack_require__(/*! ./sidebar */ "./resources/js/sidebar.js");
+
 /***/ }),
 
 /***/ "./resources/js/autocomplete.js":
@@ -52896,6 +52898,24 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/sidebar.js":
+/*!*********************************!*\
+  !*** ./resources/js/sidebar.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$('#boton-abrir').click(function () {
+  $('.sidebar').addClass('abrir-sidebar');
+  $('.cerrar-sidebar').addClass('abrir-sidebar');
+});
+$('.cerrar-sidebar').click(function () {
+  $('.sidebar').removeClass('abrir-sidebar');
+  $('.cerrar-sidebar').removeClass('abrir-sidebar');
+});
 
 /***/ }),
 
