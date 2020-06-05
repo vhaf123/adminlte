@@ -2,7 +2,7 @@
 
     <div class="card-body">
 
-        <h1 class="h2 mb-3">¿Qué aprenderás?</h1>
+        <h1 class="h2 mb-3">Metas del curso</h1>
 
         <ul class="mb-0 list-unstyled">
 

@@ -1,6 +1,6 @@
 <div class="card shadow-sm">
     <div class="card-body">
-        <h1 class="h2 mb-3">¿Qué aprenderás?</h1>
+        <h1 class="h2 mb-3">Metas del curso</h1>
 
         <ul class="list-unstyled mb-0">
             @forelse ($curso->metas as $meta)
