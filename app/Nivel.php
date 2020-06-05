@@ -8,7 +8,5 @@ class Nivel extends Model
 {
     protected $table = 'niveles';
 
-    protected $fillable = [
-        'name'
-    ];
+    protected $fillable = ['name'];
 }

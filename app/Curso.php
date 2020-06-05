@@ -56,7 +56,11 @@ class Curso extends Model
         }
     }
 
-
+    public function scopeTipo($query, $tipo_id){
+        if($tipo_id){
+            return $query->where('tipo_id', $tipo_id);
+        }
+    }
 
 
 
@@ -96,6 +100,11 @@ class Curso extends Model
     public function nivel()
     {
         return $this->belongsTo('App\Nivel');
+    }
+
+    public function tipos()
+    {
+        return $this->belongsTo('App\Tipo');
     }
 
     /* Relación muchos a muchos */

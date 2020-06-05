@@ -31,6 +31,13 @@ class CreateCursosTable extends Migration
                     ->references('id')->on('niveles')
                     ->onDelete('set null');
 
+            $table->unsignedBigInteger('tipo_id')->unsigned()->nullable()->default(1);
+            $table->foreign('tipo_id')
+                    ->references('id')->on('tipos')
+                    ->onDelete('set null');
+
+            $table->float('precio')->nullable();
+
             $table->string('name');
             $table->text('descripcion');
             $table->string('slug')->unique();

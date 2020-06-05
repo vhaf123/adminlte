@@ -20,12 +20,14 @@ class CursoController extends Controller
         $categoria_id = $request->get('categoria_id');
         $nivel_id = $request->get('nivel_id');
         $status = $request->get('status');
+        $tipo_id = $request->get('tipo_id');
 
         $cursos = Curso::latest('users_count')
                     ->latest('id')
                     ->where('status', '!=', 1)
                     ->categoria($categoria_id)
                     ->nivel($nivel_id)
+                    ->tipo($tipo_id)
                     ->status($status)
                     ->paginate(8);
 

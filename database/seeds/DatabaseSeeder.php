@@ -16,11 +16,13 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(CategoriaSeeder::class);
         $this->call(NivelSeeder::class);
-        $this->call(CursoSeeder::class);
+        $this->call(TipoSeeder::class);
+
+        //$this->call(CursoSeeder::class);
 
         $this->call(TagSeeder::class);
-        $this->call(PostSeeder::class);
+        //$this->call(PostSeeder::class);
 
-        $this->call(ManualSeeder::class);
+        //$this->call(ManualSeeder::class);
     }
 }

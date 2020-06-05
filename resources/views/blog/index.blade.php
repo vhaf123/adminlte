@@ -15,7 +15,7 @@
                     <p class="text-white text-md-center">Escribe en el buscador y nosotros te ayudamos a encontrarlo</p>
                     <form action="">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Escribe el nombre del artículo" aria-label="" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" id= "search" placeholder="Escribe el nombre del artículo" aria-label="" aria-describedby="basic-addon1">
                             <div class="input-group-append">
                                 <button class="btn btn-danger" type="button">Buscar</button>
                             </div>

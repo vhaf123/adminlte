@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <p>{{$mensaje}}</p>
+    <p class="lead"><strong>Nombre: </strong>{{$name}}</p>
+    <p class="lead"><strong>Email: </strong>{{$email}}</p>
+    <p class="lead"><strong>Telefono: </strong>{{$telefono}}</p>
+    <p class="lead"><strong>Mensaje: </strong>{{$mensaje}}</p>
 </body>
 </html>

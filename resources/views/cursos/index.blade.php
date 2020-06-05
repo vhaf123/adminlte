@@ -121,8 +121,8 @@
                         </a>
 
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Cursos premium</a>
-                            <a class="dropdown-item" href="#">Cursos gratis</a>
+                            <a class="dropdown-item" href="{{route('cursos.index').'?tipo_id=2'}}">Cursos premium</a>
+                            <a class="dropdown-item" href="{{route('cursos.index').'?tipo_id=1'}}">Cursos gratis</a>
                         </div>
                     </li>
                 </ul>
