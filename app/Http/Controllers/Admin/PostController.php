@@ -123,7 +123,7 @@ class PostController extends Controller
             ]);
         }
 
-        return redirect()->route('admin.posts.show', $post)->with('info', 'El estado se actualizó con éxito');
+        return redirect()->route('admin.posts.edit', $post)->with('info', 'El estado se actualizó con éxito');
     }
 
 }

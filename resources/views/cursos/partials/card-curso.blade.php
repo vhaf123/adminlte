@@ -72,29 +72,33 @@
         </p>
         <p class="card-subtitle mb-1 text-muted">Prof. {{$curso->profesor->user->name}}</p>
 
-        <ul class="list-inline estrellas">
+        <div class="d-flex justify-content-between">
+            <ul class="list-inline estrellas">
 
-            <li class="list-inline-item">
-                <i class="fas fa-star text-{{$curso->rating >= 1 ? 'warning' : ''}}"></i>
-            </li>
+                <li class="list-inline-item">
+                    <i class="fas fa-star text-{{$curso->rating >= 1 ? 'warning' : ''}}"></i>
+                </li>
+    
+                <li class="list-inline-item">
+                    <i class="fas fa-star text-{{$curso->rating >= 2 ? 'warning' : ''}}"></i>
+                </li>
+    
+                <li class="list-inline-item">
+                    <i class="fas fa-star text-{{$curso->rating >= 3 ? 'warning' : ''}}"></i>
+                </li>
+    
+                <li class="list-inline-item">
+                    <i class="fas fa-star text-{{$curso->rating >= 4 ? 'warning' : ''}}"></i>
+                </li>
+    
+                <li class="list-inline-item">
+                    <i class="fas fa-star text-{{$curso->rating >= 5 ? 'warning' : ''}}"></i>
+                </li>
+    
+            </ul>
 
-            <li class="list-inline-item">
-                <i class="fas fa-star text-{{$curso->rating >= 2 ? 'warning' : ''}}"></i>
-            </li>
-
-            <li class="list-inline-item">
-                <i class="fas fa-star text-{{$curso->rating >= 3 ? 'warning' : ''}}"></i>
-            </li>
-
-            <li class="list-inline-item">
-                <i class="fas fa-star text-{{$curso->rating >= 4 ? 'warning' : ''}}"></i>
-            </li>
-
-            <li class="list-inline-item">
-                <i class="fas fa-star text-{{$curso->rating >= 5 ? 'warning' : ''}}"></i>
-            </li>
-
-        </ul>
+            <p class="text-secondary"><span class="fas fa-user mr-1"></span>({{$curso->users_count}})</p>
+        </div>
 
         
 

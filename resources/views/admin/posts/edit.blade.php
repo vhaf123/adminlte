@@ -161,17 +161,30 @@
 @section('script')
 
     <script src="{{asset('plugins/dropzone-5.7.0/dist/min/dropzone.min.js')}}"></script>
-    <script src="{{asset('plugins/ckeditor/ckeditor.js')}}"></script>
+    {{--  --}}
     {{-- <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script> --}}
     {{-- <script src="//cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script> --}}
-
+    <script src="https://cdn.ckeditor.com/ckeditor5/19.1.1/classic/ckeditor.js"></script>
     
 
     <script>
+
         //CKEDITOR
-        CKEDITOR.replace('body',{
-            height: 500
-        });
+        /* CKEDITOR.replace('body',{
+            
+            height: 500,
+        }); */
+
+        ClassicEditor
+            .create( document.querySelector( '#body' ) )
+            .then( editor => {
+                    console.log( editor );
+            } )
+            .catch( error => {
+                    console.error( error );
+            } );
+
+
 
         //Dropzone
         Dropzone.options.myDropzone = {

@@ -27,11 +27,12 @@ class HomeController extends Controller
     public function index()
     {
 
-        $cursos = Curso::latest('users_count')
+        $cursos = Curso::orderBy('users_count', 'desc')
                 ->latest('id')
                 ->where('status', '!=', 1)
                 ->take(8)
                 ->get();
+
 
         $cursos_publicados = Curso::where('status', '!=', 1)->count();
         $posts_publicados = Post::where('status', '!=', 1)->count();
