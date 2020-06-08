@@ -97,7 +97,7 @@
     
             </ul>
 
-            <p class="text-secondary"><span class="fas fa-user mr-1"></span>({{$curso->users_count}})</p>
+            <p class="text-secondary"><span class="fas fa-users mr-1"></span>({{$curso->users_count}})</p>
         </div>
 
         
