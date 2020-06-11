@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Tema;
+use App\Image;
+
+use Illuminate\Support\Facades\Storage;
 
 class TemaController extends Controller
 {
@@ -31,7 +34,9 @@ class TemaController extends Controller
     
     public function edit(Tema $tema)
     {
+
         return view('admin.temas.edit', compact('tema'));
+
     }
 
    
@@ -46,5 +51,34 @@ class TemaController extends Controller
     public function destroy(Tema $tema)
     {
         $tema->delete();
+    }
+
+
+    public function dropzone(Request $request, Tema $tema){
+
+        $request->validate([
+            'picture' => 'image|max:1024'
+        ]);
+
+        /* if($curso->picture){
+            $picturePath = str_replace('storage', 'public', $curso->picture);
+            Storage::delete($picturePath);
+        } */
+
+        $picture = $request->file('picture')->store('public/temas');
+
+        $pictureUrl = Storage::url($picture);
+
+        Image::create([
+            'picture' => $pictureUrl,
+            'imageable_id' => $tema->id,
+            'imageable_type' => 'App\Tema'
+        ]);
+
+
+        /* $curso->picture = $pictureUrl;
+
+        $curso->save(); */
+
     }
 }

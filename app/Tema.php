@@ -12,4 +12,13 @@ class Tema extends Model
     {
         return $this->belongsTo('App\Capitulo');
     }
+
+
+    //Relacion polimorfica
+
+    public function images()
+    {
+        return $this->morphMany('App\Image', 'imageable');
+    }
+    
 }

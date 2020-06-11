@@ -15,4 +15,8 @@ class CapituloObserver
         $capitulo->slug = $slug;
         
     }
+
+
+   
+
 }

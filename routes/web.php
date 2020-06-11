@@ -45,6 +45,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 
     Route::resource('capitulos', 'CapituloController')->names('admin.capitulos')->only(['store', 'update', 'destroy']);
     Route::resource('temas', 'TemaController')->names('admin.temas')->except('index', 'create', 'show');
+    Route::post('temas/{tema}/dropzone', 'TemaController@dropzone')->name('admin.temas.dropzone');
+    
+    Route::delete('images/{image}', 'ImageController@destroy')->name('admin.images.destroy');
 
     Route::resource('posts', 'PostController')->names('admin.posts')->except('show');
     Route::post('posts/{post}/dropzone', 'PostController@dropzone')->name('admin.posts.dropzone');
