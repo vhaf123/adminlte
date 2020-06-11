@@ -50,6 +50,12 @@
                                 {!! Form::text('name', null, ['class' => 'form-control', 'required']) !!}
                             </div>
 
+
+                            <div class="form-group">
+                                {!! Form::label('slug', 'Slug') !!}
+                                {!! Form::text('slug', null, ['class' => 'form-control', 'required']) !!}
+                            </div>
+
                             <div class="form-group">
                                 {!! Form::label('body', 'Cuerpo') !!}
                                 {!! Form::textarea('body', null, ['required']) !!}
