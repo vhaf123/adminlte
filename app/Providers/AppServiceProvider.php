@@ -10,6 +10,11 @@ use App\Post;
 use App\Observers\PostObserver;
 use App\Manual;
 use App\Observers\ManualObserver;
+use App\Capitulo;
+use App\Observers\CapituloObserver;
+use App\Tema;
+use App\Observers\TemaObserver;
+
 
 use Illuminate\Support\ServiceProvider;
 
@@ -36,5 +41,7 @@ class AppServiceProvider extends ServiceProvider
         Curso::observe(CursoObserver::class);
         Post::observe(PostObserver::class);
         Manual::observe(ManualObserver::class);
+        Capitulo::observe(CapituloObserver::class);
+        Tema::observe(TemaObserver::class);
     }
 }
