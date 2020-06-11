@@ -275,7 +275,7 @@
     </section>
 
     {{-- informacion --}}
-    <section class="informacion my-5 pb-5">
+    <section class="informacion mt-5 pb-5">
 
         <div class="container">
             <div class="row justify-content-center align-items-center">
