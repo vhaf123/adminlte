@@ -17,7 +17,8 @@
         .img-tema:before{
             content: '';
             display: block;
-            padding-top: 56.25%;
+            /* padding-top: 56.25%; */
+            padding-top: 75%;
         }
 
         .img-tema > img{
@@ -32,8 +33,8 @@
 
         .img-tema .iconos{
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 5px;
+            right: 5px;
             z-index: 200;
         }
 
@@ -107,6 +108,39 @@
             <div class="col">
 
 
+                <form action="{{route('admin.temas.dropzone', $tema)}}" method="POST" class="dropzone mb-4" id="my-dropzone">
+                </form>
+
+                <div class="row">
+
+                    @foreach ($tema->images as $image)
+                        <div class="col-2">
+                            <figure class="img-tema border" id="{{$image->id}}">
+
+                                <div class="iconos" >
+                                    <button class="btn btn-secondary btn-sm" onclick="copy('{{$image->picture}}')">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+
+                                    {!! Form::open(['route' => ['admin.images.destroy', $image], 'method' => "delete", 'class' => 'd-inline']) !!}
+
+                                        <button type="submit" class="btn btn-danger btn-sm">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+
+                                    {!! Form::close() !!}
+
+                                </div>
+
+                                <img src="{{asset($image->picture)}}" alt="">
+                                <figcaption class="overflow-auto bg-dark" id="{{$image->id}}">{{$image->picture}}</figcaption>
+                            </figure>
+                        </div>
+                    @endforeach
+
+                </div>
+
+
                 <div class="card">
                     <div class="card-body">
 
@@ -136,37 +170,7 @@
                 </div>
 
 
-                <form action="{{route('admin.temas.dropzone', $tema)}}" method="POST" class="dropzone mb-4" id="my-dropzone">
-                </form>
-
-                <div class="row">
-
-                    @foreach ($tema->images as $image)
-                        <div class="col-3">
-                            <figure class="img-tema" id="{{$image->id}}">
-
-                                <div class="iconos" >
-                                    <button class="btn btn-secondary btn-sm" onclick="copy('{{$image->picture}}')">
-                                        <i class="fas fa-copy"></i>
-                                    </button>
-
-                                    {!! Form::open(['route' => ['admin.images.destroy', $image], 'method' => "delete", 'class' => 'd-inline']) !!}
-
-                                        <button type="submit" class="btn btn-danger btn-sm">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-
-                                    {!! Form::close() !!}
-
-                                </div>
-
-                                <img src="{{asset($image->picture)}}" alt="">
-                                <figcaption class="overflow-auto bg-dark" id="{{$image->id}}">{{$image->picture}}</figcaption>
-                            </figure>
-                        </div>
-                    @endforeach
-
-                </div>
+                
 
                 
 

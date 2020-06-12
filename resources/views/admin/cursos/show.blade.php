@@ -36,7 +36,7 @@
 @section('breadcrumbs')
 
 <div class="jumbotron bg-info">
-    
+
     @if ($curso->status == 3)
         <div class="ribbon-wrapper ribbon-xl">
             <div class="ribbon bg-warning text-lg">
@@ -44,30 +44,37 @@
             </div>
         </div>
     @endif
-
-    <h1 class="display-3"><strong>Curso: {{$curso->name}}</strong></h1>
-    <p class="lead">{{$curso->descripcion}}</p>
     
-    <p class="lead"><strong>Categoria:</strong> {{$curso->categoria->name}}</p>
+    <h1><strong>Curso:</strong> {{$curso->name}}</h1>
+    <p class="lead mb-1"><strong>Categoria:</strong> {{$curso->categoria->name}}</p>
+    <p class="lead mb-1"><strong>Descripción:</strong> {{$curso->descripcion}}</p>
 
-    @switch($curso->status)
-        @case(1)
 
-            <p class="lead"><strong>Estado:</strong> Borrador</p>
+    <p class="lead"><strong class="mr-2">Estado:</strong>
+        
+        @switch($curso->status)
 
-            @break
+            @case(1)
+                
+                <span class="badge badge-danger">Borrador</span>
 
-        @case(2)
+                @break
+
+            @case(2)
+                
+                <span class="badge badge-warning">Elaboración</span>
+
+                @break
+
+            @case(3)
+
+                <span class="badge badge-primary">Culminado</span>
+
+                @break
             
-            <p class="lead"><strong>Estado:</strong> Publicado</p>
-
-            @break
-
-        @case(3)
-            <p class="lead"><strong>Estado:</strong> Culminado</p>
-            @break
-            
-    @endswitch
+        @endswitch
+    
+    </p>
     
     <a href="{{route('admin.cursos.edit', $curso)}}" class="btn btn-success mb-0">Editar información</a>
     

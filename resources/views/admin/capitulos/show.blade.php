@@ -54,8 +54,11 @@
 
                             </div>
 
-                            <div class="card-body" v-html = "tema.descripcion">
-
+                            <div class="card-body">
+                                <p class="mb-0">
+                                    <strong>Descripción: </strong>
+                                    @{{tema.descripcion}}
+                                </p>
                             </div>
 
                             <div class="card-footer d-flex">

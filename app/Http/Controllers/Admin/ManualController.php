@@ -71,7 +71,7 @@ class ManualController extends Controller
 
         $manual->update($request->all());
 
-        return redirect()->route('admin.manuales.edit', $manual)->with('info', 'Actualizado con éxito');
+        return redirect()->route('admin.manuales.show', $manual)->with('info', 'Actualizado con éxito');
     }
     
     public function destroy(Manual $manual)

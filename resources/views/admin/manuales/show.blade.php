@@ -14,13 +14,9 @@
     <h1><strong>Manual:</strong> {{$manual->name}}</h1>
     <p class="lead mb-1"><strong>Categoría:</strong> {{$manual->categoria->name}}</p>
     <p class="lead mb-1"><strong>Descripción:</strong> {{$manual->descripcion}}</p>
-    <p class="lead mb-1"><strong class="mr-2">Estado:</strong> 
+    <p class="lead"><strong class="mr-2">Estado:</strong> 
         @switch($manual->status)
             @case(1)
-                
-                {{-- {!! Form::open(['route' => ['admin.manuales.status', $manual]]) !!}
-                    {!! Form::submit('Publicar', ['class' => 'btn btn-lg btn-dark']) !!}
-                {!! Form::close() !!} --}}
                 <span class="badge badge-warning">Borrador</span>
 
                 @break
@@ -31,6 +27,9 @@
                 
         @endswitch
     </p>
+
+    <a href="{{route('admin.manuales.edit', $manual)}}" class="btn btn-success mb-0">Editar información</a>
+
 </div>
 
 @endsection
@@ -50,12 +49,24 @@
                         
                         <div class="card">
 
-                            <div class="card-body bg-dark d-flex align-items-center">
+                            <div class="card-header bg-dark d-flex align-items-center">
                                 <h1 class="h5 mb-0">@{{capitulo.name}}</h1>
 
                                 <button class="ml-auto btn btn-sm btn-danger" v-on:click = "capitulosDestroy(capitulo)">
                                     <i class="fas fa-times"></i>
                                 </button>
+                            </div>
+
+                            <div class="card-body">
+                                <ul class="mb-0">
+                                    <li v-for="tema in capitulo.temas">
+                                        @{{tema.name}}
+                                    </li>
+
+                                    <li v-if = "capitulo.temas.length == 0">
+                                        Aun no se ha agregado ningun tema a este capítulo
+                                    </li>
+                                </ul>
                             </div>
 
                             <div class="card-footer d-flex align-items-center">
@@ -85,7 +96,7 @@
                 @if ($manual->status == 1)
 
                     {!! Form::open(['route' => ['admin.manuales.status', $manual]]) !!}
-                        {!! Form::submit('Publicar', ['class' => 'btn btn-lg btn-block btn-info']) !!}
+                        {!! Form::submit('Publicar', ['class' => 'btn btn-block btn-info']) !!}
                     {!! Form::close() !!}
 
                 @else
