@@ -17,7 +17,7 @@
         <ul class="mb-0">
             <li v-for="video in modulo.videos">@{{video.name}}</li>
 
-            <li v-if = "modulo.videos.length == 0">Aun no ha agregado ningun subtema a este módulo</li>
+            <li v-if = "modulo.videos.length == 0">Aun no se ha agregado ningun subtema a este módulo</li>
 
         </ul>
     </div>

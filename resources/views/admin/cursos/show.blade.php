@@ -102,7 +102,7 @@
                 <form action="{{route('admin.cursos.dropzone', $curso)}}" method="POST" class="dropzone mb-4" id="my-dropzone">
                 </form>
 
-                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#metasCreate">
+                <button type="button" class="btn btn-primary btn-block mb-2" data-toggle="modal" data-target="#metasCreate">
                     Agregar una nueva meta
                 </button>
 
@@ -110,7 +110,7 @@
                     Agregar un nuevo requisito
                 </button>
                 
-                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modulosCreate">
+                <button type="button" class="btn btn-primary btn-block mb-2" data-toggle="modal" data-target="#modulosCreate">
                     Agregar un nuevo módulo
                 </button>
 
