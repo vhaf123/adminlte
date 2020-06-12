@@ -15,7 +15,7 @@
 
             <div id="collapse{{$modulo->id}}" class="collapse" role="tabpanel" aria-labelledby="heading{{$modulo->id}}">
                 <div class="card-body">
-                    <ul class="list-unstyled">
+                    <ul class="list-unstyled mb-0">
                         @forelse ($modulo->videos as $video)
                             <li class="my-2">
 

@@ -54,7 +54,9 @@
 
     <div class="card-body">
         <h1 class="card-title h6">
-            <strong>{{Str::limit($curso->name, 40)}}</strong>
+            <a href="{{route('cursos.show', $curso)}}" class="text-decoration-none text-secondary">
+                <strong>{{Str::limit($curso->name, 40)}}</strong>
+            </a>
         </h1>
         <p class="mb-1 text-secondary">Estado: 
             
