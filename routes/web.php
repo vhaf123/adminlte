@@ -25,6 +25,14 @@ Route::post('contactanos/mensaje', 'ContactanosController@mensaje')->name('conta
 
 Route::resource('blog', 'BlogController')->parameters(['blog' => 'post'])->only('index', 'show');
 
+Route::get('politicas', function ($id) {
+    
+});
+
+Route::get('condiciones', function ($id) {
+    
+});
+
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function() {
     
     Route::get('/', 'HomeController@index')->name('admin.home');
