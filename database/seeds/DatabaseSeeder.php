@@ -19,11 +19,11 @@ class DatabaseSeeder extends Seeder
         $this->call(NivelSeeder::class);
         $this->call(TipoSeeder::class);
 
-        $this->call(CursoSeeder::class);
+        //$this->call(CursoSeeder::class);
 
         $this->call(TagSeeder::class);
-        $this->call(PostSeeder::class);
+        //$this->call(PostSeeder::class);
 
-        $this->call(ManualSeeder::class);
+        //$this->call(ManualSeeder::class);
     }
 }
