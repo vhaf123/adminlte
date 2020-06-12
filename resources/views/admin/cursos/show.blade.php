@@ -47,7 +47,8 @@
 
     <h1 class="display-3"><strong>Curso: {{$curso->name}}</strong></h1>
     <p class="lead">{{$curso->descripcion}}</p>
-
+    
+    <p class="lead"><strong>Categoria:</strong> {{$curso->categoria->name}}</p>
 
     @switch($curso->status)
         @case(1)
@@ -68,6 +69,7 @@
             
     @endswitch
     
+    <a href="{{route('admin.cursos.edit', $curso)}}" class="btn btn-success mb-0">Editar información</a>
     
 </div>
 

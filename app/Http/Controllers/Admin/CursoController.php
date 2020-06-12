@@ -83,7 +83,7 @@ class CursoController extends Controller
 
         $curso->update($request->all());
 
-        return redirect()->route('admin.cursos.edit', $curso)->with('info', 'Se actualizó el curso con éxito');;
+        return redirect()->route('admin.cursos.show', $curso)->with('info', 'Se actualizó el curso con éxito');;
     }
 
     
