@@ -82,21 +82,20 @@
 
 @section('breadcrumbs')
 
-<div class="container-fluid">
-    <div class="row mb-2">
-        <div class="col-sm-3">
-            <a href="{{route('admin.manuales.show', $tema->capitulo->manual)}}" class="btn btn-primary">Volver al manual</a>
-        </div>
-
-        <div class="col-sm-9">
-            <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="{{route('admin.home')}}">Home</a></li>
-            <li class="breadcrumb-item"><a href="{{route('admin.manuales.show', $tema->capitulo->manual)}}">{{$tema->capitulo->manual->name}}</a></li>
-            <li class="breadcrumb-item active">{{$tema->name}}</li>
-            </ol>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{route('admin.home')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('admin.manuales.show', $tema->capitulo->manual)}}">{{$tema->capitulo->manual->name}}</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('admin.capitulos.show', $tema->capitulo)}}">{{$tema->capitulo->name}}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{$tema->name}}</li>
+                    </ol>
+                </nav>
+            </div>
         </div>
     </div>
-</div>
 
 @endsection
 
@@ -104,7 +103,77 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-8">
+
+            <div class="col">
+
+
+                <div class="card">
+                    <div class="card-body">
+
+                        {!! Form::model($tema, ['route' => ['admin.temas.update', $tema], 'method' => 'put']) !!}
+
+                            <div class="form-group">
+                                {!! Form::label('name', 'Tema') !!}
+                                {!! Form::text('name', null, ['class' => 'form-control', 'required']) !!}
+                            </div>
+
+
+                            <div class="form-group">
+                                {!! Form::label('descripcion', 'Descripcion') !!}
+                                {!! Form::textarea('descripcion', null, ['class' => 'form-control', 'rows' => '3', 'required']) !!}
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('body', 'Cuerpo') !!}
+                                {!! Form::textarea('body', null, ['required']) !!}
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::submit('Acualizar', ['class' => 'btn btn-block btn-primary']) !!}
+                            </div>
+                        {!! Form::close() !!}
+                    </div>
+                </div>
+
+
+                <form action="{{route('admin.temas.dropzone', $tema)}}" method="POST" class="dropzone mb-4" id="my-dropzone">
+                </form>
+
+                <div class="row">
+
+                    @foreach ($tema->images as $image)
+                        <div class="col-3">
+                            <figure class="img-tema" id="{{$image->id}}">
+
+                                <div class="iconos" >
+                                    <button class="btn btn-secondary btn-sm" onclick="copy('{{$image->picture}}')">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+
+                                    {!! Form::open(['route' => ['admin.images.destroy', $image], 'method' => "delete", 'class' => 'd-inline']) !!}
+
+                                        <button type="submit" class="btn btn-danger btn-sm">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+
+                                    {!! Form::close() !!}
+
+                                </div>
+
+                                <img src="{{asset($image->picture)}}" alt="">
+                                <figcaption class="overflow-auto bg-dark" id="{{$image->id}}">{{$image->picture}}</figcaption>
+                            </figure>
+                        </div>
+                    @endforeach
+
+                </div>
+
+                
+
+            </div>
+
+
+            {{-- <div class="col-8">
 
                 <div class="card bg-info">
                     <div class="card-body">
@@ -150,8 +219,8 @@
                 @foreach ($tema->images as $image)
                     <figure class="img-tema" id="{{$image->id}}">
 
-                        <div class="iconos" onclick="copy('{{$image->picture}}')">
-                            <button class="btn btn-secondary btn-sm">
+                        <div class="iconos" >
+                            <button class="btn btn-secondary btn-sm" onclick="copy('{{$image->picture}}')">
                                 <i class="fas fa-copy"></i>
                             </button>
 
@@ -173,7 +242,7 @@
                 @endforeach
 
 
-            </div>
+            </div> --}}
         </div>
     </div>
 
@@ -195,7 +264,7 @@
 
         //dropzone
         Dropzone.options.myDropzone = {
-            dictDefaultMessage: 'Arrastre una foto para agregar o cambiar de foto',
+            dictDefaultMessage: 'Arrastre una foto para agregar',
             headers: {
                 'X-CSRF-TOKEN': "{{csrf_token()}}"
             },

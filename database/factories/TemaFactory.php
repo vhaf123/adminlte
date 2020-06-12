@@ -9,5 +9,6 @@ $factory->define(Tema::class, function (Faker $faker) {
     return [
         'name' => $faker->sentence,
         'body' => $faker->text(5000),
+        'descripcion' => $faker->paragraph,
     ];
 });

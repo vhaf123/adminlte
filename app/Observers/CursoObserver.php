@@ -19,7 +19,7 @@ class CursoObserver
         $slug = Str::slug($curso->name, '-');
 
         while (Curso::where('slug', $slug)->count()) {
-            $slug = $slug.rand(1,1000);
+            $slug = $slug.rand(1,100);
         }
 
         $curso->slug = $slug;

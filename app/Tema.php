@@ -6,7 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tema extends Model
 {
-    protected $fillable = ['capitulo_id', 'name', 'body'];
+    protected $fillable = ['capitulo_id', 'name', 'body', 'descripcion'];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     public function capitulo()
     {

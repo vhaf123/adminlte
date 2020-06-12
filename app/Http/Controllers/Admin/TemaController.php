@@ -20,11 +20,13 @@ class TemaController extends Controller
         $this->middleware(['can:admin.manuales.edit']);
         $this->middleware(['can:admin.manuales.destroy']);
     }
-    
+
+   
     public function store(Request $request)
     {
         $request->validate([
             'name' => 'required',
+            'descripcion' => 'required',
             'capitulo_id' => 'required'
         ]);
 
@@ -42,6 +44,14 @@ class TemaController extends Controller
    
     public function update(Request $request, Tema $tema)
     {
+
+        $request->validate([
+            'name' => 'required',
+            'descripcion' => 'required',
+            'capitulo_id' => 'required'
+        ]);
+
+
         $tema->update($request->all());
 
         return redirect()->route('admin.temas.edit', $tema)->with('info', 'Actualizado con éxito');

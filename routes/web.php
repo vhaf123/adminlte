@@ -19,6 +19,7 @@ Route::post('course-status/actual/{curso}', 'CourseStatusController@actual')->na
 Route::post('course-status/cursado', 'CourseStatusController@cursado')->name('course-status.cursado');
 
 Route::resource('manuales', 'ManualController')->parameters(['manuales' => 'manual'])->only('index', 'show');
+Route::get('manuales/{manual}/{tema}', 'TemaController@show')->name('temas.show');
 
 Route::get('contactanos', 'ContactanosController@index')->name('contactanos.index');
 Route::post('contactanos/mensaje', 'ContactanosController@mensaje')->name('contactanos.mensaje');
@@ -51,7 +52,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::resource('manuales', 'ManualController')->names('admin.manuales')->parameters(['manuales' => 'manual']);
     Route::post('manuales/{manual}/status', 'ManualController@status')->name('admin.manuales.status');
 
-    Route::resource('capitulos', 'CapituloController')->names('admin.capitulos')->only(['store', 'update', 'destroy']);
+    Route::resource('capitulos', 'CapituloController')->names('admin.capitulos')->except('index', 'create');
+    /* ->only(['store', 'update', 'destroy']); */
     Route::resource('temas', 'TemaController')->names('admin.temas')->except('index', 'create', 'show');
     Route::post('temas/{tema}/dropzone', 'TemaController@dropzone')->name('admin.temas.dropzone');
     

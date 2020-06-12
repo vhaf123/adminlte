@@ -14,6 +14,10 @@ class TemaObserver
 
         $slug = Str::slug($tema->name, '-');
 
+        while (Tema::where('slug', $slug)->count()) {
+            $slug = $slug.rand(1,100);
+        }
+
         $tema->slug = $slug;
         
     }

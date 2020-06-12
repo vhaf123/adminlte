@@ -23,7 +23,7 @@ class CreateCapitulosTable extends Migration
 
             $table->string('name');
 
-            
+            $table->string('slug')->unique();
 
             $table->timestamps();
         });

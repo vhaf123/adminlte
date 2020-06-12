@@ -11,17 +11,17 @@
 @section('breadcrumbs')
 
 <div class="jumbotron bg-info">
+    <h1><strong>Manual:</strong> {{$manual->name}}</h1>
     <p class="lead mb-1"><strong>Categoría:</strong> {{$manual->categoria->name}}</p>
-    <p class="lead mb-1"><strong>Nombre:</strong> {{$manual->name}}</p>
     <p class="lead mb-1"><strong>Descripción:</strong> {{$manual->descripcion}}</p>
-    <p class="lead mb-1"><strong>Estado:</strong> 
+    <p class="lead mb-1"><strong class="mr-2">Estado:</strong> 
         @switch($manual->status)
             @case(1)
                 
-                {!! Form::open(['route' => ['admin.manuales.status', $manual]]) !!}
+                {{-- {!! Form::open(['route' => ['admin.manuales.status', $manual]]) !!}
                     {!! Form::submit('Publicar', ['class' => 'btn btn-lg btn-dark']) !!}
-                {!! Form::close() !!}
-
+                {!! Form::close() !!} --}}
+                <span class="badge badge-warning">Borrador</span>
 
                 @break
             @case(2)
@@ -43,74 +43,67 @@
 
             <div class="col-8">
 
-                <div id="accordion" role="tablist">
-                    
-                    <div class="card" v-for = "(capitulo, i) in manual.capitulos">
+                
+                <ul class="list-unstyled">
+                    <li v-for = "capitulo in manual.capitulos" class="mb-3">
+                        
+                        
+                        <div class="card">
 
-                        <div class="card-header d-flex" role="tab" :id="'heading' + capitulo.id">
+                            <div class="card-body bg-dark d-flex align-items-center">
+                                <h1 class="h5 mb-0">@{{capitulo.name}}</h1>
 
-                            <h1 class="mb-0 h5">
+                                <button class="ml-auto btn btn-sm btn-danger" v-on:click = "capitulosDestroy(capitulo)">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
 
-                                <a class="collapsed text-secondary" data-toggle="collapse" :href="'#collapse' + capitulo.id" aria-expanded="false" aria-controls="'collapse' + capitulo.id">
-                                    @{{capitulo.name}}
-                                </a>
+                            <div class="card-footer d-flex align-items-center">
 
-                            </h1>
+                                <strong class="text-secondary">Numero de temas agregados: @{{capitulo.temas.length}}</strong>
 
-                            <div class="ml-auto d-flex flex-nowrap align-items-start">
+                                <button type="button" class="btn btn-success ml-auto mr-1" data-toggle="modal" data-target="#capitulosEdit" v-on:click = "capitulosEdit(capitulo)">
+                                    Editar nombre
+                                </button>
+
+
+                                <a :href="'/admin/capitulos/' + capitulo.id" class="btn btn-primary">Ver todos los temas</a>
+
                                 
-                                <button type="button" class="btn btn-primary btn-sm mr-1" data-toggle="modal" data-target="#capitulosEdit" v-on:click = "capitulosEdit(capitulo)">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                    
-                                <button class="btn btn-sm btn-danger" v-on:click = "capitulosDestroy(capitulo)">
-                                    <i class="fas fa-eraser"></i>
-                                </button>
+                                
                             </div>
                         </div>
-
-                        <div :id="'collapse' + capitulo.id" class="collapse" role="tabpanel" :aria-labelledby="'heading' + capitulo.id">
-                            <div class="card-body">
-
-                                <ul class="list-unstyled mb-0">
-                                    <li v-for = "(tema, j) in capitulo.temas" class="mb-2 d-flex">
-                                        <h2 class="h6">
-                                            @{{tema.name}}
-                                        </h2>
-
-                                        <a :href="'/admin/temas/' + tema.id +'/edit'" class="btn btn-sm btn-primary ml-auto">
-                                            Editar
-                                        </a>
-
-                                        <button class="btn btn-sm btn-danger ml-1" v-on:click = "temasDestroy(tema)" >Eliminar</button>
-                                    </li>
-
-                                    <li class="mt-4">
-                                        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#temasCreate" v-on:click = "temaCreate(capitulo)">
-                                            Agregar nuevo tema
-                                        </button>
-                                    </li>
-                                </ul>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
+                    </li>
+                </ul>
                     
 
             </div>
 
             <div class="col-4">
                 @include('admin.capitulos.create')
+
+                @if ($manual->status == 1)
+
+                    {!! Form::open(['route' => ['admin.manuales.status', $manual]]) !!}
+                        {!! Form::submit('Publicar', ['class' => 'btn btn-lg btn-block btn-info']) !!}
+                    {!! Form::close() !!}
+
+                @else
+
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="lead mb-0"><strong>Estado: </strong>Publicado</p>
+                        </div>
+                    </div>
+
+                @endif
+
+
             </div>
 
         </div>
     </div>
     
-    @include('admin.temas.create')
-
     @include('admin.capitulos.edit')
     
 </div>
@@ -233,7 +226,7 @@
                 /* -------------------------------------------------- */
 
 
-                temaCreate(capitulo){
+                /* temaCreate(capitulo){
                     this.capitulo_id = capitulo.id
                 },
 
@@ -296,7 +289,7 @@
                         }
 
                     })
-                },
+                }, */
 
 
                 /* -------------------------------------------------- */

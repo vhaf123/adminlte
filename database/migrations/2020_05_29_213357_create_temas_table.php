@@ -26,6 +26,9 @@ class CreateTemasTable extends Migration
 
             $table->text('body')->nullable();
 
+            $table->string('slug')->unique();
+            $table->text('descripcion')->nullable();
+
             $table->timestamps();
             
         });

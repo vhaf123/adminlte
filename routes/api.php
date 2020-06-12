@@ -92,6 +92,10 @@ Route::post('cursos/{curso}', function (Curso $curso) {
     $curso->requisitos;
     $curso->modulos;
 
+    foreach ($curso->modulos as $modulo) {
+        $modulo->videos;
+    }
+
     return $curso;
 
 })->name('api.cursos');
@@ -110,10 +114,22 @@ Route::get('manuales/{manual}', function (Manual $manual) {
     foreach ($manual->capitulos as $capitulo) {
         $capitulo->temas;
     }
+    //$manual->capitulos;
 
     return $manual;
     
 })->name('api.manuales');
+
+
+Route::get('capitulos/{capitulo}', function (Capitulo $capitulo) {
+    
+    $capitulo->temas;
+
+    return $capitulo;
+
+})->name('api.capitulos');
+
+
 
 Route::get('temas/{tema}', function (Tema $tema) {
     return $tema;

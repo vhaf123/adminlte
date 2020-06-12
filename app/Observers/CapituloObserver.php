@@ -12,6 +12,10 @@ class CapituloObserver
 
         $slug = Str::slug($capitulo->name, '-');
 
+        while (Capitulo::where('slug', $slug)->count()) {
+            $slug = $slug.rand(1,100);
+        }
+
         $capitulo->slug = $slug;
         
     }

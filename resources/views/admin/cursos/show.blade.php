@@ -45,28 +45,20 @@
         </div>
     @endif
 
-    <h1 class="display-3">{{$curso->name}}</h1>
+    <h1 class="display-3"><strong>Curso: {{$curso->name}}</strong></h1>
     <p class="lead">{{$curso->descripcion}}</p>
 
 
     @switch($curso->status)
         @case(1)
 
-            {!! Form::open(['route' => ['admin.cursos.status', $curso], 'class' => 'mb-0']) !!}
-            <button type="submit" class="btn btn-lg btn-dark">
-                Publicar
-            </button>
-            {!! Form::close() !!}
+            <p class="lead"><strong>Estado:</strong> Borrador</p>
 
             @break
 
         @case(2)
             
-            {!! Form::open(['route' => ['admin.cursos.status', $curso], 'class' => 'mb-0']) !!}
-            <button type="submit" class="btn btn-lg btn-dark">
-                Marcar como culminado
-            </button>
-            {!! Form::close() !!}
+            <p class="lead"><strong>Estado:</strong> Publicado</p>
 
             @break
 
@@ -111,16 +103,46 @@
                 </form>
 
                 <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#metasCreate">
-                    Agregar nueva meta
-                </button>
-
-                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modulosCreate">
-                    Agregar nuevo módulo
+                    Agregar una nueva meta
                 </button>
 
                 <button type="button" class="btn btn-primary btn-block mb-2" data-toggle="modal" data-target="#requisitosCreate">
-                    Agregar nuevo requisito
+                    Agregar un nuevo requisito
                 </button>
+                
+                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modulosCreate">
+                    Agregar un nuevo módulo
+                </button>
+
+
+                @switch($curso->status)
+                    @case(1)
+
+                        {!! Form::open(['route' => ['admin.cursos.status', $curso]]) !!}
+                            {!! Form::submit('Publicar', ['class' => 'btn btn-block btn-info']) !!}
+                        {!! Form::close() !!}
+
+                        @break
+                    @case(2)
+                        
+                        {!! Form::open(['route' => ['admin.cursos.status', $curso]]) !!}
+                            {!! Form::submit('Marcar como culminado', ['class' => 'btn btn-block btn-info']) !!}
+                        {!! Form::close() !!}
+
+                        @break
+
+
+                    @default
+
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="lead mb-0"><strong>Estado: </strong>Curso culminado</p>
+                            </div>
+                        </div>
+                        
+                @endswitch
+
+
 
                 <section class="mt-4">
                     @include('admin.requisitos.show')

@@ -6,17 +6,15 @@
                 <li v-for="requisito in curso.requisitos">
                     <p class="mb-2">@{{requisito.name}}</p>
 
-                    @if ($curso->status != 3)
-                        <div class="mb-3">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#requisitosEdit" v-on:click = "requisitosEdit(requisito)">
-                                Editar
-                            </button>
+                    <div class="mb-3">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#requisitosEdit" v-on:click = "requisitosEdit(requisito)">
+                            Editar
+                        </button>
 
-                            <button class="btn btn-danger" v-on:click = "requisitosDestroy(requisito)">
-                                Eliminar
-                            </button>
-                        </div>
-                    @endif
+                        <button class="btn btn-danger" v-on:click = "requisitosDestroy(requisito)">
+                            Eliminar
+                        </button>
+                    </div>
                 </li>
             </ul>
     </div>

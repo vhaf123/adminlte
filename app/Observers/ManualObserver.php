@@ -12,7 +12,7 @@ class ManualObserver
         $slug = Str::slug($manual->name, '-');
 
         while (Manual::where('slug', $slug)->count()) {
-            $slug = $slug.rand(1,1000);
+            $slug = $slug.rand(1,100);
         }
 
         $manual->slug = $slug;

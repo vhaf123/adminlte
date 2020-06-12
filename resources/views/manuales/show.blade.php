@@ -5,9 +5,10 @@
 @endsection
 
 @section('style')
+
     <style>
 
-        .indice > li > h1{
+        /* .indice > li > h1{
             padding-left: 38px;
         }
 
@@ -58,18 +59,16 @@
         .subindice li h2{
             padding-left: 38px;
             
-        }
-
-      /*   #accordion article header h1 a{
-            color: #636b6f;
         } */
+
+   
 
 
     </style>
 @endsection
 
 @section('content')
-<div id="app">
+{{-- <div id="app">
 
     <section class="py-4 mb-4 bg-oscuro">
         <div class="container">
@@ -100,11 +99,70 @@
         </div>
     </div>
 
+</div> --}}
+
+<div class="jumbotron jumbotron-fluid bg-info text-white">
+    <div class="container">
+      <h1 class="display-3">{{$manual->name}}</h1>
+      <p class="lead">{{$manual->descripcion}}</p>
+    </div>
 </div>
+
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <h1 class="text-secondary h2 mb-0">
+                    Contenido del manual
+                </h1>
+
+                <hr>
+
+                <ul class="list-unstyled">
+                    @foreach ($manual->temas as $tema)
+                    
+                        <li class="media">
+
+                            <div class="rounded-circle bg-primary d-flex justify-content-center align-items-center text-white mr-2" style="height: 30px; width: 30px; font-size:20px;">
+                                {{$loop->index+1}}
+                                
+                            </div>
+
+                            <div class="media-body">
+                                <h4>
+                                    <a href="{{route('temas.show', [$manual, $tema])}}" class="text-decoration-none text-primary">{{$tema->name}}</a>
+                                </h4>
+                                <p class="lead">{{$tema->descripcion}}</p>
+                            </div>
+                        </li>
+
+                    @endforeach
+                </ul>
+
+            </div>
+
+            <div class="col-4">
+
+                @if ($manual->picture)
+                    <figure class="img-curso">
+                        <img src="{{asset($manual->picture)}}" alt="" class="rounded">
+                    </figure>
+                @endif
+
+
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+
+
 @endsection
 
 @section('script')
-<script>
+{{-- <script>
 
     new Vue({
         el: '#app',
@@ -137,5 +195,5 @@
         }
     });
     
-</script>
+</script> --}}
 @endsection

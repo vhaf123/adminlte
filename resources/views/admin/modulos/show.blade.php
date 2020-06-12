@@ -12,7 +12,21 @@
 
 @section('breadcrumbs')
 
-    <div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="{{route('admin.home')}}">Dashboard</a></li>
+                      <li class="breadcrumb-item"><a href="{{route('admin.cursos.show', $modulo->curso)}}">{{$modulo->curso->name}}</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">{{$modulo->name}}</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    {{-- <div class="container-fluid">
         <div class="row mb-2">
 
             <div class="col">
@@ -23,7 +37,7 @@
                 </ol>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 @endsection
 

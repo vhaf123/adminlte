@@ -9,6 +9,14 @@ use App\Capitulo;
 
 class CapituloController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware(['can:admin.manuales.index']);
+        $this->middleware(['can:admin.manuales.create']);
+        $this->middleware(['can:admin.manuales.show']);
+        $this->middleware(['can:admin.manuales.edit']);
+        $this->middleware(['can:admin.manuales.destroy']);
+    }
     
     public function store(Request $request)
     {
@@ -18,6 +26,10 @@ class CapituloController extends Controller
         ]);
 
         Capitulo::create($request->all());
+    }
+
+    public function show(Capitulo $capitulo){
+        return view('admin.capitulos.show', compact('capitulo'));
     }
 
    
