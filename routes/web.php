@@ -27,11 +27,11 @@ Route::resource('blog', 'BlogController')->parameters(['blog' => 'post'])->only(
 
 Route::get('politicas', function () {
     
-});
+})->name('politicas.index');
 
 Route::get('condiciones', function () {
     
-});
+})->name('condiciones.index');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function() {
     

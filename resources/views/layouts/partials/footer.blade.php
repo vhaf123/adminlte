@@ -10,11 +10,11 @@
 
                 <ul class="d-flex list-unstyled mb-0">
                     <li class="mr-2">
-                        <a class="text-info" href="">Políticas y privacidad</a>
+                        <a class="text-info" href="{{route('politicas.index')}}">Políticas y privacidad</a>
                     </li>
 
                     <li>
-                        <a class="text-info" href="">Terminos y condiciones</a>
+                        <a class="text-info" href="{{route('condiciones.index')}}">Terminos y condiciones</a>
                     </li>
                 </ul>
             </div>
