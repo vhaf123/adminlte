@@ -77,39 +77,8 @@
     </div>
 </div>
 
-    {{-- <section class="py-4 mb-4 bg-oscuro">
-
-        <div class="jumbotron">
-            <h1 class="display-3">Manual: {{$manual->name}}</h1>
-            <p class="lead">Jumbo helper text</p>
-            <hr class="my-2">
-            <p>More info</p>
-            <p class="lead">
-                <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
-            </p>
-        </div>
-
-
-        <div class="container">
-            <h1 class="text-white">Manual: {{$manual->name}}</h1>
-        </div>
-    </section> --}}
-
     <div class="container">
         <div class="row">
-
-            <div class="col-12 col-md-8">
-                
-                <div class="card">
-                    <div class="card-body">
-                        <h1 class="h2">{{$tema->name}}</h1>
-
-                        {{$tema->body}}
-                        
-                    </div>
-                </div>
-
-            </div>
 
             <aside class="col-12 col-md-4 px-lg-4 mb-4">
 
@@ -150,6 +119,22 @@
                 </div>
 
             </aside>
+
+            <div class="col-12 col-md-8">
+                
+                <div class="card">
+                    <div class="card-body">
+
+                        <h1>{{$actual->name}}</h1>
+                        
+                        {{$actual->body}}
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            
         </div>
     </div>
 

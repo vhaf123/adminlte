@@ -103,7 +103,7 @@
 
 <div class="jumbotron jumbotron-fluid bg-info text-white">
     <div class="container">
-      <h1 class="display-3">{{$manual->name}}</h1>
+      <h1 class="display-4">{{$manual->name}}</h1>
       <p class="lead">{{$manual->descripcion}}</p>
     </div>
 </div>

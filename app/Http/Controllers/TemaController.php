@@ -9,6 +9,9 @@ use App\Manual;
 class TemaController extends Controller
 {
     public function show(Manual $manual, Tema $tema){
-        return view('temas.show', compact('manual', 'tema'));
+
+        $actual = $tema;
+
+        return view('temas.show', compact('manual', 'actual'));
     }
 }
