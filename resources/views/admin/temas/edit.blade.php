@@ -102,6 +102,9 @@
 
 @section('content')
 
+
+    {{route('logout')}}
+
     <div class="container-fluid">
         <div class="row">
 
