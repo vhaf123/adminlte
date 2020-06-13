@@ -127,7 +127,7 @@
 
                         <h1>{{$actual->name}}</h1>
                         
-                        {{$actual->body}}
+                        {!!$actual->body!!}
                         
                     </div>
                 </div>
