@@ -48,7 +48,6 @@ class TemaController extends Controller
         $request->validate([
             'name' => 'required',
             'descripcion' => 'required',
-            'capitulo_id' => 'required'
         ]);
 
 

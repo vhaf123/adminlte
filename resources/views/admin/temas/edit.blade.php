@@ -144,7 +144,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                        {!! Form::model($tema, ['route' => ['admin.temas.update', $tema], 'method' => 'put']) !!}
+                        {!! Form::model($tema, ['route' => ['admin.temas.update', $tema], 'method' => 'put', 'id' => 'formulario']) !!}
 
                             <div class="form-group">
                                 {!! Form::label('name', 'Tema') !!}
@@ -168,85 +168,11 @@
                         {!! Form::close() !!}
                     </div>
                 </div>
-
-
-                
-
                 
 
             </div>
 
 
-            {{-- <div class="col-8">
-
-                <div class="card bg-info">
-                    <div class="card-body">
-                        <h1 class="h4">Manual: {{$tema->capitulo->manual->name}}</h1>
-                        <h2 class="h5">Capitulo: {{$tema->capitulo->name}}</h1>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-
-                        {!! Form::model($tema, ['route' => ['admin.temas.update', $tema], 'method' => 'put']) !!}
-
-                            <div class="form-group">
-                                {!! Form::label('name', 'Tema') !!}
-                                {!! Form::text('name', null, ['class' => 'form-control', 'required']) !!}
-                            </div>
-
-
-                            <div class="form-group">
-                                {!! Form::label('slug', 'Slug') !!}
-                                {!! Form::text('slug', null, ['class' => 'form-control', 'required']) !!}
-                            </div>
-
-                            <div class="form-group">
-                                {!! Form::label('body', 'Cuerpo') !!}
-                                {!! Form::textarea('body', null, ['required']) !!}
-                            </div>
-
-                            <div class="form-group">
-                                {!! Form::submit('Acualizar', ['class' => 'btn btn-block btn-primary']) !!}
-                            </div>
-                        {!! Form::close() !!}
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-4">
-                <form action="{{route('admin.temas.dropzone', $tema)}}" method="POST" class="dropzone mb-4" id="my-dropzone">
-                </form>
-
-                @foreach ($tema->images as $image)
-                    <figure class="img-tema" id="{{$image->id}}">
-
-                        <div class="iconos" >
-                            <button class="btn btn-secondary btn-sm" onclick="copy('{{$image->picture}}')">
-                                <i class="fas fa-copy"></i>
-                            </button>
-
-                            {!! Form::open(['route' => ['admin.images.destroy', $image], 'method' => "delete", 'class' => 'd-inline']) !!}
-
-                                <button type="submit" class="btn btn-danger btn-sm">
-                                    <i class="fas fa-times"></i>
-                                </button>
-
-                            {!! Form::close() !!}
-
-                        </div>
-
-                        <img src="{{asset($image->picture)}}" alt="">
-                        <figcaption class="overflow-auto bg-dark" id="{{$image->id}}">{{$image->picture}}</figcaption>
-                    </figure>
-
-               
-                @endforeach
-
-
-            </div> --}}
         </div>
     </div>
 
@@ -290,6 +216,23 @@
             toastr.info("Se copió la url de la imagen con éxito")            
             
         }
+
+        function enviarFormulario() {
+
+            form = $('#formulario');
+
+            $.ajax({
+                type: form.attr('method'), 
+                url: form.attr('action'),
+                data: form.serialize(),
+                success: function(data){
+                    toastr.info("El documento se ha actualizado automáticamente")
+                },
+            });
+            
+            
+        }
+        setInterval(enviarFormulario, 30000);
        
     </script>
  
