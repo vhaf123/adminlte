@@ -232,7 +232,7 @@
             
             
         }
-        setInterval(enviarFormulario, 30000);
+        setInterval(enviarFormulario, 60000);
        
     </script>
  
