@@ -220,22 +220,7 @@
             
         }
 
-        function enviarFormulario() {
-
-            form = $('#formulario');
-
-            $.ajax({
-                type: form.attr('method'), 
-                url: form.attr('action'),
-                data: form.serialize(),
-                success: function(data){
-                    toastr.info("El documento se ha actualizado automáticamente")
-                },
-            });
-            
-            
-        }
-        setInterval(enviarFormulario, 60000);
+      
        
     </script>
  
