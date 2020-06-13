@@ -121,8 +121,15 @@
             </aside>
 
             <div class="col-12 col-lg-8">
-                
-                <div class="card">
+                <article>
+                    <header>
+                        <h1>{{$actual->name}}</h1>
+                    </header>
+                            
+                    {!!$actual->body!!}
+                </article>
+
+                {{-- <div class="card">
                     <div class="card-body">
 
                         <h1>{{$actual->name}}</h1>
@@ -130,7 +137,7 @@
                         {!!$actual->body!!}
                         
                     </div>
-                </div>
+                </div> --}}
 
             </div>
 
