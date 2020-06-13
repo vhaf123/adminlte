@@ -192,7 +192,7 @@
 
         //CKEDITOR
         CKEDITOR.replace('body',{
-            height: 500
+            height: 400
         });
 
         //dropzone
