@@ -32,6 +32,12 @@
     <div class="container-fluid">
         <div class="row">
 
+            <div class="col-4">
+
+                @include('admin.temas.create')
+
+            </div>
+
             <div class="col-8">
 
                 
@@ -40,8 +46,6 @@
                         
                         
                         <div class="card">
-
-                            
 
                             <div class="card-header bg-dark d-flex align-items-center">
 
@@ -69,11 +73,7 @@
 
             </div>
 
-            <div class="col-4">
-
-                @include('admin.temas.create')
-
-            </div>
+            
 
         </div>
     </div>
