@@ -91,6 +91,11 @@ class CursoController extends Controller
     {
         $this->authorize('dictado', $curso);
 
+        if($curso->picture){
+            $picturePath = str_replace('storage', 'public', $curso->picture);
+            Storage::delete($picturePath);
+        }
+
         $curso->delete();
 
         return redirect()->route('admin.cursos.index')->with('info', 'Eliminado con éxito');

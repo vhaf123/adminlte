@@ -5,7 +5,6 @@
 @endsection
 
 @section('style')
-    <link rel="stylesheet" href="{{asset('plugins/dropzone-5.7.0/dist/min/dropzone.min.css')}}">
 
     <style>
 
@@ -47,37 +46,7 @@
             z-index: 200;
             overflow-y: scroll;
         }
-
-        /* 
-
-        
-
-         */
-
-
-        /* .img-tema {
-            border: thin #c0c0c0 solid;
-            display: flex;
-            flex-flow: column;
-            padding: 5px;
-            margin: auto;
-        }
-
-        .img-tema img {
-            width: 100%;
-        }
-
-        .img-tema figcaption {
-            background-color: #222;
-            color: #fff;
-            font: italic smaller sans-serif;
-            padding: 3px;
-            text-align: center;
-            width: 100%;
-            overflow-y: scroll;
-        } */
-
-
+       
     </style>
 @endsection
 
@@ -102,47 +71,10 @@
 
 @section('content')
 
-
-    {{route('logout')}}
-
     <div class="container-fluid">
         <div class="row">
 
             <div class="col">
-
-
-                <form action="{{route('admin.temas.dropzone', $tema)}}" method="POST" class="dropzone mb-4" id="my-dropzone">
-                </form>
-
-                <div class="row">
-
-                    @foreach ($tema->images as $image)
-                        <div class="col-2">
-                            <figure class="img-tema border" id="{{$image->id}}">
-
-                                <div class="iconos" >
-                                    <button class="btn btn-secondary btn-sm" onclick="copy('{{$image->picture}}')">
-                                        <i class="fas fa-copy"></i>
-                                    </button>
-
-                                    {!! Form::open(['route' => ['admin.images.destroy', $image], 'method' => "delete", 'class' => 'd-inline']) !!}
-
-                                        <button type="submit" class="btn btn-danger btn-sm">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-
-                                    {!! Form::close() !!}
-
-                                </div>
-
-                                <img src="{{asset($image->picture)}}" alt="">
-                                <figcaption class="overflow-auto bg-dark" id="{{$image->id}}">{{$image->picture}}</figcaption>
-                            </figure>
-                        </div>
-                    @endforeach
-
-                </div>
-
 
                 <div class="card">
                     <div class="card-body">
@@ -162,8 +94,9 @@
 
                             <div class="form-group">
                                 {!! Form::label('body', 'Cuerpo') !!}
-                                {!! Form::textarea('body', null, ['required']) !!}
+                                {!! Form::textarea('body', null, ['class' => 'form-control my-editor', 'rows' => '16','required']) !!}
                             </div>
+
 
                             <div class="form-group">
                                 {!! Form::submit('Acualizar', ['class' => 'btn btn-block btn-primary']) !!}
@@ -183,44 +116,70 @@
 
 @section('script')
 
-    {{-- <script src="{{asset('plugins/ckeditor/ckeditor.js')}}"></script> --}}
-    <script src="//cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script>
-    <script src="{{asset('plugins/dropzone-5.7.0/dist/min/dropzone.min.js')}}"></script>
-    {{-- <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script> --}}
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 
     <script>
 
-        //CKEDITOR
-        CKEDITOR.replace('body',{
-            height: 300
-        });
+        var editor_config = {
+            path_absolute : "/",
+            selector: "textarea.my-editor",
+            plugins: [
+            "autosave",
+            "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+            "searchreplace wordcount visualblocks visualchars code fullscreen",
+            "insertdatetime media nonbreaking save table contextmenu directionality",
+            "emoticons template paste textcolor colorpicker textpattern"
+            ],
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | restoredraft",
+            relative_urls: false,
+            autosave_interval: "5s",
+            file_browser_callback : function(field_name, url, type, win) {
+            var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+            var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
 
-        //dropzone
-        Dropzone.options.myDropzone = {
-            dictDefaultMessage: 'Arrastre una foto para agregar',
-            headers: {
-                'X-CSRF-TOKEN': "{{csrf_token()}}"
-            },
-            acceptedFiles: 'image/*',
-            maxFilesize: 1,
-            paramName: 'picture',
+            var cmsURL = editor_config.path_absolute + 'laravel-filemanager?field_name=' + field_name;
+            if (type == 'image') {
+                cmsURL = cmsURL + "&type=Images";
+            } else {
+                cmsURL = cmsURL + "&type=Files";
+            }
+
+            tinyMCE.activeEditor.windowManager.open({
+                file : cmsURL,
+                title : 'Filemanager',
+                width : x * 0.8,
+                height : y * 0.8,
+                resizable : "yes",
+                close_previous : "no"});
+            }
         };
 
-        function copy(picture){
+        tinymce.init(editor_config);
 
-          
+        
 
-            var $temp = $("<input>")
-            $("body").append($temp);
-            $temp.val(picture).select();
-            document.execCommand("copy");
-            $temp.remove();
+        
+        function autoload(){
+            form = $('#formulario');
 
-            toastr.info("Se copió la url de la imagen con éxito")            
-            
+            $.ajax({
+                type: form.attr("method"),
+                url: form.attr("action"),
+                data: form.serialize(),
+                
+                
+                success: function(data){
+                    
+                },
+                
+            });
+
+
         }
 
-      
+
+        setInterval(autoload, 5000);
+
        
     </script>
  

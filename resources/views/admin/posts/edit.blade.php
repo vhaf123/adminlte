@@ -3,6 +3,7 @@
 @section('title', 'Editar post')
 
 @section('style')
+
     <link rel="stylesheet" href="{{asset('plugins/dropzone-5.7.0/dist/min/dropzone.min.css')}}">
 
     <style>
@@ -104,7 +105,7 @@
 
                             <div class="form-group col-12 mt-3">
                                 {!! Form::label('body', 'Contenido de la publicación') !!}
-                                {!! Form::textarea('body', null, ['class' => 'form-control'. ( $errors->has('body') ? ' is-invalid' : '' ), 'placeholder' => 'Escriba el contenido principal del post', 'required']) !!}
+                                {!! Form::textarea('body', null, ['class' => 'form-control my-editor'. ( $errors->has('body') ? ' is-invalid' : '' ), 'placeholder' => 'Escriba el contenido principal del post', 'required']) !!}
                                 @error('body')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -161,28 +162,46 @@
 @section('script')
 
     <script src="{{asset('plugins/dropzone-5.7.0/dist/min/dropzone.min.js')}}"></script>
-    {{--  --}}
-    {{-- <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script> --}}
-    {{-- <script src="//cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script> --}}
-    <script src="https://cdn.ckeditor.com/ckeditor5/19.1.1/classic/ckeditor.js"></script>
     
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 
     <script>
+        
+        var editor_config = {
+            path_absolute : "/",
+            selector: "textarea.my-editor",
+            plugins: [
+            "autosave",
+            "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+            "searchreplace wordcount visualblocks visualchars code fullscreen",
+            "insertdatetime media nonbreaking save table contextmenu directionality",
+            "emoticons template paste textcolor colorpicker textpattern"
+            ],
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | restoredraft",
+            relative_urls: false,
+            autosave_interval: "5s",
+            file_browser_callback : function(field_name, url, type, win) {
+            var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+            var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
 
-        //CKEDITOR
-        /* CKEDITOR.replace('body',{
-            
-            height: 500,
-        }); */
+            var cmsURL = editor_config.path_absolute + 'laravel-filemanager?field_name=' + field_name;
+            if (type == 'image') {
+                cmsURL = cmsURL + "&type=Images";
+            } else {
+                cmsURL = cmsURL + "&type=Files";
+            }
 
-        ClassicEditor
-            .create( document.querySelector( '#body' ) )
-            .then( editor => {
-                    console.log( editor );
-            } )
-            .catch( error => {
-                    console.error( error );
-            } );
+            tinyMCE.activeEditor.windowManager.open({
+                file : cmsURL,
+                title : 'Filemanager',
+                width : x * 0.8,
+                height : y * 0.8,
+                resizable : "yes",
+                close_previous : "no"});
+            }
+        };
+
+        tinymce.init(editor_config);
 
 
 

@@ -34,6 +34,12 @@ Route::get('condiciones', function () {
     
 })->name('condiciones.index');
 
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
+
+
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function() {
     
     Route::get('/', 'HomeController@index')->name('admin.home');
