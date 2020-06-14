@@ -57,7 +57,7 @@
                             <div class="card-body">
                                 <p class="mb-0">
                                     <strong>Descripción: </strong>
-                                    @{{tema.descripcion}}
+                                    @{{tema.body}}
                                 </p>
                             </div>
 
