@@ -75,7 +75,12 @@
                             <div class="card-header bg-dark d-flex align-items-center">
                                 <h1 class="h5 mb-0">@{{capitulo.name}}</h1>
 
-                                <button class="ml-auto btn btn-sm btn-danger" v-on:click = "capitulosDestroy(capitulo)">
+
+                                <button type="button" class="ml-auto btn btn-sm btn-success" data-toggle="modal" data-target="#capitulosEdit" v-on:click = "capitulosEdit(capitulo)">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+
+                                <button class="ml-1 btn btn-sm btn-danger" v-on:click = "capitulosDestroy(capitulo)">
                                     <i class="fas fa-times"></i>
                                 </button>
                             </div>
@@ -83,28 +88,29 @@
                             <div class="card-body">
                                 <ul class="mb-0">
                                     <li v-for="tema in capitulo.temas">
-                                        @{{tema.name}}
+                                        <a :href="'/admin/temas/' + tema.slug + '/edit'" class="text-secondary">@{{tema.name}}</a>
                                     </li>
 
                                     <li v-if = "capitulo.temas.length == 0">
-                                        Aun no se ha agregado ningun tema a este capítulo
+                                        <span class="text-primary">Aun no se ha agregado ningun tema a este capítulo</span>
                                     </li>
                                 </ul>
+
+                                
+
                             </div>
 
                             <div class="card-footer d-flex align-items-center">
 
-                                <strong class="text-secondary">Numero de temas agregados: @{{capitulo.temas.length}}</strong>
+                                {{-- <strong class="text-secondary">Numero de temas agregados: @{{capitulo.temas.length}}</strong> --}}
 
-                                <button type="button" class="btn btn-success ml-auto mr-1" data-toggle="modal" data-target="#capitulosEdit" v-on:click = "capitulosEdit(capitulo)">
-                                    Editar nombre
+                                <button type="button" class="btn btn-secondary ml-auto mr-1" data-toggle="modal" data-target="#temasCreate" v-on:click = "temaCreate(capitulo)">
+                                    
+                                    Agregar nuevo tema
                                 </button>
-
 
                                 <a :href="'/admin/capitulos/' + capitulo.id" class="btn btn-primary">Ver todos los temas</a>
 
-                                
-                                
                             </div>
                         </div>
                     </li>
@@ -119,6 +125,52 @@
     </div>
     
     @include('admin.capitulos.edit')
+
+
+
+    
+      
+    <!-- Modal -->
+    <div class="modal" id="temasCreate" tabindex="-1" role="dialog" aria-labelledby="temasCreateLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+
+            <form v-on:submit.prevent = "temasStore">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="temasCreateLabel">Nuevo tema</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    
+                    <div class="form-group">
+                        <label>Nombre:</label>
+                        <input type="text" class="form-control" v-model = "tema_name" placeholder="Escriba el nombre del tema" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Descripción:</label>
+                        <textarea rows="3" class="form-control" v-model = "tema_descripcion" placeholder="Escriba una breve descripción sobre el tema" required></textarea>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <div class="spinner-border spinner-border-sm text-light d-none" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        Agregar tema
+                    </button>
+                </div>
+            </form>
+          </div>
+        </div>
+    </div>
+
+
     
 </div>
 
@@ -134,7 +186,8 @@
                 name: "",
                 capitulo_name: "",
                 capitulo_id: "",
-                tema_name: ""
+                tema_name: "",
+                tema_descripcion: ""
             },
             created(){
                 this.getManual();
@@ -240,22 +293,25 @@
                 /* -------------------------------------------------- */
 
 
-                /* temaCreate(capitulo){
+                temaCreate(capitulo){
                     this.capitulo_id = capitulo.id
                 },
 
                 temasStore(){
+
                     $('#temasCreate .spinner-border').removeClass('d-none');
                     
                     axios.post('/admin/temas', {
 
                         capitulo_id: this.capitulo_id,
                         name: this.tema_name,
+                        descripcion: this.tema_descripcion,
 
                     }).then(response => {
                         
                         this.tema_name = "";
                         this.capitulo_id = "";
+                        this.tema_descripcion,
                         this.creado_exito('#temasCreate')
 
                     }).catch(error => {
@@ -264,47 +320,6 @@
 
                     })
                 },
-
-                temasDestroy(tema){
-                    
-                    Swal.fire({
-                        title: '¿Estás seguro?',
-                        text: "¡No podrás revertir esto!",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: '¡Si, elimínalo!',
-                        cancelButtonText: '¡No, cancelar!',
-                    }).then((result) => {
-
-                        if (result.value) {
-
-                            var url = "/admin/temas/" + tema.id;
-
-                            axios.delete(url).then(response => {
-
-                                this.getManual();
-
-                                Swal.fire(
-                                    '¡Eliminado!',
-                                    'Su archivo ha sido eliminado.',
-                                    'success'
-                                )
-
-                            }).catch(error => {
-                                Swal.fire({
-                                    icon: 'error',
-                                    title: 'Oops...',
-                                    text: '¡Algo salió mal!',
-                                })
-                            })
-                        
-                        }
-
-                    })
-                }, */
-
 
                 /* -------------------------------------------------- */
 

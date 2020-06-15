@@ -52,7 +52,7 @@
 
 @section('breadcrumbs')
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col">
                 <nav aria-label="breadcrumb">
@@ -99,12 +99,42 @@
 
 
                             <div class="form-group">
-                                {!! Form::submit('Acualizar', ['class' => 'btn btn-block btn-primary']) !!}
+                                {!! Form::submit('Acualizar', ['class' => 'btn btn-lg btn-block btn-primary']) !!}
                             </div>
                         {!! Form::close() !!}
                     </div>
                 </div>
                 
+
+                <div class="row mb-4">
+                    <div class="col-12 col-lg-6 mb-3 mb-lg-0">
+                        @if ($tema->previous)
+                            <div class="card bg-danger h-100">
+                                <a href="{{route('admin.temas.edit', $tema->previous)}}" class="card-body d-flex align-items-center">
+                                    <i class="fas fa-angle-left mr-2"></i>
+                                    <span>
+                                        {{$tema->previous->name}}
+                                    </span>
+                                </a>
+                            </div>
+                        @endif
+                    </div>
+
+                    <div class="col-12 col-lg-6">
+                        @if ($tema->next)
+                            <div class="card bg-danger h-100">
+                                <a href="{{route('admin.temas.edit', $tema->next)}}" class="card-body d-flex align-items-center justify-content-end">
+                                    
+                                    <span>
+                                        {{$tema->next->name}}
+                                    </span>
+
+                                    <i class="fas fa-angle-right ml-2" style="font-size: 20px"></i>
+                                </a>
+                            </div>
+                        @endif
+                    </div>
+                </div>
 
             </div>
 
@@ -119,6 +149,10 @@
     <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 
     <script>
+
+        (function(){
+            $('body').addClass('sidebar-collapse');
+        })();
 
         var editor_config = {
             path_absolute : "/",
@@ -157,29 +191,6 @@
         tinymce.init(editor_config);
 
         
-
-        
-        function autoload(){
-            form = $('#formulario');
-
-            $.ajax({
-                type: form.attr("method"),
-                url: form.attr("action"),
-                data: form.serialize(),
-                
-                
-                success: function(data){
-                    
-                },
-                
-            });
-
-
-        }
-
-
-        setInterval(autoload, 5000);
-
        
     </script>
  

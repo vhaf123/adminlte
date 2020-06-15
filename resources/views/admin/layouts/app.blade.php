@@ -81,33 +81,11 @@
         <script src="{{asset('plugins/toastr/toastr.min.js')}}"></script>
 
 
-        <script>
-
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000
-            });
-
-
-            
-        </script>
-
         @if (session('info'))
             <script>
                 toastr.info("{{session('info')}}")
             </script>
         @endif
-
-        {{-- @if (session('info'))
-            <script>
-                Toast.fire({
-                icon: 'success',
-                title: "{{session('info')}}"
-                });
-            </script>
-        @endif --}}
 
 
         @yield('script')

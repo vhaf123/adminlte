@@ -530,7 +530,6 @@
         }
     })
 
-
     //dropzone
     Dropzone.options.myDropzone = {
         dictDefaultMessage: 'Arrastre una foto para agregar o cambiar de foto',

@@ -37,6 +37,39 @@ class TemaController extends Controller
     public function edit(Tema $tema)
     {
 
+        $capitulo = $tema->capitulo;
+
+        $i = 0;
+
+        foreach ($capitulo->temas as $tema2) {
+            
+            $i++;
+
+            if($tema->id == $tema2->id){
+
+                if($i == 1){
+
+                    $tema['previous'] = null;
+
+                }else{
+
+                    $tema['previous'] =  $capitulo->temas[$i-2];
+
+                }
+
+                if($i == $capitulo->temas->count()){
+
+                    $tema['next'] = null;
+
+                }else{
+                    $tema['next'] = $capitulo->temas[$i];
+                }
+
+            }
+        }
+
+        
+
         return view('admin.temas.edit', compact('tema'));
 
     }
