@@ -2,7 +2,7 @@
     <div class="card-body">
         <div class="media mb-1">
 
-            <img class="mr-3 img-thumbnail rounded-circle" src="{{asset($curso->profesor->user->picture)}}" alt="Generic placeholder image" style="width: 70px">
+            <img class="mr-3 img-thumbnail rounded-circle" src="{{asset($curso->profesor->user->avatar)}}" alt="Generic placeholder image" style="width: 70px">
 
             <div class="media-body pt-2">
                 <h1 class="h5 bold">Prof. {{$curso->profesor->user->name}}</h1>
