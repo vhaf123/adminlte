@@ -62,7 +62,7 @@
         }
 
         .principal p{
-            color: #6C757D;
+            color: #636b6f;
         }
 
 
