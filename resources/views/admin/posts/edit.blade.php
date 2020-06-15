@@ -105,7 +105,7 @@
 
                             <div class="form-group col-12 mt-3">
                                 {!! Form::label('body', 'Contenido de la publicación') !!}
-                                {!! Form::textarea('body', null, ['class' => 'form-control my-editor'. ( $errors->has('body') ? ' is-invalid' : '' ), 'placeholder' => 'Escriba el contenido principal del post', 'required']) !!}
+                                {!! Form::textarea('body', null, ['class' => 'form-control my-editor'. ( $errors->has('body') ? ' is-invalid' : '' ), 'placeholder' => 'Escriba el contenido principal del post']) !!}
                                 @error('body')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

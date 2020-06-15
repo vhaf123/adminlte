@@ -10,7 +10,7 @@
 
 @section('breadcrumbs')
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col">
             <nav aria-label="breadcrumb">
@@ -32,13 +32,13 @@
     <div class="container-fluid">
         <div class="row">
 
-            <div class="col-4">
+            <div class="col-12 col-lg-4 mb-4">
 
                 @include('admin.temas.create')
 
             </div>
 
-            <div class="col-8">
+            <div class="col-12 col-lg-8">
 
                 
                 <ul class="list-unstyled">
@@ -51,7 +51,12 @@
 
                                 <h1 class="h5 mb-0">@{{tema.name}}</h1>
 
-                                <button class="btn btn-danger ml-auto btn-sm" v-on:click = "temasDestroy(tema)">
+
+                                <a :href="'/admin/temas/' + tema.slug + '/edit'" class="btn btn-primary ml-auto btn-sm">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+
+                                <button class="btn btn-danger ml-2 btn-sm" v-on:click = "temasDestroy(tema)">
                                     <i class="fas fa-times"></i>
                                 </button>
 

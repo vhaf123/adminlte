@@ -28,7 +28,7 @@
         @endswitch
     </p>
 
-    <a href="{{route('admin.manuales.edit', $manual)}}" class="btn btn-success mb-0">Editar información</a>
+    <a href="{{route('admin.manuales.edit', $manual)}}" class="btn btn-danger mb-0">Editar información</a>
 
 </div>
 
@@ -40,7 +40,30 @@
     <div class="container-fluid">
         <div class="row">
 
-            <div class="col-8">
+
+            <div class="col-12 col-lg-4 order-lg-2 mb-4">
+                @include('admin.capitulos.create')
+
+                @if ($manual->status == 1)
+
+                    {!! Form::open(['route' => ['admin.manuales.status', $manual]]) !!}
+                        {!! Form::submit('Publicar', ['class' => 'btn btn-block btn-info']) !!}
+                    {!! Form::close() !!}
+
+                @else
+
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="lead mb-0"><strong>Estado: </strong>Publicado</p>
+                        </div>
+                    </div>
+
+                @endif
+
+
+            </div>
+
+            <div class="col-12 col-lg-8">
 
                 
                 <ul class="list-unstyled">
@@ -90,27 +113,7 @@
 
             </div>
 
-            <div class="col-4">
-                @include('admin.capitulos.create')
-
-                @if ($manual->status == 1)
-
-                    {!! Form::open(['route' => ['admin.manuales.status', $manual]]) !!}
-                        {!! Form::submit('Publicar', ['class' => 'btn btn-block btn-info']) !!}
-                    {!! Form::close() !!}
-
-                @else
-
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="lead mb-0"><strong>Estado: </strong>Publicado</p>
-                        </div>
-                    </div>
-
-                @endif
-
-
-            </div>
+            
 
         </div>
     </div>
