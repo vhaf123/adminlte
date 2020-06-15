@@ -61,7 +61,9 @@
             
         }
 
-   
+        .principal p{
+            color: #636b6f;
+        }
 
 
     </style>
@@ -77,77 +79,77 @@
     </div>
 </div>
 
-    <div class="container">
-        <div class="row">
+<div class="container">
+    <div class="row">
 
-            <aside class="col-12 col-lg-4 px-lg-4 mb-4">
+        <aside class="col-12 col-lg-4 px-lg-4 mb-4">
 
-                <div class="card shadow">
+            <div class="card shadow">
 
-                    <div class="card-body">
+                <div class="card-body">
 
-                        <ul class="list-unstyled indice">
-                
-                            @foreach ($manual->capitulos as $capitulo)
-                                <li>
-                                    <h1 class="h6 font-weight-bold">{{$capitulo->name}}</h1>
-                
-                                    <ul class="subindice">
-                                        
-                
-                                        @foreach ($capitulo->temas as $tema)
-
-                                            <li @if (Request::url() == route('temas.show', [$manual, $tema])) class="active" @endif>
-                                                <h2 class = "h6">
-                                                    <a href="{{route('temas.show', [$manual, $tema])}}" class="text-secondary text-decoration-none" v-on:click.prevent = "cambiarTema({{$tema->id}})">
-                                                        {{$tema->name}}
-                                                    </a>
-                                                </h2>
-                                            </li>
-                                            
-                                        @endforeach
-                                        
-                                    </ul>
-                
-                                </li>
-                
-                                
-                            @endforeach
-                        </ul>
-                
-                    </div>
-                </div>
-
-            </aside>
-
-            <div class="col-12 col-lg-8">
-                <div class="card">
-                    <div class="card-body">
-                        <article>
-                            <header>
-                                <h1>{{$actual->name}}</h1>
-                            </header>
+                    <ul class="list-unstyled indice">
+            
+                        @foreach ($manual->capitulos as $capitulo)
+                            <li>
+                                <h1 class="h6 font-weight-bold">{{$capitulo->name}}</h1>
+            
+                                <ul class="subindice">
                                     
-                            {!!$actual->body!!}
-                        </article>
-                    </div>
+            
+                                    @foreach ($capitulo->temas as $tema)
+
+                                        <li @if (Request::url() == route('temas.show', [$manual, $tema])) class="active" @endif>
+                                            <h2 class = "h6">
+                                                <a href="{{route('temas.show', [$manual, $tema])}}" class="text-secondary text-decoration-none" v-on:click.prevent = "cambiarTema({{$tema->id}})">
+                                                    {{$tema->name}}
+                                                </a>
+                                            </h2>
+                                        </li>
+                                        
+                                    @endforeach
+                                    
+                                </ul>
+            
+                            </li>
+            
+                            
+                        @endforeach
+                    </ul>
+            
                 </div>
-
-                {{-- <div class="card">
-                    <div class="card-body">
-
-                        <h1>{{$actual->name}}</h1>
-                        
-                        {!!$actual->body!!}
-                        
-                    </div>
-                </div> --}}
-
             </div>
 
-            
+        </aside>
+
+        <div class="col-12 col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <article class="principal">
+                        <header>
+                            <h1>{{$actual->name}}</h1>
+                        </header>
+                                
+                        {!!$actual->body!!}
+                    </article>
+                </div>
+            </div>
+
+            {{-- <div class="card">
+                <div class="card-body">
+
+                    <h1>{{$actual->name}}</h1>
+                    
+                    {!!$actual->body!!}
+                    
+                </div>
+            </div> --}}
+
         </div>
+
+        
     </div>
+</div>
 
 @endsection
 
