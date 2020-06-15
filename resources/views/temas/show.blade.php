@@ -127,7 +127,7 @@
                 <div class="card-body">
                     <article class="principal">
                         <header>
-                            <h1>{{$actual->name}}</h1>
+                            <h1 class="text-center">{{$actual->name}}</h1>
                         </header>
                                 
                         {!!$actual->body!!}
