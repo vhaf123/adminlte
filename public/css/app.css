@@ -12753,6 +12753,8 @@ button.toast-close-button {
 .user-img {
   height: 40px;
   width: 40px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .nav-principal a.nav-link {
