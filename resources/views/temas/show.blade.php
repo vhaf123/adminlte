@@ -61,7 +61,7 @@
             
         }
 
-        .principal p{
+        .principal p, .principal li{
             color: #636b6f;
         }
 
