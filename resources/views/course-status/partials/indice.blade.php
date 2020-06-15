@@ -6,7 +6,7 @@
 
         <div class="media mb-3">
 
-            <img class = "rounded-circle shadow mr-3" src="{{asset($curso->profesor->user->picture)}}" style="width: 60px">
+            <img class = "rounded-circle shadow mr-3" src="{{asset($curso->profesor->user->avatar)}}" style="width: 60px">
 
             <div class="media-body mt-1">
                 <p class="bold mb-0">Prof. {{$curso->profesor->user->name}}</p>
