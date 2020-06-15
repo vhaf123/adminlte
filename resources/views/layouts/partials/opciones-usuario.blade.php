@@ -2,7 +2,7 @@
                             
     <li class="nav-item dropdown">
         <a id="navbarDropdown" class="nav-link dropdown-toggle text-capitalize nombre-usuario" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-            <img src="{{asset(auth()->user()->picture)}}" alt="" class="img-thumbnail rounded-circle shadow-sm mr-1 user-img" id="">
+            <img src="{{auth()->user()->avatar}}" alt="" class="img-thumbnail rounded-circle shadow-sm mr-1 user-img" id="">
             {{ Auth::user()->name }} <span class="caret"></span>
         </a>
 

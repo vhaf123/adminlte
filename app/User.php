@@ -68,6 +68,16 @@ class User extends Authenticatable
     }
 
 
+
+    public function getAvatarAttribute(){
+        
+        return optional($this->socialAccounts->first())->avatar ?? url('img/users/user2-160x160.jpg');
+      
+    }
+
+
+
+
     /* Relación uno a uno */
 
     
