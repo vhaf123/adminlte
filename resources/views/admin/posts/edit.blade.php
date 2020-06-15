@@ -220,9 +220,4 @@
 
     </script>
 
-    @if (session('info'))
-        <script>
-            toastr.info("{{session('info')}}")
-        </script>
-    @endif
 @endsection

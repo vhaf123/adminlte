@@ -96,7 +96,7 @@
 
                         <span class="text-white">
                             <i class="far fa-calendar-alt mr-1"></i>
-                            01 may. 2020
+                            {{$post->created_at->toFormattedDateString()}}
                         </span>
 
                         
@@ -104,7 +104,7 @@
 
                     <div class="media align-items-center mt-5">
 
-                        <img class = "rounded-circle shadow-lg mr-3" src="{{asset($post->blogger->user->picture)}}" alt="" width="40px">
+                        <img class = "rounded-circle shadow-lg mr-3" src="{{asset($post->blogger->user->avatar)}}" alt="" width="40px">
 
                         <div class="media-body">
                             <p class="text-white mt-3">Escrito por {{$post->blogger->user->name}}</p>
@@ -125,7 +125,9 @@
                 <div class="card">
                     <div class="card-body px-5 pt-5">
 
-                        <h1 class="h2 text-center card-title">{{$post->name}}</h1>
+                        <header>
+                            <h1 class="h2 text-center card-title">{{$post->name}}</h1>
+                        </header>
 
                         {!!$post->body!!}
 
