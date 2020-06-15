@@ -94,7 +94,7 @@
 
                             <div class="form-group">
                                 {!! Form::label('body', 'Cuerpo') !!}
-                                {!! Form::textarea('body', null, ['class' => 'form-control my-editor', 'rows' => '16','required']) !!}
+                                {!! Form::textarea('body', null, ['class' => 'form-control my-editor', 'rows' => '16']) !!}
                             </div>
 
 
