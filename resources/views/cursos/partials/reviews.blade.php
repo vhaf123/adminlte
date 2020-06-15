@@ -15,7 +15,7 @@
 
                 <div class="media">
 
-                    <img class = "mr-3 img-thumbnail rounded-circle" src="{{asset(auth()->user()->avatar)}}" alt="" style="width:  60px">
+                    <img class = "mr-3 img-thumbnail rounded-circle" src="{{asset(auth()->user()->avatar)}}" alt="" style="width:  60px; height:60px; object-fit: cover;">
 
                     <div class="media-body">
                         {!! Form::textarea('comentario', null, ['class' => 'form-control mb-2', 'rows' => "3", 'placeholder' => 'Ingresa un comentario', 'required']) !!}
@@ -75,7 +75,7 @@
             <li class="mb-3 border-bottom">
 
                 <div class="media">
-                    <img class = "mr-3 img-thumbnail rounded-circle" src="{{asset($review->user->avatar)}}" alt="" style="width:  60px">
+                    <img class = "mr-3 img-thumbnail rounded-circle" src="{{asset($review->user->avatar)}}" alt="" style="width:  60px; height:60px; object-fit: cover;">
                     
                     <div class="media-body text-secondary">
                         <p class="mb-1"><span class="font-weight-bold">{{$review->user->name}} </span> <i class="fas fa-star text-warning"></i> ({{$review->rating}}) <small>{{$review->created_at->diffForHumans()}}</small></p>
