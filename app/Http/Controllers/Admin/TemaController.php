@@ -24,13 +24,16 @@ class TemaController extends Controller
    
     public function store(Request $request)
     {
+
         $request->validate([
             'name' => 'required',
             'descripcion' => 'required',
             'capitulo_id' => 'required'
         ]);
 
-        Tema::create($request->all());
+        $tema = Tema::create($request->all());
+
+        return redirect()->route('admin.temas.edit', $tema);
     }
 
     

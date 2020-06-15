@@ -32,14 +32,8 @@
     <div class="container-fluid">
         <div class="row">
 
-            <div class="col-12 col-lg-4 mb-4">
-
+            <div class="col-12">
                 @include('admin.temas.create')
-
-            </div>
-
-            <div class="col-12 col-lg-8">
-
                 
                 <ul class="list-unstyled">
                     <li v-for = "tema in capitulo.temas" class="mb-3">
