@@ -26,6 +26,19 @@
     <main>
         <div class="container">
             <div class="row">
+
+                <div class="col-12 mb-4 col-lg-4 order-lg-2">
+
+                    <section>
+                        @include('cursos.partials.matricula')
+                    </section>
+    
+                    <section class="mt-4">
+                        @include('cursos.partials.requisitos')
+                    </section>
+                    
+                </div>
+
                 <div class="col-12 col-lg-8">
 
                     <section class="mb-4">
@@ -42,20 +55,7 @@
 
                 </div>
 
-                <div class="col-12 mb-4 col-lg-4 order-lg-2">
-
-                    <section>
-                        @include('cursos.partials.matricula')
-                    </section>
-    
-                    <section class="mt-4">
-                        @include('cursos.partials.requisitos')
-                    </section>
-    
-                    {{-- <aside>
-                        @include('cursos.similares')
-                    </aside> --}}
-                </div>
+                
             </div>
         </div>
     </main>

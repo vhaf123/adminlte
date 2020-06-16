@@ -65,6 +65,9 @@
             color: #636b6f;
         }
 
+        .fa-angle-left, .fa-angle-right{
+            font-size: 24px;
+        }        
 
     </style>
     
@@ -135,15 +138,27 @@
                 </div>
             </div>
 
-            {{-- <div class="card">
-                <div class="card-body">
+            <div class="card mt-3">
+                <div class="card-body row justify-content-between align-items-center">
+                    
 
-                    <h1>{{$actual->name}}</h1>
-                    
-                    {!!$actual->body!!}
-                    
+                    @if ($actual->previous)
+                        <a href="{{route('temas.show', [$manual, $actual->previous])}}" class="d-flex align-items-center text-decoration-none col-6 text-info">
+                            <i class="fas fa-angle-left mr-2"></i>
+                            {{$actual->previous->name}}
+                        </a>
+                    @else
+                        <div class="col-6"></div>
+                    @endif
+
+                    @if ($actual->next)
+                        <a href="{{route('temas.show', [$manual, $actual->next])}}" class="d-flex align-items-center justify-content-end text-decoration-none col-6 text-info">
+                            {{$actual->next->name}}
+                            <i class="fas fa-angle-right ml-2"></i>
+                        </a>
+                    @endif
                 </div>
-            </div> --}}
+            </div>
 
         </div>
 
