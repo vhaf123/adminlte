@@ -85,7 +85,7 @@
 <div class="container">
     <div class="row">
 
-        <aside class="col-12 col-lg-4 px-lg-4 mb-4">
+        <aside class="col-12 col-lg-4 px-lg-4 mb-4 order-lg-2">
 
             <div class="card shadow">
 
