@@ -49,7 +49,7 @@
             <div class="row text-white">
                 <div class="col-4">
                     <div class="media">
-                        <i class="fab fa-discourse mr-4 mt-1 d-sm-none d-lg-block"></i>
+                        <i class="fas fa-laptop-code mr-4 mt-1 d-sm-none d-lg-block"></i>
                         <div class="media-body">
                             <h5 class="mb-0">Cursos online</h5>
                             Una amplia variedad de cursos
@@ -59,7 +59,7 @@
 
                 <div class="col-4">
                     <div class="media">
-                        <i class="fab fa-audible mr-4 mt-1 d-sm-none d-lg-block"></i>
+                        <i class="fas fa-chalkboard-teacher mr-4 mt-1 d-sm-none d-lg-block"></i>
                         {{-- <i class="fas fa-broadcast-tower mr-4 mt-1 d-sm-none d-lg-block"></i> --}}
                         <div class="media-body">
                             <h5 class="mb-0">Manueles online</h5>

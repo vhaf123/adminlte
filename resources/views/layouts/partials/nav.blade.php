@@ -17,7 +17,7 @@
                     {{-- Cursos --}}
                     <li class="nav-item {{setActive('cursos.*')}}">
                         <a class="nav-link" href="{{route('cursos.index')}}">
-                          <i class="fab fa-discourse"></i>
+                          <i class="fas fa-laptop"></i>
                           Cursos
                         </a>
                     </li>
@@ -25,7 +25,7 @@
                     {{-- Manuales --}}
                     <li class="nav-item {{setActive('manuales.*')}}">
                       <a class="nav-link" href="{{route('manuales.index')}}">
-                        <i class="fab fa-audible"></i>
+                        <i class="fas fa-chalkboard-teacher"></i>
                         Manuales
                       </a>
                     </li>
