@@ -281,9 +281,9 @@
             <div class="row justify-content-center align-items-center">
 
                 <div class="col-12 col-md-6 col-lg-7">
-                    <h2 class="text-center text-md-left">¿Qué es AdminLTE?</h2>
+                    <h2 class="text-center text-md-left">¿Qué es CodersFree?</h2>
                     <p class="">
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+                        Codersfree nace como una iniciativa para promover 
                     </p>
                 </div>
 

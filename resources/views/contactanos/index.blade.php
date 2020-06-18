@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-<main class="pt-4">
+<main class="pt-4 mb-5">
     <div class="container">
         <div class="row">
 

@@ -19,7 +19,7 @@
 
     <style>
         .auth{
-            min-height: calc(100vh - 60px);
+            min-height: calc(100vh - 110px);
             display: flex;
             justify-content: center;
             align-items: center;

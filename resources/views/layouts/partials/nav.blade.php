@@ -30,6 +30,13 @@
                       </a>
                     </li>
 
+                    <li class="nav-item {{setActive('recursos.*')}}">
+                      <a class="nav-link" href="{{route('recursos.index')}}">
+                        <i class="fas fa-broadcast-tower"></i>
+                        Recursos
+                      </a>
+                    </li>
+
                     {{-- Contáctanos --}}
                     <li class="nav-item {{setActive('contactanos.index')}}">
                       <a class="nav-link" href="{{route('contactanos.index')}}">

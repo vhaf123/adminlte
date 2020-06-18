@@ -18,6 +18,10 @@ Route::post('course-status/avance/{curso}', 'CourseStatusController@avance')->na
 Route::post('course-status/actual/{curso}', 'CourseStatusController@actual')->name('course-status.actual');
 Route::post('course-status/cursado', 'CourseStatusController@cursado')->name('course-status.cursado');
 
+
+Route::get('recursos', 'RecursosController@index')->name('recursos.index');
+
+
 Route::resource('manuales', 'ManualController')->parameters(['manuales' => 'manual'])->only('index', 'show');
 Route::get('manuales/{manual}/{tema}', 'TemaController@show')->name('temas.show');
 
