@@ -67,7 +67,7 @@
 
 
 @section('content')
-<div id="app">
+<div id="app" class="mb-5">
     <div class="container mt-4">
         <div class="row">
 
