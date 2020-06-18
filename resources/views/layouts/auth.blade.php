@@ -86,7 +86,7 @@
     </header>
     
 
-    <main class="my-4 auth">
+    <main class="my-5 my-lg-4 auth">
         
         @yield('content')
         
