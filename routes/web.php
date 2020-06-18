@@ -13,14 +13,17 @@ Route::resource('cursos', 'CursoController')->only('index', 'show');
 Route::post('cursos/{curso}/matricular', 'CursoController@matricular')->name('cursos.matricular');
 Route::post('cursos/{curso}/review', 'CursoController@review')->name('cursos.review');
 
+Route::post('recursos/{video}', 'RecursoController@download')->name('recursos.download');
+
+Route::get('requisitos/{video}', 'RequisitoController@show')->name('requistos.show');
+
+
 Route::get('course-status/{curso}', 'CourseStatusController@index')->name('course-status.index');
 Route::post('course-status/avance/{curso}', 'CourseStatusController@avance')->name('course-status.avance');
 Route::post('course-status/actual/{curso}', 'CourseStatusController@actual')->name('course-status.actual');
 Route::post('course-status/cursado', 'CourseStatusController@cursado')->name('course-status.cursado');
 
-
-Route::get('recursos', 'RecursosController@index')->name('recursos.index');
-
+Route::get('/recurso/{video}/download', 'RecursoController@download')->name('recursos.download');
 
 Route::resource('manuales', 'ManualController')->parameters(['manuales' => 'manual'])->only('index', 'show');
 Route::get('manuales/{manual}/{tema}', 'TemaController@show')->name('temas.show');
@@ -54,9 +57,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::post('cursos/{curso}/dropzone', 'CursoController@dropzone')->name('admin.cursos.dropzone');
     Route::post('cursos/{curso}/status', 'CursoController@status')->name('admin.cursos.status');
 
+    Route::delete('recursos/{video}', 'RecursoController@destroy')->name('admin.recursos.destroy');
+
     Route::resource('metas', 'MetaController')->names('admin.metas')->only(['store', 'update', 'destroy']);
-    Route::resource('modulos', 'ModuloController')->names('admin.modulos')->except('index', 'create', 'edit');
-    Route::resource('videos', 'VideoController')->names('admin.videos')->only(['store', 'update', 'destroy']);
+    Route::resource('modulos', 'ModuloController')->names('admin.modulos')->only(['store', 'update', 'destroy']);
+    Route::resource('videos', 'VideoController')->names('admin.videos')->only(['store', 'update', 'destroy', 'edit']);
     Route::resource('requisitos', 'RequisitoController')->names('admin.requisitos')->only(['store', 'update', 'destroy']);
     
     Route::resource('manuales', 'ManualController')->names('admin.manuales')->parameters(['manuales' => 'manual']);

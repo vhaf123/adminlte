@@ -77,6 +77,29 @@
     </p>
     
     <a href="{{route('admin.cursos.edit', $curso)}}" class="btn btn-success mb-0">Editar información</a>
+
+    @switch($curso->status)
+        @case(1)
+
+            {!! Form::open(['route' => ['admin.cursos.status', $curso], 'class' => 'd-inline']) !!}
+                {!! Form::submit('Publicar curso', ['class' => 'btn btn-dark']) !!}
+            {!! Form::close() !!}
+
+            @break
+        @case(2)
+            
+            {!! Form::open(['route' => ['admin.cursos.status', $curso], 'class' => 'd-inline']) !!}
+                {!! Form::submit('Marcar como culminado', ['class' => 'btn btn-dark']) !!}
+            {!! Form::close() !!}
+
+            @break
+
+
+        @default
+
+         
+            
+    @endswitch
     
 </div>
 
@@ -111,45 +134,16 @@
                 <form action="{{route('admin.cursos.dropzone', $curso)}}" method="POST" class="dropzone mb-4" id="my-dropzone">
                 </form>
 
-                <button type="button" class="btn btn-primary btn-block mb-2" data-toggle="modal" data-target="#metasCreate">
-                    Agregar una nueva meta
-                </button>
+                
 
                 <button type="button" class="btn btn-primary btn-block mb-2" data-toggle="modal" data-target="#requisitosCreate">
                     Agregar un nuevo requisito
                 </button>
                 
-                <button type="button" class="btn btn-primary btn-block mb-2" data-toggle="modal" data-target="#modulosCreate">
-                    Agregar un nuevo módulo
-                </button>
+                
 
 
-                @switch($curso->status)
-                    @case(1)
-
-                        {!! Form::open(['route' => ['admin.cursos.status', $curso]]) !!}
-                            {!! Form::submit('Publicar', ['class' => 'btn btn-block btn-info']) !!}
-                        {!! Form::close() !!}
-
-                        @break
-                    @case(2)
-                        
-                        {!! Form::open(['route' => ['admin.cursos.status', $curso]]) !!}
-                            {!! Form::submit('Marcar como culminado', ['class' => 'btn btn-block btn-info']) !!}
-                        {!! Form::close() !!}
-
-                        @break
-
-
-                    @default
-
-                        <div class="card">
-                            <div class="card-body">
-                                <p class="lead mb-0"><strong>Estado: </strong>Curso culminado</p>
-                            </div>
-                        </div>
-                        
-                @endswitch
+                
 
 
 
@@ -171,6 +165,8 @@
     @include('admin.requisitos.create')
     @include('admin.requisitos.edit')
 
+    @include('admin.videos.create')
+
 </div>
 
 @endsection
@@ -189,11 +185,15 @@
             meta_name: "",
             meta_id: "",
 
+            requisito_name: "",
+            requisito_id: "",
+
             modulo_name: "",
             modulo_id: "",
 
-            requisito_name: "",
-            requisito_id: "",
+            video_name: "",
+            video_descripcion: "",
+            video_iframe: "",
         },
         created(){
 
@@ -389,6 +389,7 @@
 
             },
 
+            
             /* -------------------------------------------------------------- */
 
             requisitosStore() {
@@ -473,6 +474,77 @@
                 })
 
 
+            },
+
+
+            /* -------------------------------------------------------------- */
+
+            videosStore(){
+
+                $('#videosCreate .spinner-border').removeClass('d-none');
+
+                axios.post('/admin/videos', {
+
+                    modulo_id: this.modulo_id,
+                    name: this.video_name,
+                    descripcion: this.video_descripcion,
+                    iframe: this.video_iframe,
+
+                }).then(response => {
+
+                    this.video_name = "";
+                    this.video_descripcion = "";
+                    this.video_iframe = "";
+                    this.modulo_id = "";
+
+                    this.creado_exito('#videosCreate');
+
+                }).catch(error => {
+
+                    this.mensaje_error('#videosCreate');
+                }) 
+            },
+
+            videosDestroy(video){
+
+                Swal.fire({
+
+                    title: '¿Estás seguro?',
+                    text: "¡No podrás revertir esto!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: '¡Si, elimínalo!',
+                    cancelButtonText: '¡No, cancelar!',
+
+                }).then((result) => {
+
+                    if (result.value) {
+
+                        var url = "/admin/videos/" + video.slug;
+
+                        axios.delete(url).then(response => {
+
+                            this.getCurso();
+
+                            Swal.fire(
+                                '¡Eliminado!',
+                                'Su archivo ha sido eliminado.',
+                                'success'
+                            )
+
+                        }).catch(error => {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: '¡Algo salió mal!',
+                            })
+                        })
+                    
+                    }
+
+                })
             },
 
             /* -------------------------------------------------------------- */

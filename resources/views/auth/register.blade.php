@@ -63,7 +63,7 @@
             <div class="d-flex justify-content-between align-items-center">
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                    <label class="custom-control-label" for="remember">Recuerdame</label>
+                    <label class="custom-control-label" for="remember">Acepto los terminos y condiciones</label>
                 </div>
 
                 <button type="submit" class="btn btn-primary">

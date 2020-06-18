@@ -25,17 +25,12 @@
                     {{-- Manuales --}}
                     <li class="nav-item {{setActive('manuales.*')}}">
                       <a class="nav-link" href="{{route('manuales.index')}}">
-                        <i class="fas fa-broadcast-tower"></i>
+                        <i class="fab fa-audible"></i>
                         Manuales
                       </a>
                     </li>
 
-                    <li class="nav-item {{setActive('recursos.*')}}">
-                      <a class="nav-link" href="{{route('recursos.index')}}">
-                        <i class="fas fa-broadcast-tower"></i>
-                        Recursos
-                      </a>
-                    </li>
+                   
 
                     {{-- Contáctanos --}}
                     <li class="nav-item {{setActive('contactanos.index')}}">

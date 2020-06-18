@@ -2,7 +2,17 @@
 
     <div class="card-body">
 
-        <h1 class="h2 mb-3">Metas del curso</h1>
+        <div class="d-flex justify-content-between align-items-center">
+
+            <h1 class="h3 text-secondary">Metas del curso</h1>
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#metasCreate">
+                Agregar meta
+            </button>
+            
+        </div>
+
+        <hr>
 
         <ul class="mb-0 list-unstyled">
 

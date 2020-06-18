@@ -24,17 +24,11 @@
 
             <li class="{{setActive('manuales.*')}}">
                 <a href="{{route('manuales.index')}}">
-                  <i class="fas fa-broadcast-tower"></i>
-                  Manuales
+                    <i class="fab fa-audible"></i>
+                    Manuales
                 </a>
             </li>
 
-            <li class="{{setActive('recursos.*')}}">
-                <a href="{{route('recursos.index')}}">
-                  <i class="fas fa-broadcast-tower"></i>
-                  Manuales
-                </a>
-            </li>
 
             <li class="{{setActive('contactanos.index')}}">
                 <a href="{{route('contactanos.index')}}" class="">

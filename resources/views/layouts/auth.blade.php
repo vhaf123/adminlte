@@ -18,11 +18,31 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <style>
+        .header_principal{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        main{
+            position: relative;
+            top: 60px;
+            padding-bottom: 50px;
+        }
+
         .auth{
-            min-height: calc(100vh - 110px);
             display: flex;
             justify-content: center;
-            align-items: center;
+        }
+
+        .footer_principal{
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            z-index: 100;
         }
 
     </style>
@@ -44,12 +64,9 @@
                         <span class="font-weight-bold ml-1">Coders</span>Free
                     </a>
     
-                    
-    
                     {{-- Botones de acción --}}
                     <div>
-    
-    
+   
                         {{-- Botones de login --}}
                         <a href="{{ route('login') }}" class="btn btn-outline-dark font-weight-bold">
                             Iniciar sesión
@@ -69,7 +86,7 @@
     </header>
     
 
-    <main class="py-4 auth">
+    <main class="my-4 auth">
         
         @yield('content')
         

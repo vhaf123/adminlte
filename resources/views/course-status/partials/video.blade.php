@@ -3,12 +3,19 @@
 
 <h1 class="h3 font-weight-bold mt-3" id="titulo">@{{actual.name}}</h1>
 
-<p class="mb-4" id="descripcion">@{{actual.descripcion}}</p>
+<p class="" id="descripcion">@{{actual.descripcion}}</p>
 
+<div class="mt-4 d-flex align-items-center">
+    <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="cursado" v-model = "checked" v-on:change = "cursado">
+        <label class="custom-control-label" for="cursado">Marcar esta unidad como culminada</label>
+    </div>
 
-<div class="custom-control custom-switch">
-    <input type="checkbox" class="custom-control-input" id="cursado" v-model = "checked" v-on:change = "cursado">
-    <label class="custom-control-label" for="cursado">Marcar esta unidad como culminada</label>
+    <p v-if = "actual.file" class="d-flex align-items-center text-secondary ml-auto mb-0">
+        <i class="fas fa-save mr-2" style="font-size: 24px;"></i>
+        <a :href="'/recurso/' + actual.slug + '/download'" class="text-secondary">Archivos base del tema</a>
+    </p>
+
 </div>
 
 <div class="card my-3 bg-whithe shadow">
@@ -31,3 +38,5 @@
         </div>
     </div>
 </div>
+
+

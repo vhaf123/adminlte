@@ -12,7 +12,10 @@
                 </div>
 
                 <div class="modal-body">
-                    <input type="text" class="form-control" placeholder="Nombre del módulo" v-model = "modulo_name" required>
+
+                    <textarea class="form-control" placeholder="Nombre del módulo" v-model = "modulo_name" rows="3" required></textarea>
+
+                    {{-- <input type="text" class="form-control" placeholder="Nombre del módulo" v-model = "modulo_name" required> --}}
                 </div>
 
                 <div class="modal-footer">
