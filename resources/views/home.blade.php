@@ -283,9 +283,7 @@
 
                 <div class="col-12 col-md-6 col-lg-7">
                     <h2 class="text-center text-md-left">¿Qué es CodersFree?</h2>
-                    <p class="">
-                        Codersfree nace como una iniciativa para promover 
-                    </p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab quasi totam veniam magni id. Reprehenderit porro rem pariatur. Maxime veritatis molestiae dolores omnis qui eaque ipsam officia ullam quae voluptas?</p>
                 </div>
 
                 <div class="col-8 col-md-6 col-lg-4 col-xl-3 offset-lg-1 mt-5">
