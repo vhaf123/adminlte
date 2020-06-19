@@ -11,7 +11,7 @@ class RecursoController extends Controller
 {
 
     public function show(Video $video){
-        return $video;
+        return view('recursos.show', compact('video'));
     }
 
     public function download(Video $video){

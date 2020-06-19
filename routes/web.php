@@ -13,8 +13,8 @@ Route::resource('cursos', 'CursoController')->only('index', 'show');
 Route::post('cursos/{curso}/matricular', 'CursoController@matricular')->name('cursos.matricular');
 Route::post('cursos/{curso}/review', 'CursoController@review')->name('cursos.review');
 
-Route::get('/recurso/{video}', 'RecursoController@show')->name('recursos.show');
-Route::get('/recurso/{video}/download', 'RecursoController@download')->name('recursos.download');
+Route::get('/recursos/{video}', 'RecursoController@show')->name('recursos.show');
+Route::get('/recursos/{video}/download', 'RecursoController@download')->name('recursos.download');
 
 Route::get('course-status/{curso}', 'CourseStatusController@index')->name('course-status.index');
 Route::post('course-status/avance/{curso}', 'CourseStatusController@avance')->name('course-status.avance');
