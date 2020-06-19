@@ -24,7 +24,7 @@
 
             <li class="{{setActive('manuales.*')}}">
                 <a href="{{route('manuales.index')}}">
-                    <i class="fab fa-audible"></i>
+                    <i class="fas fa-chalkboard-teacher"></i>
                     Manuales
                 </a>
             </li>
