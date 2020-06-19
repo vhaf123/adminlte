@@ -66,4 +66,5 @@ class CursoController extends Controller
         
         return back();
     }
+   
 }

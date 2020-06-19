@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class RecursoController extends Controller
 {
+
+    public function show(Video $video){
+        return $video;
+    }
+
     public function download(Video $video){
         $filePath = public_path($video->file);
         return response()->download($filePath);

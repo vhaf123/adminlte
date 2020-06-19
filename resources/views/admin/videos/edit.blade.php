@@ -74,7 +74,7 @@
                             <div class="d-flex align-items-center">
                                 <i class="fas fa-save mr-2" style="font-size: 24px;"></i>
                                 <p class="lead mb-0">
-                                    <a href="{{route('recursos.download', $video)}}">Este video tiene recursos agregados</a>
+                                    <a href="{{route('recursos.show', $video)}}">Este video tiene recursos agregados</a>
                                 </p>
                                 {!! Form::open(['route'=>['admin.recursos.destroy', $video], 'method' => 'delete','class' => 'ml-auto']) !!}
                                     <button type="submit" class="btn btn-danger btn-sm">

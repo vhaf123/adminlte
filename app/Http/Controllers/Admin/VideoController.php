@@ -46,29 +46,28 @@ class VideoController extends Controller
             'descripcion' => 'required',
             'iframe' => 'required'
         ]);
+        
+        $video->name = $request->get('name');
+        $video->descripcion = $request->get('descripcion');
+        $video->iframe = $request->get('iframe');
 
-
-        $video->update($request->all());
+        //$video->update($request->all());
 
         if($request->file('file')){
+            
+            $filePath = str_replace('storage', 'public', $video->file);
+            Storage::delete($filePath);
 
             $file = $request->file('file')->store('public/cursos/files');
 
             $fileUrl = Storage::url($file);
-
             $video->file = $fileUrl;
-
-            $video->save();
+            
         }
 
+        $video->save();
+
         return redirect()->route('admin.videos.edit', $video)->with('info', 'Actualizado con éxito');
-
-        /* if($request->axios)
-
-        if(!$request->ajax()){
-            return redirect()->route('admin.videos.edit', $video)->with('info', 'Actualizado con éxito');
-        } */
-
    
 
     }

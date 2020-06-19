@@ -38,9 +38,10 @@
                             <thead class="thead-inverse">
                                 <tr>
                                     <th>ID</th>
-                                    <th>Role</th>
+                                    <th>Nombre</th>
                                     <th>Email</th>
                                     <th>Roles</th>
+                                    <th>Fecha</th>
                                     <th>&nbsp;</th>
                                 </tr>
                                 </thead>
@@ -52,6 +53,7 @@
                                             <td>{{$user->name}}</td>
                                             <td>{{$user->email}}</td>
                                             <td>{{$user->rol}}</td>
+                                            <td>{{$user->created_at->diffForHumans()}}</td>
                                             <td>
                                                 <div class="d-flex flex-nowrap justify-content-end">
                 
