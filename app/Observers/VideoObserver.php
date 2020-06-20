@@ -12,7 +12,7 @@ class VideoObserver
     public function creating(Video $video)
     {
 
-        $slug = Str::slug($video->name, '');
+        $slug = Str::slug($video->name, '-');
 
         while (Video::where('slug', $slug)->count()) {
             $slug = $slug.rand(1,1000);
@@ -33,7 +33,7 @@ class VideoObserver
 
     public function updating(Video $video)
     {
-        $slug = Str::slug($video->name, '');
+        $slug = Str::slug($video->name, '-');
 
         while (Video::where('slug', $slug)->count()) {
             $slug = $slug.rand(1,1000);
