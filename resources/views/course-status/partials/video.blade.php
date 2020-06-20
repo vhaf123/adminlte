@@ -13,7 +13,7 @@
 
     <p v-if = "actual.file" class="d-flex align-items-center text-secondary ml-auto mb-0">
         <i class="fas fa-save mr-2" style="font-size: 24px;"></i>
-        <a :href="'/recurso/' + actual.slug + '/download'" class="text-secondary">Archivos base del tema</a>
+        <a :href="'/recursos/' + actual.slug + '/download'" class="text-secondary">Archivos base del tema</a>
     </p>
 
 </div>
