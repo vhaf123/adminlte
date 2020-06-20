@@ -21,13 +21,16 @@
 <main class="">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-5 pt-5">
+            <div class="col-12 col-lg-8 col-xl-6 pt-5">
                 
                 <div class="card bg-dark text-white shadow mb-3">
                     <div class="card-body py-4">
                         {{-- <h1 class="text-center h4 mb-4">{{$video->name}}</h1> --}}
 
-                        <p class="lead text-center text-white mb-4">Archivos base</p>
+                        <h1 class="h5 text-white">{{$video->modulo->curso->name}}</h1>
+                        <hr class="bg-white">
+                        <p class="text-white mb-1">Módulo: {{$video->modulo->name}}</p>
+                        <p class="text-white">Capítulo: {{$video->name}}</p>
 
                         <a href="{{route('recursos.download', $video)}}" class="btn btn-danger btn-block">
                             Descargar archivo
@@ -35,10 +38,7 @@
 
                     </div>
                 </div>
-                <h2 class="h5 text-white">{{$video->modulo->curso->name}}</h2>
-                <hr class="bg-white">
-                <p class="text-white mb-1">Módulo: {{$video->modulo->name}}</p>
-                <p class="text-white">Capítulo: {{$video->name}}</p>
+                
             </div>
         </div>
     </div>

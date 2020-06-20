@@ -31,15 +31,4 @@ class VideoObserver
         
     }
 
-    public function updating(Video $video)
-    {
-        $slug = Str::slug($video->name, '-');
-
-        while (Video::where('slug', $slug)->count()) {
-            $slug = $slug.rand(1,1000);
-        }
-
-        $video->slug = $slug;
-
-    }
 }

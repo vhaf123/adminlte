@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Storage;
 
 use App\Video;
 
+use Illuminate\Support\Str;
+
 class VideoController extends Controller
 {
 
@@ -50,6 +52,7 @@ class VideoController extends Controller
         $video->name = $request->get('name');
         $video->descripcion = $request->get('descripcion');
         $video->iframe = $request->get('iframe');
+        $video->slug = Str::slug($video->name, '-');
 
         //$video->update($request->all());
 
