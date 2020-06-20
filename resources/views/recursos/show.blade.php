@@ -21,7 +21,7 @@
 <main class="">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 col-lg-8 col-xl-6 pt-5">
+            <div class="col-12 col-md-10 col-lg-8 col-xl-6 pt-5">
                 
                 <div class="card bg-dark text-white shadow mb-3">
                     <div class="card-body py-4">
