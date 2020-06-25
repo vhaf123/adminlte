@@ -6,6 +6,11 @@
 
 @section('style')
 
+{{-- <link rel="stylesheet"
+      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.1/build/styles/default.min.css"> --}}
+    <link rel="stylesheet" href="{{asset('plugins/highlight/styles/agate.css')}}">
+{{-- <link rel="stylesheet" href="{{asset('plugins/highlight/styles/monokai-sublime.css')}}"> --}}
+
     <style>
 
         .indice > li > h1{
@@ -67,7 +72,7 @@
 
         .fa-angle-left, .fa-angle-right{
             font-size: 24px;
-        }        
+        } 
 
     </style>
     
@@ -82,7 +87,7 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container mb-5">
     <div class="row">
 
         <aside class="col-12 col-lg-4 px-lg-4 mb-4 order-lg-2">
@@ -127,15 +132,16 @@
 
         <div class="col-12 col-lg-8">
             <div class="card">
-                <div class="card-body">
-                    <article class="principal">
-                        <header>
-                            <h1 class="text-center">{{$actual->name}}</h1>
-                        </header>
+
+                <header class="card-header">
+                    <h1 class="text-center">{{$actual->name}}</h1>
+                </header>
+
+                <article class="card-body principal">
                                 
-                        {!!$actual->body!!}
-                    </article>
-                </div>
+                    {!!$actual->body!!}
+
+                </article>
             </div>
 
             <div class="card mt-3">
@@ -167,3 +173,10 @@
 
 @endsection
 
+@section('script')
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.1/build/highlight.min.js"></script>
+    
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+@endsection

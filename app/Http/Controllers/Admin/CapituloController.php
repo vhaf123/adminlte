@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use App\Capitulo;
 
@@ -39,7 +40,22 @@ class CapituloController extends Controller
             'name' => "required"
         ]);
 
-        $capitulo->update($request->all());
+
+        $resultado = $request->all();
+        
+        if($capitulo->name != $request->get('name')){
+
+            $slug = Str::slug($request->get('name'), '-');
+
+            while (Capitulo::where('slug', $slug)->count()) {
+                $slug = $slug.rand(1,100);
+            }
+
+            $resultado = array_merge($resultado, ['slug' => $slug]);
+            
+        }
+
+        $capitulo->update($resultado);
     }
 
     

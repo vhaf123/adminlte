@@ -8,7 +8,7 @@ class Capitulo extends Model
 {
 
     protected $fillable = [
-        'manual_id', 'name'
+        'manual_id', 'name', 'slug'
     ];
 
     /* Relación uno a muchos */

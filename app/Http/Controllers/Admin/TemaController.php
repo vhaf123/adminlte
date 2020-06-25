@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use App\Tema;
 use App\Image;
@@ -85,9 +86,24 @@ class TemaController extends Controller
             'name' => 'required',
             'descripcion' => 'required',
         ]);
+        
+
+        $resultado = $request->all();
 
 
-        $tema->update($request->all());
+        if($tema->name != $request->get('name')){
+
+            $slug = Str::slug($request->get('name'), '-');
+
+            while (Tema::where('slug', $slug)->count()) {
+                $slug = $slug.rand(1,100);
+            }
+
+            $resultado = array_merge($resultado, ['slug' => $slug]);
+            
+        }
+
+        $tema->update($resultado);
 
         return redirect()->route('admin.temas.edit', $tema)->with('info', 'Actualizado con éxito');
     }

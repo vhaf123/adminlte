@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use App\Curso;
 
@@ -81,7 +82,25 @@ class CursoController extends Controller
             'nivel_id' => 'required',
         ]);
 
-        $curso->update($request->all());
+
+        $resultado = $request->all();
+        
+        if($curso->name != $request->get('name')){
+
+            $slug = Str::slug($request->get('name'), '-');
+
+            while (Curso::where('slug', $slug)->count()) {
+                $slug = $slug.rand(1,100);
+            }
+
+            $resultado = array_merge($resultado, ['slug' => $slug]);
+            
+        }
+
+
+
+
+        $curso->update($resultado);
 
         return redirect()->route('admin.cursos.show', $curso)->with('info', 'Se actualizó el curso con éxito');;
     }
