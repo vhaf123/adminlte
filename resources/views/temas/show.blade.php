@@ -133,7 +133,7 @@
         <div class="col-12 col-lg-8">
             <div class="card">
 
-                <header class="card-header bg-oscuro">
+                <header class="card-header bg-dark">
                     <h1 class="text-center text-white my-2 h2">{{$actual->name}}</h1>
                 </header>
 
