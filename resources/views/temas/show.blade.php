@@ -133,8 +133,8 @@
         <div class="col-12 col-lg-8">
             <div class="card">
 
-                <header class="card-header">
-                    <h1 class="text-center text-secondary">{{$actual->name}}</h1>
+                <header class="card-header bg-oscuro">
+                    <h1 class="text-center text-white mb-0 h2">{{$actual->name}}</h1>
                 </header>
 
                 <article class="card-body principal">
