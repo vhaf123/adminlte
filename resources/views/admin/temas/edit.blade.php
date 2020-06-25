@@ -99,14 +99,52 @@
 
 
                             <div class="form-group">
-                                {!! Form::submit('Acualizar', ['class' => 'btn btn-lg btn-block btn-primary']) !!}
+                                {!! Form::submit('Acualizar', ['class' => 'btn btn-block btn-primary']) !!}
                             </div>
                         {!! Form::close() !!}
                     </div>
                 </div>
                 
 
-                <div class="row mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        
+                        <div class="row align-items-center">
+                        
+                            <div class="col-12 col-lg-6 mb-3 mb-lg-0">
+                                @if ($tema->previous)
+                                    
+                                    <a href="{{route('admin.temas.edit', $tema->previous)}}" class="d-flex  align-items-center">
+                                        <i class="fas fa-angle-left mr-2"  style="font-size: 24px"></i>
+                                        <span>
+                                            {{$tema->previous->name}}
+                                        </span>
+                                    </a>
+                                    
+                                @endif
+                            </div>
+    
+                            <div class="col-12 col-lg-6">
+                                @if ($tema->next)
+                                    
+                                    <a href="{{route('admin.temas.edit', $tema->next)}}" class="d-flex justify-content-end align-items-center">
+                                        
+                                        <span>
+                                            {{$tema->next->name}}
+                                        </span>
+    
+                                        <i class="fas fa-angle-right ml-2" style="font-size: 24px"></i>
+                                    </a>
+                                    
+                                @endif
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                </div>
+
+                {{-- <div class="row mb-4">
                     <div class="col-12 col-lg-6 mb-3 mb-lg-0">
                         @if ($tema->previous)
                             <div class="card bg-danger h-100">
@@ -134,7 +172,7 @@
                             </div>
                         @endif
                     </div>
-                </div>
+                </div> --}}
 
             </div>
 

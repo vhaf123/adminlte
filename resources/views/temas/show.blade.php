@@ -72,7 +72,11 @@
 
         .fa-angle-left, .fa-angle-right{
             font-size: 24px;
-        } 
+        }
+
+        .container{
+            max-width: 1250px;
+        }
 
     </style>
     
