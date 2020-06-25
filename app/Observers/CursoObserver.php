@@ -5,6 +5,8 @@ namespace App\Observers;
 use App\Curso;
 use Illuminate\Support\Str;
 
+use Illuminate\Support\Facades\Storage;
+
 class CursoObserver
 {
     /**
@@ -26,6 +28,16 @@ class CursoObserver
 
         if(! \App::runningInConsole()){
             $curso->profesor_id = auth()->user()->profesor->id;
+        }
+        
+    }
+
+    public function deleting(Curso $curso)
+    {
+            
+        foreach ($curso->videos as $video) {
+            $filePath = str_replace('storage', 'public', $video->file);
+            Storage::delete($filePath);
         }
         
     }

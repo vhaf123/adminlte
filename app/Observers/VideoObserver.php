@@ -21,13 +21,11 @@ class VideoObserver
         $video->slug = $slug;
     }
 
-    public function deleted(Video $video)
+    public function deleting(Video $video)
     {
             
-        if($video->file){
-            $filePath = str_replace('storage', 'public', $video->file);
-            Storage::delete($filePath);
-        }
+        $filePath = str_replace('storage', 'public', $video->file);
+        Storage::delete($filePath);
         
     }
 
