@@ -134,7 +134,7 @@
             <div class="card">
 
                 <header class="card-header">
-                    <h1 class="text-center">{{$actual->name}}</h1>
+                    <h1 class="text-center text-secondary">{{$actual->name}}</h1>
                 </header>
 
                 <article class="card-body principal">
