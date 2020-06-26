@@ -3,7 +3,7 @@
     <div class="container">
         
         <a class="navbar-brand text-secondary d-flex align-items-center" href="{{ url('/') }}">
-            <img src="{{asset('img/layouts/logo.png')}}" alt="" height="30px">
+            <img src="{{asset('img/layouts/logo.svg')}}" alt="" height="30px">
         </a>
 
         <ul class="d-flex list-unstyled mb-0">

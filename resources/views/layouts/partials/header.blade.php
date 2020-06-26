@@ -5,7 +5,7 @@
                 <div class="cabecera">
                     {{-- Logotipo --}}
                     <a class="navbar-brand text-secondary d-flex align-items-center" href="{{ url('/') }}">
-                        <img src="{{asset('img/layouts/logo.png')}}" alt="" height="30px">
+                        <img src="{{asset('img/layouts/logo.svg')}}" alt="" height="30px">
                         {{-- <span class="font-weight-bold ml-1">Coders</span>Free --}}
                     </a>
 
