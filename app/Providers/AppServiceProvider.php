@@ -16,6 +16,8 @@ use App\Tema;
 use App\Observers\TemaObserver;
 use App\Video;
 use App\Observers\VideoObserver;
+use App\Modulo;
+use App\Observers\ModuloObserver;
 
 
 use Illuminate\Support\ServiceProvider;
@@ -46,5 +48,6 @@ class AppServiceProvider extends ServiceProvider
         Capitulo::observe(CapituloObserver::class);
         Tema::observe(TemaObserver::class);
         Video::observe(VideoObserver::class);
+        Modulo::observe(ModuloObserver::class);
     }
 }

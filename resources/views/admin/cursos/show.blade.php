@@ -113,18 +113,7 @@
 
         <div class="row">
 
-            <div class="col-8">
-                <section>
-                    @include('admin.metas.index')
-                </section>
-
-                <section>
-                    @include('admin.modulos.index')
-                </section>
-                
-            </div>
-
-            <div class="col-4">
+            <div class="col-12 col-lg-4 order-lg-2">
                 @if ($curso->picture)
                     <figure class="img-curso">
                         <img src="{{asset($curso->picture)}}" alt="" class="rounded">
@@ -152,6 +141,20 @@
                 </section>
 
             </div>
+
+
+            <div class="col-12 col-lg-8">
+                <section>
+                    @include('admin.metas.index')
+                </section>
+
+                <section>
+                    @include('admin.modulos.index')
+                </section>
+                
+            </div>
+
+            
         </div>
     </div>
 

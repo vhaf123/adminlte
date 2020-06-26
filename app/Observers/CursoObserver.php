@@ -36,8 +36,10 @@ class CursoObserver
     {
             
         foreach ($curso->videos as $video) {
-            $filePath = str_replace('storage', 'public', $video->file);
-            Storage::delete($filePath);
+            if($video->file){
+                $filePath = str_replace('storage', 'public', $video->file);
+                Storage::delete($filePath);
+            }
         }
         
     }

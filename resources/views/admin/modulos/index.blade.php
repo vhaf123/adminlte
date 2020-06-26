@@ -30,14 +30,16 @@
     <div class="card-body">
         <ul class="mb-0 list-unstyled">
             <li v-for="video in modulo.videos" class="mb-1 d-flex align-items-center">
-                
-                <button class="btn btn-danger btn-sm mr-2" v-on:click = "videosDestroy(video)">
-                    <i class="fas fa-times"></i>
-                </button>
 
                 <a :href="'/admin/videos/' + video.slug + '/edit'" class="text-secondary">@{{video.name}}</a>
+
+                <button class="btn btn-danger btn-sm ml-auto" v-on:click = "videosDestroy(video)">
+                    {{-- <i class="fas fa-times"></i> --}}
+                    Eliminar
+                </button>
                 
             </li>
+        
 
             <li v-if = "modulo.videos.length == 0">Aun no se ha agregado ningun subtema a este módulo</li>
 

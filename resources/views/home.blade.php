@@ -161,7 +161,7 @@
             <div class="row">
                 <div class="col">
 
-                    <h1 class="h2 text-center mb-0">ALGUNO DE LOS CURSOS</h1>
+                    <h1 class="h2 text-center mb-0 text-secondary">ALGUNO DE LOS CURSOS</h1>
                     <p class="text-center mb-4">Trabajo duro para seguir subiendo cursos</p>
 
                     <div class="row">
@@ -178,7 +178,7 @@
     </section>
 
     {{-- Ventajas --}}
-    <section class="ventajas my-5 pt-5 bg-gris">
+    <section class="ventajas my-5 pt-5 bg-gris text-secondary">
         <h1 class="text-center h2 mb-4">VENTAJAS</h1>
 
         <div class="container">
@@ -220,7 +220,7 @@
     </section>
 
     {{-- Nuevo contenido --}}
-    <section class="nuevo_contenido py-5 ">
+    <section class="nuevo_contenido py-5">
                 
 
         <div class="container-fluid bg-oscuro">
@@ -276,7 +276,7 @@
     </section>
 
     {{-- informacion --}}
-    <section class="informacion mt-5 pb-5">
+    <section class="informacion mt-5 pb-5 text-secondary">
 
         <div class="container">
             <div class="row justify-content-center align-items-center">

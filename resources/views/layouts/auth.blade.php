@@ -17,6 +17,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    {{-- favicon --}}
+    <link rel="icon" href="{{asset('img/layouts/favicon.ico')}}">
+
     <style>
         .header_principal{
             position: fixed;
@@ -60,8 +63,8 @@
                     
                     {{-- Logotipo --}}
                     <a class="navbar-brand text-secondary d-flex align-items-center" href="{{ url('/') }}">
-                        <img src="{{asset('img/layouts/logo.png')}}" alt="" height="24px">
-                        <span class="font-weight-bold ml-1">Coders</span>Free
+                        <img src="{{asset('img/layouts/logo.png')}}" alt="" height="30px">
+                        {{-- <span class="font-weight-bold ml-1">Coders</span>Free --}}
                     </a>
     
                     {{-- Botones de acción --}}

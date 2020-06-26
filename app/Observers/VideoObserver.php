@@ -24,8 +24,10 @@ class VideoObserver
     public function deleting(Video $video)
     {
             
-        $filePath = str_replace('storage', 'public', $video->file);
-        Storage::delete($filePath);
+        if($video->file){
+            $filePath = str_replace('storage', 'public', $video->file);
+            Storage::delete($filePath);
+        }
         
     }
 

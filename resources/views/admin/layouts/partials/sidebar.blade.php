@@ -1,11 +1,13 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{route('home')}}" class="brand-link">
-    <img src="{{asset('adminlte/dist/img/AdminLTELogo.png')}}"
-        alt="AdminLTE Logo"
-        class="brand-image img-circle elevation-3"
-        style="opacity: .8">
-    <span class="brand-text font-weight-light">CodersFREE</span>
+
+        {{-- <img src="{{asset('img/layouts/logo.png')}}" alt="" height="40px"> --}}
+        <img src="{{asset('img/layouts/logo_2.png')}}"
+            alt="AdminLTE Logo"
+            class="brand-image"
+            style="opacity: .8">
+        {{-- <span class="brand-text font-weight-light">CodersFREE</span> --}}
     </a>
 
     <!-- Sidebar -->
