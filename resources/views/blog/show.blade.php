@@ -15,6 +15,11 @@
             top: -80px;
         }
 
+        .usuario{
+            position: relative;
+            top: 20px;
+        }
+
       
     </style>
 @endsection
@@ -82,11 +87,12 @@
 
                                 @case(5)
 
-                                    <p class="lead d-inline mr-2">
+                                    <p class="lead mb-0 mr-3">
                                         <span class="badge badge-info">
                                             {{$tag->name}}
                                         </span>
                                     </p>
+
 
                                     @break
                                 @default
@@ -102,7 +108,7 @@
                         
                     </div>
 
-                    <div class="media align-items-center mt-5">
+                    <div class="media align-items-center mt-5 usuario">
 
                         <img class = "rounded-circle shadow-lg mr-3" src="{{asset($post->blogger->user->avatar)}}" alt="" width="40px">
 
@@ -120,13 +126,13 @@
 
 <main>
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row">
             <div class="col">
                 <div class="card">
                     <div class="card-body px-5 pt-5">
 
                         <header>
-                            <h1 class="h2 text-center card-title">{{$post->name}}</h1>
+                            <h1 class="text-center card-title">{{$post->name}}</h1>
                         </header>
 
                         {!!$post->body!!}
