@@ -125,9 +125,9 @@
         <div class="row">
             <div class="col">
                 <div class="card">
-                    <div class="card-body px-5 pt-5">
+                    <div class="card-body px-lg-5 pt-5">
 
-                        <article class="px-4">
+                        <article class="px-lg-4">
                             <header>
                                 <h1 class="text-center card-title">{{$post->name}}</h1>
                             </header>
