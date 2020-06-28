@@ -15,10 +15,6 @@
             top: -80px;
         }
 
-        .usuario{
-            position: relative;
-            top: 20px;
-        }
 
       
     </style>
@@ -108,7 +104,7 @@
                         
                     </div>
 
-                    <div class="media align-items-center mt-5 usuario">
+                    <div class="media align-items-center mt-5">
 
                         <img class = "rounded-circle shadow-lg mr-3" src="{{asset($post->blogger->user->avatar)}}" alt="" width="40px">
 
@@ -131,11 +127,13 @@
                 <div class="card">
                     <div class="card-body px-5 pt-5">
 
-                        <header>
-                            <h1 class="text-center card-title">{{$post->name}}</h1>
-                        </header>
-
-                        {!!$post->body!!}
+                        <article class="px-4">
+                            <header>
+                                <h1 class="text-center card-title">{{$post->name}}</h1>
+                            </header>
+    
+                            {!!$post->body!!}
+                        </article>
 
                     </div>
                 </div>
