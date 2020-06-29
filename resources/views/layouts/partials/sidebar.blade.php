@@ -2,7 +2,7 @@
     <div class="logo-sidebar bg-semi-oscuro border-bottom">
         <a class="navbar-brand text-white d-flex align-items-center" href="{{ url('/') }}">
             <img src="{{asset('img/layouts/logo.png')}}" alt="" height="24px">
-            <span class=" ml-1">Coders</span>Free
+            {{-- <span class=" ml-1">Coders</span>Free --}}
         </a>
     </div>
 
