@@ -4,6 +4,12 @@
     {{$curso->name}}
 @endsection
 
+@section('meta')
+    <meta property="og:title" content="{{$curso->name}}" />
+    <meta property="og:description" content="{{$curso->descripcion}}" />
+    <meta property="og:image" content="{{asset($curso->picture)}}" />
+@endsection
+
 @section('style')
     <style>
         .modulos h1 a{
@@ -19,6 +25,7 @@
 @endsection
 
 @section('content')
+
     <section class="bg-oscuro mb-4">
         @include('cursos.partials.jumbotron')
     </section>
