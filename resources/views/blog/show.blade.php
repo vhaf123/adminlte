@@ -232,7 +232,7 @@
 
                                 <p class="lead mb-0 font-weight-bold mr-2 text-secondary">Compartir: </p>
     
-                                <a href="https://www.facebook.com/dialog/share?app_id={app_id}&display={page_type}&href={url}&redirect_uri={redirect_url}"
+                                <a href="https://www.facebook.com/dialog/share?app_id=264847741428588&display=popup&href={{request()->fullUrl()}}&redirect_uri={{request()->fullUrl()}}"
                                     
                                     title="Compartir en Facebook"
                                     class="text-facebook">
