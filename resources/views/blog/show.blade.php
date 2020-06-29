@@ -232,7 +232,8 @@
 
                                 <p class="lead mb-0 font-weight-bold mr-2 text-secondary">Compartir: </p>
     
-                                <a id="shareBtn"                                    
+                                <a  href=""
+                                    id="shareBtn"                                    
                                     title="Compartir en Facebook"
                                     class="text-facebook">
                                     <i class="fab fa-facebook-square"></i>
