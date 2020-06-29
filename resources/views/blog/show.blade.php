@@ -127,7 +127,7 @@
                     @include('blog.partials.categorias-post')
                     
                     <hgroup>
-                        <h1 class="display-lg-4 text-white font-weight-bold">
+                        <h1 class="text-white font-weight-bold">
                             {{$post->name}}
                         </h1>
                     </hgroup>
