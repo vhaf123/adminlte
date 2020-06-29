@@ -8,10 +8,10 @@
 
         <div class="dropdown-menu dropdown-menu-right menu-usuario" aria-labelledby="navbarDropdown">
 
-            <a class="dropdown-item" href="{{-- {{route('perfil.index', auth()->user())}} --}}">
+            {{-- <a class="dropdown-item" href="">
                 <i class="far fa-user"></i>
                 Mi perfil
-            </a>
+            </a> --}}
 
             <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
