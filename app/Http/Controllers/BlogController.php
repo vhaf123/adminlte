@@ -29,15 +29,15 @@ class BlogController extends Controller
     public function show(Post $post)
     {
 
-        $contador = $post->contador;
-        $contador++;
+        /* $contador = $post->contador;
+        $contador++; */
 
         if($post->status == 1){
             abort(403, 'This action is unauthorized.');
         }else{
 
             $post->update([
-                    'contador' => $contador
+                    'contador' => 10
             ]);
 
             return view('blog.show', compact('post'));
