@@ -9,8 +9,7 @@
 <meta property="og:title" content="{{$post->name}}" />
 <meta property="og:description" content="{{$post->extracto}}" />
 <meta property="og:image" content="{{asset($post->picture)}}" />
-<meta property="og:image:width" content="828" />
-<meta property="og:image:height" content="450" />
+
 
 @endsection
 
@@ -233,7 +232,8 @@
 
                                 <p class="lead mb-0 font-weight-bold mr-2 text-secondary">Compartir: </p>
     
-                                <a href="https://www.facebook.com/dialog/share?app_id={264847741428588}&display={page_type}&href={url}&redirect_uri={redirect_url}"
+                                <a href=""
+                                    id="shareBtn"
                                     title="Compartir en Facebook"
                                     class="text-facebook">
                                     <i class="fab fa-facebook-square"></i>
@@ -281,4 +281,15 @@
 
 @section('script')
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v7.0&appId=264847741428588&autoLogAppEvents=1" nonce="hnF0HBgN"></script>
+
+
+    <script>
+        document.getElementById('shareBtn').onclick = function() {
+          FB.ui({
+            display: 'popup',
+            method: 'share',
+            href: 'https://developers.facebook.com/docs/',
+          }, function(response){});
+        }
+    </script>
 @endsection

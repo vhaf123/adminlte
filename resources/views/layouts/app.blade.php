@@ -12,6 +12,8 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{request()->fullUrl()}}" />
     <meta property="og:site_name" content="CodersFree" />
+    <meta property="og:image:width" content="828" />
+    <meta property="og:image:height" content="450" />
     <meta property="fb:app_id" content="264847741428588" />
 
     @yield('meta')
