@@ -21,7 +21,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-10 col-lg-7 align-self-center">
-                        <h1 class="text-white font-weight-bold">
+                        <h1 class="display-4 text-white font-weight-bold">
                             Los mejores cursos en español
                         </h1>
 

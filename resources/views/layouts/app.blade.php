@@ -7,6 +7,15 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    {{-- Open Graph --}}
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{request()->fullUrl()}}" />
+    <meta property="og:site_name" content="CodersFree" />
+    <meta property="fb:app_id" content="264847741428588" />
+
+    @yield('meta')
+
     <title>{{ config('app.name', 'Laravel') }} | @yield('title')</title>
 
     <!-- Fonts -->
