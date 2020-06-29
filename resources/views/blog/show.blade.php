@@ -145,16 +145,16 @@
                     </div>
                 </div>
 
-                <div class="col-2 bg-warning shadow-lg fecha text-white rounded-left d-none d-lg-flex">
+                <div class="col-2 bg-secondary shadow-lg fecha text-white rounded-left d-none d-lg-flex">
 
                    <div class="numero px-3">
                         {{$post->created_at->format('d')}}
                    </div>
 
                    <div class="pl-3">
-                        <b class="text-oscuro">{{$post->created_at->format('M')}}</b>
+                        <b class="">{{$post->created_at->format('M')}}</b>
                         <br>
-                        <b class="text-oscuro">{{$post->created_at->format('Y')}}</b>
+                        <b class="">{{$post->created_at->format('Y')}}</b>
                    </div>
 
                 </div>
