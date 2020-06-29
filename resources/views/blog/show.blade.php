@@ -288,7 +288,7 @@
           FB.ui({
             display: 'popup',
             method: 'share',
-            href: 'https://developers.facebook.com/docs/',
+            href: '{{request()->fullUrl()}}',
           }, function(response){});
         }
     </script>
