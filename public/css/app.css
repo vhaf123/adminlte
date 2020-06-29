@@ -12761,6 +12761,10 @@ button.toast-close-button {
   color: #4dc247;
 }
 
+.text-oscuro {
+  color: #233142;
+}
+
 .header_principal {
   z-index: 900;
   position: -webkit-sticky;
@@ -12980,7 +12984,7 @@ button.toast-close-button {
 .portada-post:before {
   content: "";
   display: block;
-  padding-top: 100%;
+  padding-top: 75%;
 }
 
 .portada-post .container {
