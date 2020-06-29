@@ -2,7 +2,14 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
 
+    <title>{{ config('app.name', 'Laravel') }} | @yield('title')</title>
+
     <meta charset="utf-8">
+    <meta name="description" content="Encuentra los mejores cursos de programación gratuitos en español. Conviertete en un master del desarrollo web"/>
+    <meta name="keywords" content="cursos online, HTML5, CSS, javascript, php, c++, programacion, diseño web, desarrollo web, ofimatica, laravel, excel"/>
+    <meta name="author" content="Victor Arana" />
+    <meta name="copyright" content="Coders Free" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
@@ -18,7 +25,7 @@
 
     @yield('meta')
 
-    <title>{{ config('app.name', 'Laravel') }} | @yield('title')</title>
+    
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
