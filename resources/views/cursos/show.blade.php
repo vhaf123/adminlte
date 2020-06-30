@@ -5,7 +5,7 @@
 @section('meta')
 
     <meta name="description" content="{{$curso->descripcion}}"/>
-    <meta name="keywords" content="www.codersfree.com, codersfree, coders free, coders, free, {{$curso->keywords}}"/>
+    <meta name="keywords" content="www.codersfree.com, codersfree, coders free, coders, {{$curso->keywords}}"/>
     <meta name="author" content="{{$curso->profesor->user->name}}" />
 
     <meta property="og:title" content="{{$curso->name}}" />

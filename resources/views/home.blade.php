@@ -5,7 +5,7 @@
 @section('meta')
     
     <meta name="description" content="Los mejores cursos en español. Estudia en tus tiempos libres desde donde estés. Elige entre cientos de cursos impartidos por expertos"/>
-    <meta name="keywords" content="codersfree, coders free, coders, free, cursos online, HTML5, CSS, javascript, php, c++, programacion, diseño web, desarrollo web, ofimatica, laravel, excel"/>
+    <meta name="keywords" content="codersfree, coders free, coders, cursos online, cursos online gratis, cursos online gratuitos, cursos online peru, cursos online programacion, cursos online programacion web, cursos online programacion web gratis, mejores cursos online programacion web,diseño web, desarrollo web"/>
     <meta name="author" content="Victor Arana" />
 
     <meta property="og:title" content="Coders Free | Home" />
