@@ -67,7 +67,7 @@
 
                         <div class="form-group">
                             {!! Form::label('keywords', 'Palabras claves') !!}
-                            {!! Form::textarea('keywords', null, ['class' => 'form-control'. ( $errors->has('keywords') ? ' is-invalid' : '' ), 'rows' => "2", 'placeholder' => 'Escriba una serie de palabras claves separado por comas', 'required']) !!}
+                            {!! Form::textarea('keywords', null, ['class' => 'form-control'. ( $errors->has('keywords') ? ' is-invalid' : '' ), 'rows' => "4", 'placeholder' => 'Escriba una serie de palabras claves separado por comas', 'required']) !!}
                             
                             @error('keywords')
                                 <span class="invalid-feedback" role="alert">
