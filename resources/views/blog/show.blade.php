@@ -6,9 +6,13 @@
 
 @section('meta')
 
-<meta property="og:title" content="{{$post->name}}" />
-<meta property="og:description" content="{{$post->extracto}}" />
-<meta property="og:image" content="{{asset($post->picture)}}" />
+    <meta name="description" content="{{$post->extracto}}"/>
+    <meta name="keywords" content="codersfree, coders free, coders, free, cursos online, HTML5, CSS, javascript, php, c++, programacion, diseño web, desarrollo web, ofimatica, laravel, excel"/>
+    <meta name="author" content="{{$post->blogger->user->name}}" />
+
+    <meta property="og:title" content="{{$post->name}}" />
+    <meta property="og:description" content="{{$post->extracto}}" />
+    <meta property="og:image" content="{{asset($post->picture)}}" />
 
 
 @endsection
@@ -173,6 +177,10 @@
                     <div class="card-body pt-4">
 
                         <article class="">
+
+                            
+
+
                             {!!$post->body!!}
                             <hr>
 

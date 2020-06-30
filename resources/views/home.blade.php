@@ -2,6 +2,18 @@
 
 @section('title', 'Home')
 
+@section('meta')
+    
+    <meta name="description" content="Los mejores cursos en español. Estudia en tus tiempos libres desde donde estés. Elige entre cientos de cursos impartidos por expertos"/>
+    <meta name="keywords" content="codersfree, coders free, coders, free, cursos online, HTML5, CSS, javascript, php, c++, programacion, diseño web, desarrollo web, ofimatica, laravel, excel"/>
+    <meta name="author" content="Victor Arana" />
+
+    <meta property="og:title" content="Coders Free | Home" />
+    <meta property="og:description" content="Los mejores cursos en español. Estudia en tus tiempos libres desde donde estés. Elige entre cientos de cursos impartidos por expertos" />
+    <meta property="og:image" content="https://codersfree.com/img/home/computer-767776_1280.jpg" />
+
+@endsection
+
 @section('style')
     <style>
         .bg-degradado i{
