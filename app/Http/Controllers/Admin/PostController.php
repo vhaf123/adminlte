@@ -73,10 +73,9 @@ class PostController extends Controller
         ]);
 
         $resultado = $request->all();
+        $slug = Str::slug($request->get('name'), '-');
         
-        if($post->name != $request->get('name')){
-
-            $slug = Str::slug($request->get('name'), '-');
+        if($post->slug != $slug){
 
             while (Post::where('slug', $slug)->count()) {
                 $slug = $slug.rand(1,100);

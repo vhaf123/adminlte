@@ -82,27 +82,22 @@ class CursoController extends Controller
             'nivel_id' => 'required',
         ]);
 
-
         $resultado = $request->all();
-        
-        if($curso->name != $request->get('name')){
+        $slug = Str::slug($request->get('name'), '-');
 
-            $slug = Str::slug($request->get('name'), '-');
+        if($curso->slug != $slug){
 
             while (Curso::where('slug', $slug)->count()) {
                 $slug = $slug.rand(1,100);
             }
 
             $resultado = array_merge($resultado, ['slug' => $slug]);
-            
         }
-
-
-
 
         $curso->update($resultado);
 
-        return redirect()->route('admin.cursos.show', $curso)->with('info', 'Se actualizó el curso con éxito');;
+        return redirect()->route('admin.cursos.show', $curso)->with('info', 'Se actualizó el curso con éxito');
+        
     }
 
     
