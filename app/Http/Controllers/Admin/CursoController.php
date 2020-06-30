@@ -42,6 +42,7 @@ class CursoController extends Controller
         $request->validate([
             'name' => 'required',
             'descripcion' => 'required',
+            'keywords' => 'required',
             'categoria_id' => 'required',
             'nivel_id' => 'required',
         ]);
@@ -78,6 +79,7 @@ class CursoController extends Controller
         $request->validate([
             'name' => 'required',
             'descripcion' => 'required',
+            'keywords' => 'required',
             'categoria_id' => 'required',
             'nivel_id' => 'required',
         ]);

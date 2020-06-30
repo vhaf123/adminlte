@@ -11,7 +11,7 @@ class Curso extends Model
     const CULMINADO = 3;
 
     protected $fillable = [
-        'categoria_id', 'nivel_id', 'name', 'descripcion', 'picture', 'status', 'deleted_at', 'slug'
+        'categoria_id', 'nivel_id', 'name', 'descripcion', 'keywords', 'picture', 'status', 'deleted_at', 'slug'
     ];
 
     protected $withCount = ['videos', 'users', 'reviews'];

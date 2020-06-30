@@ -1,10 +1,13 @@
 @extends('layouts.app')
 
-@section('title')
-    {{$curso->name}}
-@endsection
+@section('title'){{$curso->name}}@endsection
 
 @section('meta')
+
+    <meta name="description" content="{{$curso->descripcion}}"/>
+    <meta name="keywords" content="www.codersfree.com, codersfree, coders free, coders, free, {{$curso->keywords}}"/>
+    <meta name="author" content="{{$curso->profesor->user->name}}" />
+
     <meta property="og:title" content="{{$curso->name}}" />
     <meta property="og:description" content="{{$curso->descripcion}}" />
     <meta property="og:image" content="{{asset($curso->picture)}}" />
@@ -31,6 +34,7 @@
     </section>
 
     <main>
+
         <div class="container">
             <div class="row">
 

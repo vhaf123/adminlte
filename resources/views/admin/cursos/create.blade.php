@@ -65,6 +65,17 @@
                             @enderror
                         </div>
 
+                        <div class="form-group">
+                            {!! Form::label('keywords', 'Palabras claves') !!}
+                            {!! Form::textarea('keywords', null, ['class' => 'form-control'. ( $errors->has('keywords') ? ' is-invalid' : '' ), 'rows' => "2", 'placeholder' => 'Escriba una serie de palabras claves separado por comas', 'required']) !!}
+                            
+                            @error('keywords')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
                         <div class="form-row">
                             <div class="form-group col-6">
                                 {!! Form::label('categoria_id', 'Categoria') !!}

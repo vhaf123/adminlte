@@ -68,6 +68,7 @@ class PostController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'extracto' => 'required|string|max:255',
+            'keywords' => 'required|string',
             'tags' => 'required',
             'body' => 'required'
         ]);

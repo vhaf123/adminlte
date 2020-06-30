@@ -7,7 +7,7 @@
 @section('meta')
 
     <meta name="description" content="{{$post->extracto}}"/>
-    <meta name="keywords" content="codersfree, coders free, coders, free, cursos online, HTML5, CSS, javascript, php, c++, programacion, diseño web, desarrollo web, ofimatica, laravel, excel"/>
+    <meta name="keywords" content="www.codersfree.com, codersfree, coders free, coders, free, {{$post->keywords}}"/>
     <meta name="author" content="{{$post->blogger->user->name}}" />
 
     <meta property="og:title" content="{{$post->name}}" />

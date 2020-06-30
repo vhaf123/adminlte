@@ -86,6 +86,17 @@
                                 @enderror
                             </div>
 
+                            <div class="form-group col-12">
+
+                                {!! Form::label('keywords', 'Palabras clave') !!}
+                                {!! Form::textarea('keywords', null, ['class' => 'form-control'. ( $errors->has('keywords') ? ' is-invalid' : '' ), 'rows' => "2", 'placeholder' => 'Escriba una serie de palabras clave separadas por coma', 'required']) !!}
+                                @error('keywords')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
                             @foreach ($tags as $tag)
                                 <div class="form-group col-4 mb-0">
                                     <label>
