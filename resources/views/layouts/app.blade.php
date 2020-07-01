@@ -2,7 +2,8 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
 
-    <title>{{ config('app.name', 'Laravel') }} | @yield('title')</title>
+    {{-- {{ config('app.name', 'Laravel') }} --}}
+    <title>@yield('title')</title>
 
     <meta charset="utf-8">
     <meta name="copyright" content="Coders Free" />

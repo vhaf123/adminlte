@@ -7,7 +7,7 @@
         </div>
 
         <div class="col-12 col-lg-7 col-xl-6 text-white">
-            <h1 class="h2 mt-3 mt-lg-0">Curso: {{$curso->name}}</h1>
+            <h1 class="h2 mt-3 mt-lg-0">{{$curso->name}}</h1>
 
             <p>
                 <i class="fas fa-chart-line"></i>

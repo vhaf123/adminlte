@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'Home')
+@section('title', 'Los mejores cursos de programación gratuitos de la web')
 
 @section('meta')
     
-    <meta name="description" content="Los mejores cursos en español. Estudia en tus tiempos libres desde donde estés. Elige entre cientos de cursos impartidos por expertos"/>
-    <meta name="keywords" content="codersfree, coders free, coders, cursos online, cursos online gratis, cursos online gratuitos, cursos online peru, cursos online programacion, cursos online programacion web, cursos online programacion web gratis, mejores cursos online programacion web,diseño web, desarrollo web"/>
+    <meta name="description" content="¿Quieres aprender a programar pero no tienes los recursos para hacerlo? No busques más. Encuentra los mejores cursos de programación gratuitos de la web"/>
+    <meta name="keywords" content="cursos de programación gratuitos, cursos de programación gratuitos de la web, codersfree, coders free, coders, cursos online, cursos online gratis, cursos online gratuitos, cursos online programacion, cursos online programacion web, cursos online programacion web gratis, mejores cursos online programacion web,diseño web, desarrollo web, codersfree, coders free"/>
     <meta name="author" content="Victor Arana" />
 
     <meta property="og:title" content="Coders Free | Home" />

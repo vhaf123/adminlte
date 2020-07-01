@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
-@section('title')
-    {{$post->name}}
-@endsection
+@section('title'){{$post->name}}@endsection
 
 @section('meta')
 
@@ -178,8 +176,7 @@
 
                         <article class="">
 
-                            
-
+                            <h1>{{$post->name}}</h1>
 
                             {!!$post->body!!}
                             <hr>
@@ -214,13 +211,7 @@
                                 </a>
                             </footer>
 
-
-
                         </article>
-
-                        
-
-                        
 
                     </div>
                 </div>
