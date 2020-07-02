@@ -33,7 +33,7 @@
                     </h1>
 
                     <p class="text-white lead">
-                        Accede a todos los cursos de Coders Free ¡GRATIS!
+                        Accede a todos los cursos de programación de Coders Free ¡GRATIS!
                     </p>
 
                     <form action="">
