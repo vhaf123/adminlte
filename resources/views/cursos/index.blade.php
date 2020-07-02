@@ -33,7 +33,7 @@
                     </h1>
 
                     <p class="text-white lead">
-                        Accede a todos los cursos de AdminLTE con nuestra <a href="" class = "text-warning">suscripción Premium</a>
+                        Accede a todos los cursos de Coders Free ¡GRATIS!
                     </p>
 
                     <form action="">
