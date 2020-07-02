@@ -86,7 +86,7 @@
                         <i class="fas fa-blog mr-4 mt-1 d-sm-none d-lg-block"></i>
                         <div class="media-body">
                             <h5 class="mb-0">Articulos</h5>
-                            Artículos de programación
+                            Nuevos post todos los días
                         </div>
                     </div>
                 </div>
@@ -111,7 +111,7 @@
                     </div>
 
                     <h4 class="text-center mt-3">Cursos online</h4>
-                    <p>Encuentra una gran variedad de cursos de programación gratis. Consulta el catalogo <a href="{{route('cursos.index')}}" class="text-warning">aquí</a>.</p>
+                    <p>Encuentra una gran variedad de cursos de programación gratis. Consulta el catalogo completo de cursos <a href="{{route('cursos.index')}}" class="text-warning">aquí</a>.</p>
                 </div>
 
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-5">
@@ -121,7 +121,7 @@
                     </div>
 
                     <h4 class="text-center mt-3">Manuales</h4>
-                    <p>Aquí podrás realizar cursos online. Los cursos están en constante actualización. Consulta el catalogo <a href="{{route('manuales.index')}}" class="text-warning">aquí</a>.</p>
+                    <p>Contamos con varios manuales actualizados constantemente. Consulta el catalogo completo <a href="{{route('manuales.index')}}" class="text-warning">aquí</a>.</p>
                 </div>
                 
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-5">
@@ -131,7 +131,7 @@
                     </div>
 
                     <h4 class="text-center mt-3">Diseño web</h4>
-                    <p>Aquí podrás realizar cursos online. Los cursos están en constante actualización. Consulta el catalogo <a href="{{route('contactanos.index')}}" class="text-warning">aquí</a>.</p>
+                    <p>¿Quieres que diseñemos tu página web por ti?. Ponte en contacto con nosotros y te ayudaremos. <a href="{{route('contactanos.index')}}" class="text-warning">Contáctanos</a>.</p>
                 </div>
 
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-5">
@@ -141,7 +141,7 @@
                     </div>
 
                     <h4 class="text-center mt-3">Blog</h4>
-                    <p>Aquí podrás realizar cursos online. Los cursos están en constante actualización. Consulta el catalogo <a href="{{route('blog.index')}}" class="text-warning">aquí</a>.</p>
+                    <p>Escribimos articulos de programación e informática todos los días. Dirigete al blog haciendo click <a href="{{route('blog.index')}}" class="text-warning">aquí</a>.</p>
                 </div>
                 
             </div>
@@ -159,7 +159,7 @@
                 <p class="text-white text-center">Responde unas cuantas preguntas y nosotros te ayudamos en el proceso</p>
 
                 <div class="d-flex justify-content-center">
-                    <a href="" class="btn btn-danger">Inicia ahora</a>
+                    <button class="btn btn-danger">Inicia ahora</button>
                 </div>
             </div>
 
