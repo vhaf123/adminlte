@@ -4,12 +4,12 @@
 
 @section('meta')
     
-    <meta name="description" content="En Coders Free encontrarás los mejores cursos de programación gratis en español. Nuestro objetivo es convertirnos en la comunidad de programadores más gramde de latinoametica."/>
+    <meta name="description" content="En Coders Free encontrarás los mejores cursos de programación gratis en español. Nuestro objetivo es convertirnos en la mayor comunidad de programadores de latinoametica."/>
     <meta name="keywords" content="Cursos de programación, cursos de programación gratis,  cursos de desarrollo web, cursos de desarrollo web gratis, codersfree, coders free"/>
     <meta name="author" content="Victor Arana" />
 
     <meta property="og:title" content="Cursos de programación gratis | Coders Free" />
-    <meta property="og:description" content="En Coders Free encontrarás los mejores cursos de programación gratis en español. Nuestro objetivo es crear una gran comunidad de programadores." />
+    <meta property="og:description" content="En Coders Free encontrarás los mejores cursos de programación gratis en español. Nuestro objetivo es convertirnos en la mayor comunidad de programadores de latinoametica." />
     <meta property="og:image" content="https://codersfree.com/img/home/computer-767776_1280.jpg" />
 
 @endsection
@@ -38,7 +38,7 @@
                         </h1>
 
                         <p class="text-white lead">
-                            Nuestro objetivo es convertirnos en la comunidad de programadores más gramde de latinoametica.
+                            Nuestro objetivo es convertirnos en la comunidad de programadores más grande de latinoametica.
                         </p>
 
                         <form action="">
@@ -131,7 +131,7 @@
                     </div>
 
                     <h4 class="text-center mt-3">Diseño web</h4>
-                    <p>¿Quieres que diseñemos tu página web por ti?. Ponte en contacto con nosotros y te ayudaremos. <a href="{{route('contactanos.index')}}" class="text-warning">Contáctanos</a>.</p>
+                    <p>¿Quieres que diseñemos tu página web por ti?. Ponte en contacto con nosotros y te ayudaremos. Contáctanos <a href="{{route('contactanos.index')}}" class="text-warning">aquí</a>.</p>
                 </div>
 
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-5">
@@ -155,11 +155,11 @@
         <div class="container d-flex">
 
             <div class="col-12 py-5">
-                <h2 class="text-white text-center"><strong>¿No sabes por donde empezar?</strong></h2>
-                <p class="text-white text-center">Responde unas cuantas preguntas y nosotros te ayudamos en el proceso</p>
+                <h2 class="text-white text-center"><strong>¿No sabes qué curso llevar?</strong></h2>
+                <p class="text-white text-center">Dirígete al catálogo de cursos y filtralos por categoría o nivel</p>
 
                 <div class="d-flex justify-content-center">
-                    <button class="btn btn-danger">Inicia ahora</button>
+                    <a href="{{route('cursos.index')}}" class="btn btn-danger">Catálogo de cursos</a>
                 </div>
             </div>
 
@@ -197,34 +197,32 @@
             <div class="row">
                 
                 <div class="col-12 col-sm-6 col-md-4 mb-5">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            
-                            <i class="fas fa-chart-pie text-info d-block text-center mb-2" style="font-size:32px"></i>
-
-                            <h5 class="mt-0 text-center">A tu propio ritmo</h5>
-                            Disfruta de acceso de por vida a cursos en el sitio web y la aplicación de AdminLTE
-                        </div>
+                    <div class="card h-100 shadow">
+                        <article class="card-body">
+                            <i class="fas fa-laptop-code text-info d-block text-center mb-2" style="font-size:32px"></i>
+                            <h1 class="mt-0 text-center h5">Cursos gratuitos</h1>
+                            <p class="text-center">Una amplia variedad de cursos de programación gratis en español</p>
+                        </article>
                     </div>
                 </div>
                 
                 <div class="col-12 col-sm-6 col-md-4 mb-5">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <i class="fas fa-chart-pie text-info d-block text-center mb-2" style="font-size:32px"></i>
-                            <h5 class="mt-0 text-center">A tu propio ritmo</h5>
-                            Escoge entre los mejores instructores del mundo.
-                        </div>
+                    <div class="card h-100 shadow">
+                        <article class="card-body">
+                            <i class="far fa-clock text-info d-block text-center mb-2" style="font-size:32px"></i>
+                            <h1 class="mt-0 text-center h5">A tu propio ritmo</h1>
+                            <p class="text-center">Estudia en tus tiempos libres y desde donde estés, con nuestros cursos online.</p>
+                        </article>
                     </div>
                 </div>
                 
                 <div class="col-12 col-sm-6 col-md-4 mb-5">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <i class="fas fa-chart-pie text-info d-block text-center mb-2" style="font-size:32px"></i>
-                            <h5 class="mt-0 text-center">A tu propio ritmo</h5>
-                            Crea una biblioteca para tu carrera y crecimiento personal
-                        </div>
+                    <div class="card h-100 shadow">
+                        <article class="card-body">
+                            <i class="fas fa-chalkboard-teacher text-info d-block text-center mb-2" style="font-size:32px"></i>
+                            <h1 class="mt-0 text-center h5">Manuales actualizados</h1>
+                            <p class="text-center">Contamos con una gran cantidad de manuales en constante actualización.</p>
+                        </article>
                     </div>
                 </div>
             </div>
@@ -295,7 +293,9 @@
 
                 <div class="col-12 col-md-6 col-lg-7">
                     <h2 class="text-center text-md-left">¿Qué es CodersFree?</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab quasi totam veniam magni id. Reprehenderit porro rem pariatur. Maxime veritatis molestiae dolores omnis qui eaque ipsam officia ullam quae voluptas?</p>
+                    <p>Coders Free es una iniciativa por promover el conocimiento informático, con todas las personas que están iniciándose en el mundo de la programación pero no tiene los recursos para poder contratar un curso, tal y como me pasó a mi.</p>
+
+                    <p>Nuestro objetivo es darte todas las herramientas necesarias para que puedas conseguir empleo en eso que tanto te gusta, y si luego, quieres apoyar nuestro esfuerzo, será totalmente bienvenido</p>
                 </div>
 
                 <div class="col-8 col-md-6 col-lg-4 col-xl-3 offset-lg-1 mt-5">
