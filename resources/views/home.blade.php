@@ -292,7 +292,7 @@
             <div class="row justify-content-center align-items-center">
 
                 <div class="col-12 col-md-6 col-lg-7">
-                    <h2 class="text-center text-md-left">¿Qué es CodersFree?</h2>
+                    <h2 class="text-center text-md-left">¿Qué es Coders Free?</h2>
                     <p>Coders Free es una iniciativa por promover el conocimiento informático, con todas las personas que están iniciándose en el mundo de la programación pero no tiene los recursos para poder contratar un curso, tal y como me pasó a mi.</p>
 
                     <p>Nuestro objetivo es darte todas las herramientas necesarias para que puedas conseguir empleo en eso que tanto te gusta, y si luego, quieres apoyar nuestro esfuerzo, será totalmente bienvenido</p>
