@@ -11,7 +11,7 @@
 @section('breadcrumbs')
 
 <div class="jumbotron bg-info">
-    <h1><strong>Manual:</strong> {{$manual->name}}</h1>
+    <h1><strong>{{$manual->name}}</strong></h1>
     <p class="lead mb-1"><strong>Categoría:</strong> {{$manual->categoria->name}}</p>
     <p class="lead mb-1"><strong>Descripción:</strong> {{$manual->descripcion}}</p>
     <p class="lead"><strong class="mr-2">Estado:</strong> 

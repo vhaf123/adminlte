@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
-@section('title', 'Los mejores cursos de programación gratuitos de la web')
+@section('title', 'Los mejores cursos de programación gratis | Coders Free')
 
 @section('meta')
     
-    <meta name="description" content="¿Quieres aprender a programar pero no tienes los recursos para hacerlo? No busques más. Encuentra los mejores cursos de programación gratuitos de la web"/>
-    <meta name="keywords" content="cursos de programación gratuitos, cursos de programación gratuitos de la web, codersfree, coders free, coders, cursos online, cursos online gratis, cursos online gratuitos, cursos online programacion, cursos online programacion web, cursos online programacion web gratis, mejores cursos online programacion web,diseño web, desarrollo web, codersfree, coders free"/>
+    <meta name="description" content="En Coders Free encontrarás cursos de programación gratis en español. Nuestro objetivo es crear una gran comunidad de programadores."/>
+    <meta name="keywords" content="Cursos de programación, cursos de programación gratis,  cursos de desarrollo web, cursos de desarrollo web gratis, codersfree, coders free"/>
     <meta name="author" content="Victor Arana" />
 
-    <meta property="og:title" content="Coders Free | Home" />
-    <meta property="og:description" content="Los mejores cursos en español. Estudia en tus tiempos libres desde donde estés. Elige entre cientos de cursos impartidos por expertos" />
+    <meta property="og:title" content="Cursos de programación gratis | Coders Free" />
+    <meta property="og:description" content="En Coders Free encontrarás los mejores cursos de programación gratis en español. Nuestro objetivo es crear una gran comunidad de programadores." />
     <meta property="og:image" content="https://codersfree.com/img/home/computer-767776_1280.jpg" />
 
 @endsection
@@ -34,11 +34,11 @@
                 <div class="row">
                     <div class="col-12 col-md-10 col-lg-7 align-self-center">
                         <h1 class=" text-white font-weight-bold">
-                            Los mejores cursos en español
+                            Los mejores cursos de programación gratis en español
                         </h1>
 
                         <p class="text-white lead">
-                            Estudia en tus tiempos libres desde donde estés. Elige entre cientos de cursos impartidos por expertos. 
+                            En Coders Free encontrarás los mejores cursos de programación gratis en español. Nuestro objetivo es crear una gran comunidad de programadores.
                         </p>
 
                         <form action="">
@@ -64,7 +64,7 @@
                         <i class="fas fa-laptop-code mr-4 mt-1 d-sm-none d-lg-block"></i>
                         <div class="media-body">
                             <h5 class="mb-0">Cursos online</h5>
-                            Una amplia variedad de cursos
+                            Cursos de programación gratis
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                         {{-- <i class="fas fa-broadcast-tower mr-4 mt-1 d-sm-none d-lg-block"></i> --}}
                         <div class="media-body">
                             <h5 class="mb-0">Manueles online</h5>
-                            Actualizado todos los días
+                            Actualizados constantemente
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                         <i class="fas fa-blog mr-4 mt-1 d-sm-none d-lg-block"></i>
                         <div class="media-body">
                             <h5 class="mb-0">Articulos</h5>
-                            Artículos de tecnología web
+                            Artículos de programación
                         </div>
                     </div>
                 </div>
@@ -111,7 +111,7 @@
                     </div>
 
                     <h4 class="text-center mt-3">Cursos online</h4>
-                    <p>Aquí podrás realizar cursos online. Los cursos están en constante actualización. Consulta el catalogo <a href="{{route('cursos.index')}}" class="text-warning">aquí</a>.</p>
+                    <p>Encuentra una gran variedad de cursos de programación gratis. Consulta el catalogo <a href="{{route('cursos.index')}}" class="text-warning">aquí</a>.</p>
                 </div>
 
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-5">

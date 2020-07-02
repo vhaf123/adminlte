@@ -53,7 +53,7 @@
                                         
                                 @endswitch
 
-                                <h1 class="cart-title h4 mt-2">{{Str::limit($manual->name, 30)}}</h1>
+                                <h1 class="cart-title h4 mt-2"><strong>{{Str::limit($manual->name, 30)}}</strong></h1>
                                 <p class="card-text">{{Str::limit($manual->descripcion, 75)}}</p>
                                 <a href="{{route('manuales.show', $manual)}}" class="btn btn-block btn-primary">Ver manual</a>
                             </div>
