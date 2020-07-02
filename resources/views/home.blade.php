@@ -4,7 +4,7 @@
 
 @section('meta')
     
-    <meta name="description" content="En Coders Free encontrarás cursos de programación gratis en español. Nuestro objetivo es crear una gran comunidad de programadores."/>
+    <meta name="description" content="En Coders Free encontrarás los mejores cursos de programación gratis en español. Nuestro objetivo es convertirnos en la comunidad de programadores más gramde de latinoametica."/>
     <meta name="keywords" content="Cursos de programación, cursos de programación gratis,  cursos de desarrollo web, cursos de desarrollo web gratis, codersfree, coders free"/>
     <meta name="author" content="Victor Arana" />
 
@@ -38,7 +38,7 @@
                         </h1>
 
                         <p class="text-white lead">
-                            En Coders Free encontrarás los mejores cursos de programación gratis en español. Nuestro objetivo es crear una gran comunidad de programadores.
+                            Nuestro objetivo es convertirnos en la comunidad de programadores más gramde de latinoametica.
                         </p>
 
                         <form action="">
