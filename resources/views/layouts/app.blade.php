@@ -2,6 +2,16 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171642679-1"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-171642679-1');
+    </script>
+
     {{-- {{ config('app.name', 'Laravel') }} --}}
     <title>@yield('title')</title>
 
@@ -22,10 +32,6 @@
     <meta property="og:image:width" content="828" />
     <meta property="og:image:height" content="450" />
     <meta property="fb:app_id" content="264847741428588" />
-
-    
-
-    
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
