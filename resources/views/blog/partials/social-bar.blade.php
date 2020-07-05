@@ -1,27 +1,27 @@
 <div class="social">
     <ul class="list-unstyled">
         <li class="bg-facebook">
-            <a href="">
+            <a href="https://www.facebook.com/codersfree/">
                 <i class="fab fa-facebook-f"></i>
             </a>
         </li>
         <li class="bg-twitter">
-            <a href="">
+            <a href="https://twitter.com/victoraranaflo1" target="_blank">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
         <li class="bg-linkedin">
-            <a href="">
+            <a href="https://www.linkedin.com/in/victor-arana-flores-138767120/" target="_blank">
                 <i class="fab fa-linkedin-in"></i>
             </a>
         </li>
         <li class="bg-whatsApp">
-            <a href="">
+            <a href="https://api.whatsapp.com/send?phone=987601368&text=Me%20interesar%C3%ADa%20contactarme%20contigo,%20para%20que%20puedas%20dise%C3%B1ar%20mi%20pagina%20web" target="_blank">
                 <i class="fab fa-whatsapp"></i>
             </a>
         </li>
         <li class="bg-pinterest">
-            <a href="">
+            <a href="" target="_blank">
                 <i class="fab fa-pinterest-p"></i>
             </a>
         </li>

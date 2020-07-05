@@ -192,21 +192,21 @@
                                     <i class="fab fa-facebook-square"></i>
                                 </a>
     
-                                <a href=""
+                                <a href="https://twitter.com/intent/tweet?url={{request()->fullUrl()}}&text={{$post->name}}&via=CodersFree&hashtags=CodersFree"
                                     title="Compartir en Twitter"
-                                    class="text-twitter">
+                                    class="text-twitter" target="_blank">
                                     <i class="fab fa-twitter-square"></i>
                                 </a>
     
-                                <a href=""
+                                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{request()->fullUrl()}}"
                                     title="Compartir en Linkedin"
-                                    class="text-linkedin">
+                                    class="text-linkedin" target="_blank">
                                     <i class="fab fa-linkedin"></i>
                                 </a>
     
                                 <a href=""
                                     title="Compartir en WhatsApp"
-                                    class="text-whatsApp">
+                                    class="text-whatsApp" target="_blank">
                                     <i class="fab fa-whatsapp-square"></i>
                                 </a>
                             </footer>
