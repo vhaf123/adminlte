@@ -134,7 +134,7 @@
                         </h1>
                     </hgroup>
 
-                    <p class="text-white d-none d-lg-block">{{$post->extracto}}</p>
+                    <p class="text-white d-none d-lg-block lead">{{$post->extracto}}</p>
 
                     <div class="media align-items-center">
 
