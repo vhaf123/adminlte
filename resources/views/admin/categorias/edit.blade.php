@@ -2,8 +2,35 @@
 
 @section('title', 'Editar categorías')
 
-@section('breadcrumbs')
+@section('style')
+    <link rel="stylesheet" href="{{asset('plugins/dropzone-5.7.0/dist/min/dropzone.min.css')}}">
 
+    <style>
+        .img-categoria{
+            position: relative;
+            width: 100%;
+        }
+
+        .img-categoria:before{
+            content: '';
+            display: block;
+            padding-top: 56.25%;
+        }
+
+        .img-categoria > img{
+            position: absolute;
+            z-index: 100;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            top: 0;
+            left: 0;
+        }
+    </style>
+
+@endsection
+
+@section('breadcrumbs')
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
@@ -25,7 +52,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-10">
+            <div class="col-8">
                 <div class="card">
                     <div class="card-header">
                         <h1 class="card-title mb-0">Crear nueva categoría</h1>
@@ -80,6 +107,38 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-4">
+
+                @if ($categoria->picture)
+                    <figure class="img-categoria">
+                        <img src="{{asset($categoria->picture)}}" alt="" class="rounded">
+                    </figure>
+                @endif
+
+                <form action="{{route('admin.categorias.dropzone', $categoria)}}" method="POST" class="dropzone mb-4" id="my-dropzone">
+                </form>
+            </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script src="{{asset('plugins/dropzone-5.7.0/dist/min/dropzone.min.js')}}"></script>
+    
+    <script>
+
+        Dropzone.options.myDropzone = {
+            dictDefaultMessage: 'Arrastre una foto para agregar o cambiar de foto',
+            headers: {
+                'X-CSRF-TOKEN': "{{csrf_token()}}"
+            },
+            acceptedFiles: 'image/*',
+            maxFilesize: 1,
+            maxFiles: 1,
+            paramName: 'picture',
+        };
+        
+    </script>
+
 @endsection

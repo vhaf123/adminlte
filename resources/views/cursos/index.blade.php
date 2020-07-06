@@ -55,7 +55,7 @@
     <div class="container">
 
         <div class="row">
-            <div class="col">
+            <nav class="col">
                 
                 <ul class="nav nav-pills py-3">
 
@@ -77,7 +77,9 @@
                         <div class="dropdown-menu">
 
                             @foreach ($categorias as $categoria)
-                                <a class="dropdown-item" href="{{route('cursos.index').'?categoria_id='.$categoria->id}}">{{$categoria->name}}</a>    
+                                <a class="dropdown-item" href="{{route('categorias.show', $categoria->slug)}}">{{$categoria->name}}</a>
+
+                                {{-- <a class="dropdown-item" href="{{route('cursos.index').'?categoria_id='.$categoria->id}}">{{$categoria->name}}</a>     --}}
                             @endforeach
                             
                         </div>
@@ -127,7 +129,7 @@
                     </li>
                 </ul>
 
-            </div>
+            </nav>
         </div>
     </div>
 </section>

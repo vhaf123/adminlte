@@ -37,12 +37,6 @@ class Curso extends Model
 
 
     /* Query Scopes */
-    
-    public function scopeCategoria($query, $categoria_id){
-        if($categoria_id){
-            return $query->where('categoria_id', $categoria_id);
-        }
-    }
 
     public function scopeNivel($query, $nivel_id){
         if($nivel_id){

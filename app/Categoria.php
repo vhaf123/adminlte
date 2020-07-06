@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Categoria extends Model
 {
     protected $fillable = [
-        'name', 'slug','descripcion'
+        'name', 'slug','descripcion', 'picture'
     ];
 
     //Route Model Binding

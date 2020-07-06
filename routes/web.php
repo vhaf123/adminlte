@@ -10,10 +10,14 @@ Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCall
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('cursos/categoria/{categoria}', 'CursoController@categoria');
+Route::get('categorias/{categoria}', 'CategoriaController@show')->name('categorias.show');
+
+/* Route::get('cursos/categoria/{categoria}', 'CursoController@categoria')->name('cursos.categoria'); */
 Route::resource('cursos', 'CursoController')->only('index', 'show');
 Route::post('cursos/{curso}/matricular', 'CursoController@matricular')->name('cursos.matricular');
 Route::post('cursos/{curso}/review', 'CursoController@review')->name('cursos.review');
+
+
 
 Route::get('/recursos/{video}', 'RecursoController@show')->name('recursos.show');
 Route::get('/recursos/{video}/download', 'RecursoController@download')->name('recursos.download');
@@ -49,8 +53,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     
     Route::get('/', 'HomeController@index')->name('admin.home');
     Route::resource('users', 'UserController')->except('create', 'store', 'destroy')->names('admin.users');
-    Route::resource('categorias', 'CategoriaController')->names('admin.categorias');
 
+    Route::resource('categorias', 'CategoriaController')->names('admin.categorias');
+    Route::post('categorias/{categoria}/dropzone', 'CategoriaController@dropzone')->name('admin.categorias.dropzone');
 
     Route::resource('cursos', 'CursoController')->names('admin.cursos');
     Route::post('cursos/{curso}/dropzone', 'CursoController@dropzone')->name('admin.cursos.dropzone');

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 use App\Categoria;
 
@@ -47,9 +47,9 @@ class CategoriaController extends Controller
             'descripcion' => "required"
         ]);
 
-        Categoria::create($request->all());
+        $categoria = Categoria::create($request->all());
 
-        
+        return redirect()->route('admin.categorias.edit', $categoria)->with('info', 'Se creo la categoría con éxito');
     }
 
     /**
@@ -104,5 +104,26 @@ class CategoriaController extends Controller
     {
         $categoria->delete();
         return redirect()->route('admin.categorias.index')->with('info', 'Se elimino la categoría con éxito');
+    }
+
+    public function dropzone(Request $request, Categoria $categoria){
+
+        $request->validate([
+            'picture' => 'image|max:1024'
+        ]);
+
+        if($categoria->picture){
+            $picturePath = str_replace('storage', 'public', $categoria->picture);
+            Storage::delete($picturePath);
+        }
+
+        $picture = $request->file('picture')->store('public/categorias');
+
+        $pictureUrl = Storage::url($picture);
+
+        $categoria->picture = $pictureUrl;
+
+        $categoria->save();
+
     }
 }

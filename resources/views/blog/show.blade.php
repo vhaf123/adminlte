@@ -63,7 +63,7 @@
                 left: 0;
                 bottom: 0px;
                 z-index: 1000;
-                width: 100%;
+                width: 100vw;
             }
 
             .social ul{
