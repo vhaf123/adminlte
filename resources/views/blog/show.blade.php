@@ -16,6 +16,7 @@
 @endsection
 
 @section('style')
+    <link rel="stylesheet" href="{{asset('plugins/highlight/styles/agate.css')}}">
     <style>
       
         .portada{
@@ -116,7 +117,7 @@
 
 <div id="fb-root"></div>
 
-{{-- @include('blog.partials.social-bar') --}}
+@include('blog.partials.social-bar')
 
 <section class="portada-post">
     <img src="{{asset($post->picture)}}" alt="">
@@ -228,6 +229,7 @@
 
 @section('script')
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v7.0&appId=264847741428588&autoLogAppEvents=1" nonce="hnF0HBgN"></script>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.1/build/highlight.min.js"></script>
 
     <script>
         document.getElementById('shareBtn').onclick = function() {
@@ -237,6 +239,8 @@
             href: '{{request()->fullUrl()}}',
           }, function(response){});
         }
+
+        hljs.initHighlightingOnLoad();
     </script>
 
 @endsection
