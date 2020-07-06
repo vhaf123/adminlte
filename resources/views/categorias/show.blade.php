@@ -38,7 +38,7 @@
                         </h1>
 
                         <p class="text-white lead">
-                            {{$categoria->descripcion}}
+                            Accede a todos los cursos de programación de Coders Free ¡GRATIS!
                         </p>
 
                         <form action="">
@@ -143,24 +143,18 @@
 
         <div class="container">
             
-            <h1 class="h2 mb-3 d-md-none text-secondary">Lista de cursos</h1>
-            <hr class="d-md-none">
+            <h1 class="h2 mb-3 d-lg-none">Lista de cursos</h1>
             <div class="row">
 
-                @forelse ($cursos as $curso)
+                @foreach ($cursos as $curso)
+                
                     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
 
                         @include('cursos.partials.card-curso')
 
                     </div>
-                @empty
-                    
-                    <div class="col-12">
-                        <h2 class="h3">Actualmente no se ha subido ningún curso en esta categoría</h2>
-                    </div>
 
-                @endforelse
-               
+                @endforeach
                     
             </div>
 
