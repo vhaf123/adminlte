@@ -38,7 +38,7 @@
                         </h1>
 
                         <p class="text-white lead">
-                            Accede a todos los cursos de programación de Coders Free ¡GRATIS!
+                            {{$categoria->descripcion}}
                         </p>
 
                         <form action="">
