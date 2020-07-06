@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Curso;
 use App\Review;
+use app\Categoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,6 +15,12 @@ class CursoController extends Controller
     {
         $this->middleware('auth')->only('matricular', 'review');
     }
+
+
+    public function categoria(Categoria $categoria){
+        return $categoria;
+    }
+
     
     public function index(Request $request)
     {

@@ -34,6 +34,17 @@
 
                 @endcan
 
+                @can('admin.users.index')
+
+                    <li class="nav-item">
+                        <a href="{{route('admin.categorias.index')}}" class="nav-link {{setactive('admin.categorias.*')}}">
+                            <i class="nav-icon fas fa-brain"></i>
+                            <p>Categorías</p>
+                        </a>
+                    </li>
+
+                @endcan
+
                 <li class="nav-header">ROLES DE USUARIO</li>
 
                 @can('admin.cursos.index')

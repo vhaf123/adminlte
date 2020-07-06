@@ -3,6 +3,8 @@
 use Illuminate\Database\Seeder;
 use App\Categoria;
 
+use Illuminate\Support\Str;
+
 class CategoriaSeeder extends Seeder
 {
     /**
@@ -12,24 +14,13 @@ class CategoriaSeeder extends Seeder
      */
     public function run()
     {
-        Categoria::create([
-            'name' => 'Desarrollo web', 
-        ]);
+       $categorias = Categoria::all();
 
-        Categoria::create([
-            'name' => 'Diseño web', 
-        ]);
-
-        Categoria::create([
-            'name' => 'Programacion', 
-        ]);
-
-        Categoria::create([
-            'name' => 'Ofimatica', 
-        ]);
-
-        Categoria::create([
-            'name' => 'Ofimática VBA', 
-        ]);
+       foreach ($categorias as $categoria) {
+            $slug = Str::slug($categoria->name, '-');
+            $categoria->update([
+                'slug' => $slug
+            ]);
+       }
     }
 }

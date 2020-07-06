@@ -12,20 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        $this->call(VideoSeeder::class);
-
-        /* $this->call(PermissionSeeder::class);
-        $this->call(RoleSeeder::class);
-        $this->call(UserSeeder::class);
         $this->call(CategoriaSeeder::class);
-        $this->call(NivelSeeder::class);
-        $this->call(TipoSeeder::class);
-
-        $this->call(CursoSeeder::class);
-
-        $this->call(TagSeeder::class);
-        $this->call(PostSeeder::class);
-
-        $this->call(ManualSeeder::class); */
+        
     }
 }
