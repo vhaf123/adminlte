@@ -139,7 +139,7 @@
 
     <div class="container">
         
-        <h1 class="h2 mb-3 d-lg-none">Lista de cursos</h1>
+        <h1 class="h2 mb-3 d-md-none text-secondary">Lista de cursos</h1>
         <div class="row">
 
             @foreach ($cursos as $curso)

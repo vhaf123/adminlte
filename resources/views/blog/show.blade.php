@@ -116,7 +116,7 @@
 
 <div id="fb-root"></div>
 
-@include('blog.partials.social-bar')
+{{-- @include('blog.partials.social-bar') --}}
 
 <section class="portada-post">
     <img src="{{asset($post->picture)}}" alt="">

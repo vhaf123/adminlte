@@ -143,18 +143,21 @@
 
         <div class="container">
             
-            <h1 class="h2 mb-3 d-lg-none">Lista de cursos</h1>
+            <h1 class="h2 mb-3 d-md-none text-secondary">Lista de cursos</h1>
             <div class="row">
 
-                @foreach ($cursos as $curso)
-                
+                @forelse ($cursos as $curso)
                     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
 
                         @include('cursos.partials.card-curso')
 
                     </div>
+                @empty
+                    
+                    <h2 class="h3">Actualmente no se ha subido ningún curso en esta categoría</h2>
 
-                @endforeach
+                @endforelse
+               
                     
             </div>
 
