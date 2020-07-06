@@ -144,6 +144,7 @@
         <div class="container">
             
             <h1 class="h2 mb-3 d-md-none text-secondary">Lista de cursos</h1>
+            <hr>
             <div class="row">
 
                 @forelse ($cursos as $curso)
