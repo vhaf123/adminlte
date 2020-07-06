@@ -154,7 +154,7 @@
                     </div>
                 @empty
                     
-                    <h2 class="h3">Actualmente no se ha subido ningún curso en esta categoría</h2>
+                    <h2 class="h3 mb-3">Actualmente no se ha subido ningún curso en esta categoría</h2>
 
                 @endforelse
                
