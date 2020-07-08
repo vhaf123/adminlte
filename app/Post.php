@@ -10,13 +10,24 @@ class Post extends Model
     const PUBLICADO = 2;
 
     protected $fillable = [
-        'blogger_id', 'name', 'picture', 'extracto', 'keywords', 'body', 'status', 'slug', 'contador'
+        'title', 'description', 'name', 'picture', 'extracto', 'body', 'status', 'slug', 'contador'
     ];
 
     //Route Model Binding
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    /* Atributos */
+    public function getEstadoAttribute(){
+
+        if($this->status == 1){
+            return "Borrador";
+        }else{
+            return "Publicado";
+        }
+        
     }
 
 

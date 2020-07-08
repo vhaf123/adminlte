@@ -2,6 +2,10 @@
 
 @section('title', 'Register')
 
+@section('meta')
+    <meta name="robots" content="noindex">
+@endsection
+
 @section('style')
     <style>
         .register{

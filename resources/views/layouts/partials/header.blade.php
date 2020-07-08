@@ -19,11 +19,11 @@
                         @guest
 
                             {{-- Botones de login --}}
-                            <a href="{{ route('login') }}" class="btn btn-outline-dark font-weight-bold">
+                            <a href="{{ route('login') }}" class="btn btn-outline-dark font-weight-bold" rel="nofollow">
                                 Iniciar sesión
                             </a>
                 
-                            <a href="{{ route('register') }}" class="btn btn-danger font-weight-bold ml-2">
+                            <a href="{{ route('register') }}" class="btn btn-danger font-weight-bold ml-2" rel="nofollow">
                                 Registrarse
                             </a>
 

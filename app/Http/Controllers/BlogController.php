@@ -11,13 +11,11 @@ class BlogController extends Controller
    
     public function index()
     {
-        $posts =Post::select("id", "blogger_id", "name", "picture", "extracto", "slug", "contador", 'status', "created_at")
-                    ->where('status', '!=', 1)
+        $posts =Post::where('status', '!=', 1)
                     ->latest()
                     ->paginate(9);
 
-        $populares = Post::select("id", "blogger_id", "name", "picture", "extracto", "slug", "contador", 'status', "created_at")
-                    ->where('status', '!=', 1)
+        $populares = Post::where('status', '!=', 1)
                     ->latest('contador')
                     ->get()
                     ->take(6);

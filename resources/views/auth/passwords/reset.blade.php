@@ -1,6 +1,10 @@
 @extends('layouts.auth')
 
-@section('title', 'Login')
+@section('title', 'Reset')
+
+@section('meta')
+    <meta name="robots" content="noindex">
+@endsection
 
 @section('content')
     <div class="container">

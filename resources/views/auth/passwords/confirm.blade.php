@@ -1,5 +1,8 @@
 @extends('layouts.auth')
 
+@section('meta')
+    <meta name="robots" content="noindex">
+@endsection
 
 @section('content')
 <div class="container">

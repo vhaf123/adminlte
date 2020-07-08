@@ -1,13 +1,10 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
+    
+    
     <a href="{{route('home')}}" class="brand-link">
-
-        {{-- <img src="{{asset('img/layouts/logo.png')}}" alt="" height="40px"> --}}
-        <img src="{{asset('img/layouts/logo_2.png')}}"
-            alt="AdminLTE Logo"
-            class="brand-image"
-            style="opacity: .8">
-        {{-- <span class="brand-text font-weight-light">CodersFREE</span> --}}
+      <img src="{{asset('img/layouts/logo2.png')}}" alt="CodersFree Logo" class="brand-image img-circle elevation-3"
+           style="opacity: .8">
+      <span class="brand-text font-weight-light">Coders Free</span>
     </a>
 
     <!-- Sidebar -->
@@ -27,8 +24,8 @@
 
                     <li class="nav-item">
                         <a href="{{route('admin.users.index')}}" class="nav-link {{setactive('admin.users.*')}}">
-                            <i class="nav-icon fas fa-users-cog"></i>
-                            <p>Asignar un rol</p>
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>Usuarios</p>
                         </a>
                     </li>
 
@@ -50,7 +47,7 @@
                 @can('admin.cursos.index')
                     <li class="nav-item has-treeview {{setOpen2('admin.cursos.*', 'admin.modulos.*')}}">
                         <a href="#" class="nav-link {{setactive2('admin.cursos.*', 'admin.modulos.*')}}">
-                            <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                            <i class="nav-icon fas fa-laptop-code"></i>
                             <p>
                                 Cursos
                                 <i class="right fas fa-angle-left"></i>
@@ -78,7 +75,7 @@
                 @can('admin.manuales.index')
                     <li class="nav-item has-treeview {{setOpen2('admin.manuales.*', 'admin.temas.*')}}">
                         <a href="#" class="nav-link {{setactive2('admin.manuales.*', 'admin.temas.*')}}">
-                            <i class="nav-icon fas fa-book"></i>
+                            <i class="nav-icon fas fa-chalkboard-teacher"></i>
                             <p>
                                 Manuales
                                 <i class="right fas fa-angle-left"></i>

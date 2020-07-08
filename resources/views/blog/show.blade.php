@@ -1,15 +1,13 @@
 @extends('layouts.app')
 
-@section('title'){{$post->name}}@endsection
+@section('title'){{$post->title}}@endsection
 
 @section('meta')
 
-    <meta name="description" content="{{$post->extracto}}"/>
-    <meta name="keywords" content="{{$post->keywords}}"/>
+    <meta name="description" content="{{$post->description}}"/>
     <meta name="author" content="{{$post->blogger->user->name}}" />
-
-    <meta property="og:title" content="{{$post->name}}" />
-    <meta property="og:description" content="{{$post->extracto}}" />
+    <meta property="og:title" content="{{$post->title}}" />
+    <meta property="og:description" content="{{$post->description}}" />
     <meta property="og:image" content="{{asset($post->picture)}}" />
 
 
@@ -191,25 +189,29 @@
                                 <a  href=""
                                     id="shareBtn"                                    
                                     title="Compartir en Facebook"
-                                    class="text-facebook">
+                                    class="text-facebook"
+                                    rel="nofollow">
                                     <i class="fab fa-facebook-square"></i>
                                 </a>
     
                                 <a href="https://twitter.com/intent/tweet?url={{request()->fullUrl()}}&text={{$post->name}}&via=CodersFree&hashtags=CodersFree"
                                     title="Compartir en Twitter"
-                                    class="text-twitter" target="_blank">
+                                    class="text-twitter" target="_blank"
+                                    rel="nofollow">
                                     <i class="fab fa-twitter-square"></i>
                                 </a>
     
                                 <a href="https://www.linkedin.com/sharing/share-offsite/?url={{request()->fullUrl()}}"
                                     title="Compartir en Linkedin"
-                                    class="text-linkedin" target="_blank">
+                                    class="text-linkedin" target="_blank"
+                                    rel="nofollow">
                                     <i class="fab fa-linkedin"></i>
                                 </a>
     
                                 <a href=""
                                     title="Compartir en WhatsApp"
-                                    class="text-whatsApp" target="_blank">
+                                    class="text-whatsApp" target="_blank"
+                                    rel="nofollow">
                                     <i class="fab fa-whatsapp-square"></i>
                                 </a>
                             </footer>

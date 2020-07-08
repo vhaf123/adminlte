@@ -18,9 +18,10 @@
 
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="{{route('admin.home')}}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('admin.home')}}">Dashboard</a></li>
                     <li class="breadcrumb-item"><a href="{{route('admin.cursos.index')}}">Cursos</a></li>
-                    <li class="breadcrumb-item active">{{$curso->name}}</li>
+                    <li class="breadcrumb-item"><a href="{{route('admin.cursos.show', $curso)}}">{{$curso->name}}</a></li>
+                    <li class="breadcrumb-item active">Edit</li>
                 </ol>
             </div>
         </div>

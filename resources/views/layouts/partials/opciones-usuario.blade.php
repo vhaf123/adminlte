@@ -15,7 +15,7 @@
 
             <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
+                                document.getElementById('logout-form').submit();" rel="nofollow">
                 <i class="fas fa-sign-out-alt"></i>
                 Cerrar sesión
             </a>

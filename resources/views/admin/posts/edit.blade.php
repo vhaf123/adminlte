@@ -28,21 +28,27 @@
             left: 0;
         }
 
+        .info i{
+            width: 20px;
+            text-align: center;
+        }
+
     </style>
 @endsection
 
 @section('breadcrumbs')
 
     <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1>Editar post</h1>
+        <div class="row mb-2 flex-wrap">
+            <div class="col-12 col-md-4">
+                <h1>Detalle de post</h1>
             </div>
 
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="{{route('admin.home')}}">Home</a></li>
-                <li class="breadcrumb-item active">{{$post->name}}</li>
+            <div class="col-12 col-md-8">
+                <ol class="breadcrumb float-md-right">
+                    <li class="breadcrumb-item"><a href="{{route('admin.home')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('admin.posts.index')}}">Posts</a></li>
+                    <li class="breadcrumb-item active">{{$post->name}}</li>
                 </ol>
             </div>
         </div>
@@ -56,19 +62,27 @@
 
 <main>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-8">
-                <div class="card">
-                    <div class="card-body">
-                
-                    {!! Form::model($post, ['route' => ['admin.posts.update', $post], 'method' => 'put']) !!}
+        <div class="row" id="app">
 
-                        <div class="form-row">
+            <div class="col-12 order-1 d-none alerta">
+                <div class="alert alert-danger" role="alert">
+                    <strong>Para poder publicar un post, primero debe completar todos los campos. Si ya los completó, asegurese de haber guardado los cambios</strong>
+                </div>
+            </div>
 
-                            <div class="form-group col-12">
-                                {!! Form::label('name', 'Escriba el nombre del post') !!}
-                                {!! Form::text('name', null, ['class' => 'form-control'. ( $errors->has('name') ? ' is-invalid' : '' ), 'placeholder' => 'Escriba el título del post', 'required']) !!}
+            <div class="col-12 col-lg-8 order-3 order-lg-2">
 
+                {!! Form::model($post, ['route' => ['admin.posts.update', $post], 'method' => 'put', 'id' => 'formulario']) !!}
+                    <div class="card">
+                        <div class="card-body">
+                            
+                            {{-- Titulo --}}
+                            <h1 class="h5">
+                                Título: 
+                            </h1>
+
+                            <div class="form-group">
+                                {!! Form::text('name', null, ['class' => 'form-control'. ( $errors->has('name') ? ' is-invalid' : '' ), 'placeholder' => 'Escriba el título del post']) !!}
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -76,9 +90,15 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group col-12">
-                                {!! Form::label('extracto', 'Extracto del post') !!}
-                                {!! Form::textarea('extracto', null, ['class' => 'form-control'. ( $errors->has('extracto') ? ' is-invalid' : '' ), 'rows' => "3", 'placeholder' => 'Escriba un pequeño extrecto del post', 'required']) !!}
+                            {{-- Extracto --}}
+                            <h1 class="h5">
+                                Extracto:
+                            </h1>
+
+                            <div class="form-group">
+
+                                {!! Form::textarea('extracto', null, ['class' => 'form-control'. ( $errors->has('extracto') ? ' is-invalid' : '' ), 'placeholder' => 'Escriba un pequeño extracto del post', 'required', 'rows' => '3']) !!}
+
                                 @error('extracto')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -86,36 +106,12 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group col-12">
+                            {{-- Body --}}
+                            <h1 class="h5">
+                                Contenido:
+                            </h1>
 
-                                {!! Form::label('keywords', 'Palabras clave') !!}
-                                {!! Form::textarea('keywords', null, ['class' => 'form-control'. ( $errors->has('keywords') ? ' is-invalid' : '' ), 'placeholder' => 'Escriba una serie de palabras clave separadas por coma', 'required']) !!}
-                                @error('keywords')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-
-                            @foreach ($tags as $tag)
-                                <div class="form-group col-4 mb-0">
-                                    <label>
-                                        {!! Form::checkbox('tags[]', $tag->id, null) !!}
-                                        {{$tag->name}}
-                                    </label>
-                                </div>
-                            @endforeach
-
-                            <div class="form-group col-12">
-                                @error('tags')
-                                    <span class="text-danger">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group col-12 mt-3">
-                                {!! Form::label('body', 'Contenido de la publicación') !!}
+                            <div class="form-group">
                                 {!! Form::textarea('body', null, ['class' => 'form-control my-editor'. ( $errors->has('body') ? ' is-invalid' : '' ), 'placeholder' => 'Escriba el contenido principal del post']) !!}
                                 @error('body')
                                     <span class="invalid-feedback" role="alert">
@@ -124,43 +120,121 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group col-12">
-                                {!! Form::submit('Actualizar Post', ['class' => 'btn btn-primary btn-block']) !!}
+                            
+                                
+                            {{-- Categorias --}}
+                            <h1 class="h5">
+                                Categorias:
+                            </h1>
+
+                            <div class="card shadow @error('tags') border border-danger @enderror" style="background-color: #D6DEE8">
+                                
+                                <div class="card-body">
+                                    <div class="form-row">
+                                        @foreach ($tags as $tag)
+                                            <div class="form-group col-4 mb-0">
+                                                <label>
+                                                    {!! Form::checkbox('tags[]', $tag->id, null) !!}
+                                                    {{$tag->name}}
+                                                </label>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
                             </div>
-
+                            
+                            @error('tags')
+                                <small class="text-danger">
+                                    <strong>Tiene que seleccionar al menos una categoría</strong>
+                                </small>    
+                            @enderror
+                        
                         </div>
-
-                    {!! Form::close() !!}
                     </div>
-                </div>
-            </div>
 
-            <div class="col-4">
-
-                @if ($post->picture)
-                    <figure class="img-curso">
-                        <img src="{{asset($post->picture)}}" alt="" class="rounded">
-                    </figure>
-                @endif
-
-                <form action="{{route('admin.posts.dropzone', $post)}}" method="POST" class="dropzone mb-4" id="my-dropzone">
-                </form>
-
-
-                @if ($post->status == 1)
-                
-                    {!! Form::open(['route' => ['admin.posts.status', $post]]) !!}
-                        {!! Form::submit('Publicar', ['class' => 'btn btn-lg btn-dark']) !!}
-                    {!! Form::close() !!}
-
-                    @else
+                    <h1 class="h4">
+                        SEO:
+                    </h1>
 
                     <div class="card">
                         <div class="card-body">
-                            <p class="lead mb-0"><strong>Estado: </strong>Publicado</p>
+                            {{-- Title --}}
+
+                            <h1 class="h5">
+                                Title:
+                            </h1>
+
+                            <div class="form-group">
+                                {!! Form::text('title', null, ['class' => 'form-control'. ( $errors->has('title') ? ' is-invalid' : '' ), 'placeholder' => 'Escriba el contenido de la etiqueta title', 'required']) !!}
+                                @error('title')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            {{-- Description --}}
+                            <h1 class="h5">
+                                Description:
+                            </h1>
+
+                            <div class="form-group">
+
+                                {!! Form::textarea('description', null, ['class' => 'form-control'. ( $errors->has('description') ? ' is-invalid' : '' ), 'placeholder' => 'Escriba el contenido de la metaetiqueta description', 'required', 'rows' => '3']) !!}
+
+                                @error('description')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                         </div>
                     </div>
-                @endif
+                {!! Form::close() !!}
+
+            </div>
+
+
+            <div class="col-12 col-lg-4 order-2 order-lg-3">
+
+                <div class="card info">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-2">
+                            <p class="mb-0">
+                                <i class="fas fa-key mr-2" :class="estado=='Publicado'? 'text-success' : ''"></i>
+                                Estado: <b>@{{estado}}</b>
+                            </p>
+                            <a href="" class="ml-3" v-on:click.prevent = "getstatus()">Cambiar</a>
+                        </div>
+
+                        <p class="mb-2">
+                            <i class="far fa-eye mr-2"></i>
+                            Visualizaciónes: <b>{{$post->contador}}</b>
+                        </p>
+
+                        <p class="mb-2">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            Fecha creación: <b>{{$post->created_at->format('d/m/y')}}</b>
+                        </p>
+
+                        <p>
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            Fecha modificación: <b>{{$post->updated_at->format('d/m/y')}}</b>
+                        </p>
+
+                        @if ($post->picture)
+                            <figure class="img-curso">
+                                <img src="{{asset($post->picture)}}" alt="" class="rounded">
+                            </figure>
+                        @endif
+
+                        <button class="btn btn-block btn-primary" id="enviar_formulario">Actualizar</button>
+                        
+                    </div>
+                </div>
+
+                <form action="{{route('admin.posts.dropzone', $post)}}" method="POST" class="dropzone mb-4" id="my-dropzone">
+                </form>
 
             </div>
         </div>
@@ -214,8 +288,6 @@
 
         tinymce.init(editor_config);
 
-
-
         //Dropzone
         Dropzone.options.myDropzone = {
             dictDefaultMessage: 'Arrastre una foto para agregar o cambiar de foto',
@@ -228,7 +300,61 @@
             paramName: 'picture',
         };
 
+        new Vue({
+            el: '#app',
+            data:{
+                estado: "{{$post->estado}}",                
+            },
+            methods:{
+                getstatus(){
+
+                    
+                    axios.post("{{route('admin.posts.status', $post)}}").then(response => {
+
+                        if(response.data == "error"){
+                            $('.alerta').removeClass('d-none');
+                        }else{
+                        
+                            switch (this.estado) {
+                                case "Publicado":
+                                    this.estado = "Borrador"
+                                    break;
+                                
+                                case "Borrador":
+                                    this.estado = "Publicado"
+                                    break;
+                            }
+                        }
+
+                    }).catch(error => {
+
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: '¡Algo salió mal!',
+                        })
+
+                    })
+
+                    
+                },
+
+                
+            }
+        })
+
+        $('#enviar_formulario').click(function(){
+            $('#formulario').submit();
+        });
+
+        
 
     </script>
+
+    @if ($errors->any())
+        <script>
+            toastr.error("No puede dejar campos en blanco cuando el artículo esta publicado")
+        </script>
+    @endif
 
 @endsection

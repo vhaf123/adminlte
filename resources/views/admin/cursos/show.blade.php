@@ -130,12 +130,6 @@
                     Agregar un nuevo requisito
                 </button>
                 
-                
-
-
-                
-
-
 
                 <section class="mt-4">
                     @include('admin.requisitos.show')

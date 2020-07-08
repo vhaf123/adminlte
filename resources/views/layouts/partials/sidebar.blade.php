@@ -67,14 +67,14 @@
             <ul class="menu">
 
                 <li>
-                    <a href="{{ route('login') }}">
+                    <a href="{{ route('login') }}" rel="nofollow">
                         <i class="fas fa-user"></i>
                         Iniciar sesión
                     </a>
                 </li>
 
                 <li>
-                    <a href="{{ route('register') }}">
+                    <a href="{{ route('register') }}" rel="nofollow">
                         <i class="fas fa-fingerprint"></i>
                         Registrate
                     </a>
@@ -91,7 +91,7 @@
                 <li>
                     <a href="{{ route('logout') }}"
                         onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
+                                        document.getElementById('logout-form').submit();" rel="nofollow">
                         <i class="fas fa-sign-out-alt"></i>
                         Cerrar sesión
                     </a>

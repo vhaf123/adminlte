@@ -40,7 +40,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:posts',
             'extracto' => 'required|string|max:255',
             'tags' => 'required'
         ]);
@@ -65,29 +65,24 @@ class PostController extends Controller
     {
         $this->authorize('redactado', $post);
 
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'extracto' => 'required|string|max:255',
-            'keywords' => 'required|string',
-            'tags' => 'required',
-            'body' => 'required'
-        ]);
+        if($post->status == 2){
 
-        $resultado = $request->all();
-        $slug = Str::slug($request->get('name'), '-');
-        
-        if($post->slug != $slug){
+            $request->validate([
+                'name' => 'required|string|max:255|unique:posts,name,'.$post->id,
+                'extracto' => 'required|string|max:255',
+                'body' => 'required',
+                'tags' => 'required',
+                'title' => 'required|string|max:255',
+                'description' => 'required|string|max:255',
+            ]);
 
-            while (Post::where('slug', $slug)->count()) {
-                $slug = $slug.rand(1,100);
-            }
-
-            $resultado = array_merge($resultado, ['slug' => $slug]);
-            
+        }else{
+            $request->validate([
+                'name' => 'required|string|max:255|unique:posts,name,'.$post->id,
+            ]);
         }
 
-
-        $post->update($resultado);
+        $post->update($request->all());
 
         $post->tags()->sync($request->get('tags'));
 
@@ -133,13 +128,26 @@ class PostController extends Controller
 
 
     public function status(Post $post){
-        if($post->status == 1){
-            $post->update([
-                'status' => 2
-            ]);
-        }
 
-        return redirect()->route('admin.posts.edit', $post)->with('info', 'El estado se actualizó con éxito');
+        switch ($post->status) {
+            case 1:
+
+                if(isset($post->name) && isset($post->extracto) && isset($post->body) && isset($post->title) && isset($post->description)){
+                    $post->update([
+                        'status' => 2
+                    ]);
+                }else{
+                    return "error";
+                }
+                
+                break;
+            case 2:
+                $post->update([
+                    'status' => 1
+                ]);
+                break;
+        }
+        
     }
 
 }

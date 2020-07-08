@@ -3,6 +3,8 @@
 use Illuminate\Database\Seeder;
 use App\Post;
 
+use Illuminate\Support\Str;
+
 class PostSeeder extends Seeder
 {
     /**
@@ -12,14 +14,13 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
-        factory(Post::class, 50)->create()->each(function(Post $post){
+        $posts = Post::all();
 
+        foreach ($posts as $post) {
             $post->update([
-                'picture' => 'img/blog/post/' . $post->id . ".jpg"
+                'title' => $post->name,
+                'description' => $post->extracto
             ]);
-
-            $post->tags()->attach(\App\Tag::all()->random()->id);
-            
-        });
+        }
     }
 }
