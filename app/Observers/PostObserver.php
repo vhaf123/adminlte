@@ -4,6 +4,7 @@ namespace App\Observers;
 
 use App\Post;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class PostObserver
 {
@@ -23,6 +24,13 @@ class PostObserver
     public function updating(Post $post){
         $slug = Str::slug($post->name, '-');
         $post->slug = $slug;
+    }
+
+    public function deleting(Post $post){
+        if($post->picture){
+            $picturePath = str_replace('storage', 'public', $post->picture);
+            Storage::delete($picturePath);
+        }
     }
 
 }

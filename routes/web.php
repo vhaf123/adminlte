@@ -81,5 +81,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::resource('posts', 'PostController')->names('admin.posts')->except('show');
     Route::post('posts/{post}/dropzone', 'PostController@dropzone')->name('admin.posts.dropzone');
     Route::post('posts/{post}/status', 'PostController@status')->name('admin.posts.status');
+    Route::get('posts/{post}/vista', 'PostController@vista')->name('admin.posts.vista');
     
 });

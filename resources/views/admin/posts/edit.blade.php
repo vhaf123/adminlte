@@ -229,6 +229,12 @@
                         @endif
 
                         <button class="btn btn-block btn-primary" id="enviar_formulario">Actualizar</button>
+
+                        <a href="{{route('admin.posts.vista', $post)}}" class="btn btn-success btn-block" target="_blank">Vista previa</a>
+
+                        {!! Form::open(['route' => ['admin.posts.destroy', $post], 'method' => 'delete','class' => 'mt-2']) !!}
+                            {!! Form::submit('Eliminar', ['class' => 'btn btn-danger btn-block']) !!}
+                        {!! Form::close() !!}
                         
                     </div>
                 </div>
@@ -324,6 +330,8 @@
                                     this.estado = "Publicado"
                                     break;
                             }
+
+                            $('.alerta').addClass('d-none');
                         }
 
                     }).catch(error => {

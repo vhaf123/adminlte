@@ -128,11 +128,13 @@ class PostController extends Controller
 
 
     public function status(Post $post){
+        
+        $this->authorize('redactado', $post);
 
         switch ($post->status) {
             case 1:
 
-                if(isset($post->name) && isset($post->extracto) && isset($post->body) && isset($post->title) && isset($post->description)){
+                if(isset($post->name) && isset($post->extracto) && isset($post->body) && isset($post->title) && isset($post->description) && isset($post->picture)){
                     $post->update([
                         'status' => 2
                     ]);
@@ -148,6 +150,11 @@ class PostController extends Controller
                 break;
         }
         
+    }
+
+    public function vista(Post $post){
+        $this->authorize('redactado', $post);
+        return view('blog.show', compact('post'));
     }
 
 }
