@@ -254,13 +254,16 @@
 
     <script src="{{asset('plugins/dropzone-5.7.0/dist/min/dropzone.min.js')}}"></script>
     
-    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    {{-- <script src="//cdn.tinymce.com/4/tinymce.min.js"></script> --}}
+    <script src="{{asset('plugins/tinymce/tinymce.min.js')}}"></script>
 
     <script>
         
         var editor_config = {
+            language: 'es',
             path_absolute : "/",
             selector: "textarea.my-editor",
+            content_css: "{{ asset('css/app.css') }}",
             plugins: [
             "autosave",
             "advlist autolink lists link image charmap print preview hr anchor pagebreak",
@@ -270,7 +273,7 @@
             ],
             toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | restoredraft",
             relative_urls: false,
-            autosave_interval: "5s",
+            autosave_interval: "30s",
             file_browser_callback : function(field_name, url, type, win) {
             var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
             var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
