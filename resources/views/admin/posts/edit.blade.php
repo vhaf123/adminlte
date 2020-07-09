@@ -263,7 +263,6 @@
             language: 'es',
             path_absolute : "/",
             selector: "textarea.my-editor",
-            content_css: "{{ asset('css/app.css') }}",
             plugins: [
             "autosave",
             "advlist autolink lists link image charmap print preview hr anchor pagebreak",
