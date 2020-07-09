@@ -7,7 +7,7 @@
     <meta name="description" content="{{$post->description}}"/>
     <meta name="author" content="{{$post->blogger->user->name}}" />
     <meta property="og:title" content="{{$post->title}}" />
-    <meta property="og:description" content="{{$post->description}}" />
+    <meta property="og:description" content="{{$post->extracto}}" />
     <meta property="og:image" content="{{asset($post->picture)}}" />
 
 
