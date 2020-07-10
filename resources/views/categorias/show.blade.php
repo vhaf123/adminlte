@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title')▷ Cursos de {{strtolower($categoria->name)}} ¡GRATIS! @endsection
+@section('title')🥇 Cursos de {{strtolower($categoria->name)}} ¡GRATIS! y en español @endsection
 
 @section('meta')
 <meta name="description" content="Los mejores cursos de {{strtolower($categoria->name)}} 🥇 ¡GRATIS Y EN ESPAÑOL! Encuentra una amplia variedad de cursos, totálmente didáctico y con una gran cantidad de ejercicios."/>
