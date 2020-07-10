@@ -88,7 +88,7 @@
                         
 
                         <div class="form-group">
-                            {!! Form::submit('Crear curso', ['class' => 'btn btn-primary btn-block']) !!}
+                            {!! Form::submit('Actualizar', ['class' => 'btn btn-primary btn-block']) !!}
                         </div>
 
                     {!! Form::close() !!}

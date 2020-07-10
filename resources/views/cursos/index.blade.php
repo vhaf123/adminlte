@@ -37,7 +37,7 @@
                     </h1>
 
                     <p class="text-white lead">
-                        ¿Estás buscando un curso? Escribe en el buscador y nosotros te ayudamos
+                        ¿Estás buscando un curso? Escribe en el buscador y nosotros te ayudamos.
                     </p>
 
                     <form action="">
