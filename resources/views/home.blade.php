@@ -38,7 +38,7 @@
                         </h1>
 
                         <p class="text-white lead">
-                            Nuestro objetivo es convertirnos en la comunidad de programadores más grande de latinoametica.
+                            Nuestro objetivo es convertirnos en la comunidad de programadores más grande de latinoamérica.
                         </p>
 
                         <form action="">
