@@ -32,6 +32,11 @@ class CursoObserver
         
     }
 
+    public function updating(Curso $curso){
+        $slug = Str::slug($curso->name, '-');
+        $curso->slug = $slug;
+    }
+
     public function deleting(Curso $curso)
     {
             

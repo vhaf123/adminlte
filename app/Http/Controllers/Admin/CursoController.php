@@ -77,26 +77,14 @@ class CursoController extends Controller
         $this->authorize('dictado', $curso);
 
         $request->validate([
-            'name' => 'required',
-            'descripcion' => 'required',
-            'keywords' => 'required',
+            'name' => 'required|unique:cursos,name,'.$curso->id,
+            'title' => 'required',
+            /* 'descripcion' => 'required', */
             'categoria_id' => 'required',
             'nivel_id' => 'required',
         ]);
 
-        $resultado = $request->all();
-        $slug = Str::slug($request->get('name'), '-');
-
-        if($curso->slug != $slug){
-
-            while (Curso::where('slug', $slug)->count()) {
-                $slug = $slug.rand(1,100);
-            }
-
-            $resultado = array_merge($resultado, ['slug' => $slug]);
-        }
-
-        $curso->update($resultado);
+        $curso->update($request->all());
 
         return redirect()->route('admin.cursos.show', $curso)->with('info', 'Se actualizó el curso con éxito');
         

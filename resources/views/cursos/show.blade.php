@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title'){{$curso->name}}@endsection
+@section('title'){{$curso->title}}@endsection
 
 @section('meta')
 
-    <meta name="description" content="{{$curso->descripcion}}"/>
+    <meta name="description" content="{{$curso->description}}"/>
     <meta name="keywords" content="{{$curso->keywords}}"/>
     <meta name="author" content="{{$curso->profesor->user->name}}" />
 

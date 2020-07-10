@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title')Cursos de {{strtolower($categoria->name)}} gratis @endsection
+@section('title')▷ Cursos de {{strtolower($categoria->name)}} ¡GRATIS! @endsection
 
 @section('meta')
-<meta name="description" content="{{$categoria->descripcion}}"/>
+<meta name="description" content="Los mejores cursos de {{strtolower($categoria->name)}} 🥇 ¡GRATIS Y EN ESPAÑOL! Encuentra una amplia variedad de cursos, totálmente didáctico y con una gran cantidad de ejercicios."/>
 @endsection
 
 @section('style')
@@ -100,7 +100,7 @@
                             <div class="dropdown-menu">
 
                                 @foreach ($niveles as $nivel)
-                                    <a class="dropdown-item" href="{{route('cursos.index').'?nivel_id='.$nivel->id}}">{{$nivel->name}}</a>
+                                    <a class="dropdown-item" rel="nofollow" href="{{route('cursos.index').'?nivel_id='.$nivel->id}}">{{$nivel->name}}</a>
                                 @endforeach
                                 
                             </div>
@@ -114,8 +114,8 @@
                             </a>
 
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{{route('cursos.index').'?status=2'}}">En elaboración</a>
-                                <a class="dropdown-item" href="{{route('cursos.index').'?status=3'}}">Culminado</a>
+                                <a class="dropdown-item" rel="nofollow" href="{{route('cursos.index').'?status=2'}}">En elaboración</a>
+                                <a class="dropdown-item" rel="nofollow" href="{{route('cursos.index').'?status=3'}}">Culminado</a>
                                 
                             </div>
                         </li>
@@ -128,8 +128,8 @@
                             </a>
 
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{{route('cursos.index').'?tipo_id=2'}}">Cursos premium</a>
-                                <a class="dropdown-item" href="{{route('cursos.index').'?tipo_id=1'}}">Cursos gratis</a>
+                                <a class="dropdown-item" rel="nofollow" href="{{route('cursos.index').'?tipo_id=2'}}">Cursos premium</a>
+                                <a class="dropdown-item" rel="nofollow" href="{{route('cursos.index').'?tipo_id=1'}}">Cursos gratis</a>
                             </div>
                         </li>
                     </ul>

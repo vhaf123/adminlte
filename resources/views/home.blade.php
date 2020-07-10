@@ -1,15 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Los mejores cursos de programación gratis | Coders Free')
+@section('title', '🥇 Los mejores cursos de programación GRATUITOS de internet')
 
 @section('meta')
     
-    <meta name="description" content="En Coders Free encontrarás los mejores cursos de programación gratis en español. Nuestro objetivo es convertirnos en la mayor comunidad de programadores de latinoametica."/>
-    <meta name="keywords" content="Cursos de programación, cursos de programación gratis,  cursos de desarrollo web, cursos de desarrollo web gratis, codersfree, coders free"/>
+    <meta name="description" content="Si estás buscando cursos de programación ✅ GRATIS y de calidad, has llegado al lugar adecuado. Los mejores cursos de programación en español"/>
     <meta name="author" content="Victor Arana" />
-
-    <meta property="og:title" content="Cursos de programación gratis | Coders Free" />
-    <meta property="og:description" content="En Coders Free encontrarás los mejores cursos de programación gratis en español. Nuestro objetivo es convertirnos en la mayor comunidad de programadores de latinoametica." />
+    <meta property="og:title" content="Los mejores cursos de programación gratuitos de internet" />
+    <meta property="og:description" content="Si estás buscando cursos de programación gratis y de calidad, has llegado al lugar adecuado. Los mejores cursos de programación en español" />
     <meta property="og:image" content="https://codersfree.com/img/home/computer-767776_1280.jpg" />
 
 @endsection
