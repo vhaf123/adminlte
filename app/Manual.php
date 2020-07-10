@@ -12,7 +12,7 @@ class Manual extends Model
     const PUBLICADO = 2;
 
     protected $fillable = [
-        'creador_id', 'categoria_id', 'name', 'descripcion','slug', 'picture', 'status'
+        'creador_id', 'categoria_id', 'name', 'title','descripcion','slug', 'picture', 'status'
     ];
 
 

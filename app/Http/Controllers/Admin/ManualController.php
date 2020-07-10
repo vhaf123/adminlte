@@ -38,7 +38,8 @@ class ManualController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:manuales',
+            'title' => 'required',
             'descripcion' => 'required',
             'categoria_id' => 'required',
         ]);
@@ -66,26 +67,13 @@ class ManualController extends Controller
     public function update(Request $request, Manual $manual)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:manuales,name,'.$manual->id,
+            'title' => 'required',
             'descripcion' => 'required',
             'categoria_id' => 'required',
         ]);
 
-        $resultado = $request->all();
-        
-        if($manual->name != $request->get('name')){
-
-            $slug = Str::slug($request->get('name'), '-');
-
-            while (Manual::where('slug', $slug)->count()) {
-                $slug = $slug.rand(1,100);
-            }
-
-            $resultado = array_merge($resultado, ['slug' => $slug]);
-            
-        }
-
-        $manual->update($resultado);
+        $manual->update($request->all());
 
         return redirect()->route('admin.manuales.show', $manual)->with('info', 'Actualizado con éxito');
     }

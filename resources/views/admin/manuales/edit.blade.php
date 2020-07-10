@@ -48,6 +48,19 @@
 
                             <div class="form-group col-12">
                                 
+                                {!! Form::label('title', 'Title:') !!}
+                                {!! Form::text('title', null, ['class' => 'form-control'. ( $errors->has('title') ? ' is-invalid' : '' ), 'required']) !!}
+                                
+                                @error('title')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
+                            </div>
+
+                            <div class="form-group col-12">
+                                
                                 {!! Form::label('descripcion', 'Descripción del manual') !!}
                                 {!! Form::textarea('descripcion', null, ['class' => 'form-control'. ( $errors->has('descripcion') ? ' is-invalid' : '' ), 'rows' => '3', 'required']) !!}
 
