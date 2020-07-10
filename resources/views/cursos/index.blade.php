@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', '🥇 Cursos de Cursos de informática ¡GRATIS! y en español')
+@section('title', '🥇 Cursos de informática ¡GRATIS! y en español')
 
 @section('meta')
     <meta name="description" content="Los mejores cursos de informática 🥇 ¡GRATIS Y EN ESPAÑOL! Encuentra una amplia variedad de cursos, totálmente didáctico y con una gran cantidad de ejercicios.">
