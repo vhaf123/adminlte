@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title'){{$manual->name}}@endsection
+@section('title'){{$manual->title}}@endsection
 
 @section('meta')
     <meta name="description" content="{{$manual->description}}">
