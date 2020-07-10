@@ -143,12 +143,16 @@
 
             <div class="card">
 
-                <header class="card-header bg-dark">
+                {{-- <header class="card-header bg-dark">
                     <h1 class="text-center text-white my-2 h2 font-italic">{{$actual->name}}</h1>
-                </header>
+                </header> --}}
 
                 <article class="card-body principal">
-                                
+                     
+                    <h1>{{$actual->name}}</h1>
+
+                    <p>{{$actual->descripcion}}</p>
+
                     {!!$actual->body!!}
 
                 </article>
