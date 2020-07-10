@@ -98,7 +98,7 @@
                             </a>
 
                             <div class="dropdown-menu">
-
+ 
                                 @foreach ($niveles as $nivel)
                                     <a class="dropdown-item" rel="nofollow" href="{{route('cursos.index').'?nivel_id='.$nivel->id}}">{{$nivel->name}}</a>
                                 @endforeach

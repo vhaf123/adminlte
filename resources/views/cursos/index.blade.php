@@ -99,7 +99,7 @@
                         <div class="dropdown-menu">
 
                             @foreach ($niveles as $nivel)
-                                <a class="dropdown-item" href="{{route('cursos.index').'?nivel_id='.$nivel->id}}">{{$nivel->name}}</a>
+                                <a class="dropdown-item" rel="nofollow" href="{{route('cursos.index').'?nivel_id='.$nivel->id}}">{{$nivel->name}}</a>
                             @endforeach
                             
                         </div>
@@ -113,8 +113,8 @@
                         </a>
 
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{route('cursos.index').'?status=2'}}">En elaboración</a>
-                            <a class="dropdown-item" href="{{route('cursos.index').'?status=3'}}">Culminado</a>
+                            <a class="dropdown-item" rel="nofollow" href="{{route('cursos.index').'?status=2'}}">En elaboración</a>
+                            <a class="dropdown-item" rel="nofollow" href="{{route('cursos.index').'?status=3'}}">Culminado</a>
                             
                         </div>
                     </li>
@@ -127,8 +127,8 @@
                         </a>
 
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{route('cursos.index').'?tipo_id=2'}}">Cursos premium</a>
-                            <a class="dropdown-item" href="{{route('cursos.index').'?tipo_id=1'}}">Cursos gratis</a>
+                            <a class="dropdown-item" rel="nofollow" href="{{route('cursos.index').'?tipo_id=2'}}">Cursos premium</a>
+                            <a class="dropdown-item" rel="nofollow" href="{{route('cursos.index').'?tipo_id=1'}}">Cursos gratis</a>
                         </div>
                     </li>
                 </ul>
