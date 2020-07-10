@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('title')
-    {{$manual->title}}
+    {{$actual->title}}
 @endsection
 
 @section('meta')
-    <meta name="description" content="{{$manual->description}}">
+    <meta name="description" content="{{$actual->description}}">
 @endsection
 
 @section('style')
@@ -140,6 +140,7 @@
         </aside>
 
         <div class="col-12 col-lg-8">
+
             <div class="card">
 
                 <header class="card-header bg-dark">
