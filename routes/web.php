@@ -10,7 +10,8 @@ Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCall
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('cursos/{categoria}', 'CategoriaController@show')->name('categorias.show');
+Route::get('cursos/categorias/{categoria}', 'CategoriaController@show')->name('categorias.show');
+
 
 /* Route::get('cursos/categoria/{categoria}', 'CursoController@categoria')->name('cursos.categoria'); */
 Route::resource('cursos', 'CursoController')->only('index', 'show');
