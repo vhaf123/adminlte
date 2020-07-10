@@ -3,7 +3,7 @@
 @section('title', '▷ Manuales de informática ONLINE en español')
 
 @section('meta')
-    <meta name="description" content="Encuentra los mejores manuales de informática online. 🤩 Contamoscon manuales de programación, ofimática, desarrollo web.">
+    <meta name="description" content="Encuentra los mejores manuales de informática online. 🤩 Contamos con manuales de programación, ofimática, desarrollo web.">
 @endsection
 
 @section('content')
