@@ -97,6 +97,16 @@
                                 {!! Form::textarea('body', null, ['class' => 'form-control my-editor', 'rows' => '16']) !!}
                             </div>
 
+                            <div class="form-group">
+                                {!! Form::label('title', 'Title') !!}
+                                {!! Form::text('title', null, ['class' => 'form-control', 'required']) !!}
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('description', 'Description') !!}
+                                {!! Form::textarea('description', null, ['class' => 'form-control', 'rows' => '3', 'required']) !!}
+                            </div>
+
 
                             <div class="form-group">
                                 {!! Form::submit('Acualizar', ['class' => 'btn btn-block btn-primary']) !!}

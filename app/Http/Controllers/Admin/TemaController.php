@@ -83,27 +83,14 @@ class TemaController extends Controller
     {
 
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:temas,name,'.$tema->id,
+            'title' => 'required',
+            'body' => 'required',
             'descripcion' => 'required',
+            'description' => 'required'
         ]);
         
-
-        $resultado = $request->all();
-
-
-        if($tema->name != $request->get('name')){
-
-            $slug = Str::slug($request->get('name'), '-');
-
-            while (Tema::where('slug', $slug)->count()) {
-                $slug = $slug.rand(1,100);
-            }
-
-            $resultado = array_merge($resultado, ['slug' => $slug]);
-            
-        }
-
-        $tema->update($resultado);
+        $tema->update($request->all());
 
         return redirect()->route('admin.temas.edit', $tema)->with('info', 'Actualizado con éxito');
     }

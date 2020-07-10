@@ -22,6 +22,11 @@ class TemaObserver
         
     }
 
+    public function updating(Tema $tema){
+        $slug = Str::slug($tema->name, '-');
+        $tema->slug = $slug;
+    }
+
     public function deleted(Tema $tema)
     {
         foreach ($tema->images as $image) {
