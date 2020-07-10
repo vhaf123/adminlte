@@ -1,8 +1,11 @@
 @extends('admin.layouts.app')
 
 @section('title')
-    {{$manual->name}}
+    {{$manual->title}}
 @endsection
+
+
+
 
 @section('style')
 

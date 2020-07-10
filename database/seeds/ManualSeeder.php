@@ -18,7 +18,7 @@ class ManualSeeder extends Seeder
 
         foreach ($manuales as $manual) {
             $manual->update([
-                'title' => $manual->name
+                'description' => $manual->descripcion
             ]);
         }
     }

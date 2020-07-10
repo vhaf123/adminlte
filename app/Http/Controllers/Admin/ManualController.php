@@ -70,6 +70,7 @@ class ManualController extends Controller
             'name' => 'required|unique:manuales,name,'.$manual->id,
             'title' => 'required',
             'descripcion' => 'required',
+            'description' => 'required',
             'categoria_id' => 'required',
         ]);
 
