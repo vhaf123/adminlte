@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
-@section('title')
-    {{$actual->title}}
-@endsection
+@section('title'){{$actual->title}}@endsection
 
 @section('meta')
     <meta name="description" content="{{$actual->description}}">
