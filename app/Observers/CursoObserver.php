@@ -19,16 +19,12 @@ class CursoObserver
     {
 
         $slug = Str::slug($curso->name, '-');
-
-        while (Curso::where('slug', $slug)->count()) {
-            $slug = $slug.rand(1,100);
-        }
-
         $curso->slug = $slug;
+        $curso->profesor_id = auth()->user()->profesor->id;
 
-        if(! \App::runningInConsole()){
-            $curso->profesor_id = auth()->user()->profesor->id;
-        }
+        /* if(! \App::runningInConsole()){
+            
+        } */
         
     }
 

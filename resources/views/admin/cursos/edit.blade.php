@@ -35,16 +35,39 @@
 
     <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-8">
-            {!! Form::model($curso, ['route' => ['admin.cursos.update', $curso], 'method' => 'PUT']) !!}
-                <div class="card">
-                
-                    <div class="card-body">
-
+            
+            <div class="card">
+            
+                <div class="card-body">
+                    {!! Form::model($curso, ['route' => ['admin.cursos.update', $curso], 'method' => 'PUT']) !!}
+                    
                         <div class="form-group">
-                            {!! Form::label('name', 'Escriba el nombre del curso') !!}
-                            {!! Form::text('name', null, ['class' => 'form-control'. ( $errors->has('name') ? ' is-invalid' : '' ), 'placeholder' => 'Título', 'required']) !!}
+                            {!! Form::label('name', 'Nombre del curso') !!}
+                            {!! Form::text('name', null, ['class' => 'form-control'. ( $errors->has('name') ? ' is-invalid' : '' ), 'placeholder' => 'Escriba el nombre del curso', 'required']) !!}
 
                             @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('title', 'Title') !!}
+                            {!! Form::text('title', null, ['class' => 'form-control'. ( $errors->has('title') ? ' is-invalid' : '' ), 'placeholder' => 'Escriba el title', 'required']) !!}
+
+                            @error('title')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('description', 'Description') !!}
+                            {!! Form::textarea('description', null, ['class' => 'form-control'. ( $errors->has('description') ? ' is-invalid' : '' ), 'rows' => "3", 'placeholder' => 'Escriba una pequeña descripción sobre el curso', 'required']) !!}
+                            
+                            @error('description')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -62,44 +85,20 @@
                                 {!! Form::select('nivel_id', $niveles, null, ['class' => 'form-control'. ( $errors->has('nivel_id') ? ' is-invalid' : '' )]) !!}
                             </div>
                         </div>
-
                         
-                    </div>
+
+                        <div class="form-group">
+                            {!! Form::submit('Crear curso', ['class' => 'btn btn-primary btn-block']) !!}
+                        </div>
+
+                    {!! Form::close() !!}
                     
                 </div>
+                
+            </div>
 
-                <div class="card">
-                    <div class="card-body">
-
-                        <div class="form-group">
-                            {!! Form::label('title', 'Title:') !!}
-                            {!! Form::text('title', null, ['class' => 'form-control'. ( $errors->has('title') ? ' is-invalid' : '' ), 'placeholder' => 'title', 'required']) !!}
-
-                            @error('title')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-
-
-                        <div class="form-group">
-                            {!! Form::label('descripcion', 'Description:') !!}
-                            {!! Form::textarea('descripcion', null, ['class' => 'form-control'. ( $errors->has('descripcion') ? ' is-invalid' : '' ), 'rows' => "3", 'placeholder' => 'Escriba una pequeña descripción sobre el curso', 'required']) !!}
-                            
-                            @error('descripcion')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    {!! Form::submit('Actualizar curso', ['class' => 'btn btn-primary btn-block']) !!}
-                </div>
-            {!! Form::close() !!}
+               
+            
         </div>
     </div>
 

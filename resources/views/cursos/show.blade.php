@@ -5,9 +5,7 @@
 @section('meta')
 
     <meta name="description" content="{{$curso->description}}"/>
-    <meta name="keywords" content="{{$curso->keywords}}"/>
     <meta name="author" content="{{$curso->profesor->user->name}}" />
-
     <meta property="og:title" content="{{$curso->name}}" />
     <meta property="og:description" content="{{$curso->descripcion}}" />
     <meta property="og:image" content="{{asset($curso->picture)}}" />

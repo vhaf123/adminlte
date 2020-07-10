@@ -44,8 +44,8 @@
                     {!! Form::open(['route' => 'admin.cursos.store']) !!}
 
                         <div class="form-group">
-                            {!! Form::label('name', 'Escriba el título del curso') !!}
-                            {!! Form::text('name', null, ['class' => 'form-control'. ( $errors->has('name') ? ' is-invalid' : '' ), 'placeholder' => 'Título', 'required']) !!}
+                            {!! Form::label('name', 'Nombre del curso') !!}
+                            {!! Form::text('name', null, ['class' => 'form-control'. ( $errors->has('name') ? ' is-invalid' : '' ), 'placeholder' => 'Escriba el nombre del curso', 'required']) !!}
 
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -55,10 +55,10 @@
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('descripcion', 'Descripción') !!}
-                            {!! Form::textarea('descripcion', null, ['class' => 'form-control'. ( $errors->has('descripcion') ? ' is-invalid' : '' ), 'rows' => "3", 'placeholder' => 'Escriba una pequeña descripción sobre el curso', 'required']) !!}
-                            
-                            @error('descripcion')
+                            {!! Form::label('title', 'Title') !!}
+                            {!! Form::text('title', null, ['class' => 'form-control'. ( $errors->has('title') ? ' is-invalid' : '' ), 'placeholder' => 'Escriba el title', 'required']) !!}
+
+                            @error('title')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -66,10 +66,10 @@
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('keywords', 'Palabras claves') !!}
-                            {!! Form::textarea('keywords', null, ['class' => 'form-control'. ( $errors->has('keywords') ? ' is-invalid' : '' ), 'placeholder' => 'Escriba una serie de palabras claves separado por comas', 'required']) !!}
+                            {!! Form::label('description', 'Description') !!}
+                            {!! Form::textarea('description', null, ['class' => 'form-control'. ( $errors->has('description') ? ' is-invalid' : '' ), 'rows' => "3", 'placeholder' => 'Escriba una pequeña descripción sobre el curso', 'required']) !!}
                             
-                            @error('keywords')
+                            @error('description')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

@@ -47,9 +47,6 @@
     
     <h1><strong>Curso:</strong> {{$curso->name}}</h1>
     <p class="lead mb-1"><strong>Categoria:</strong> {{$curso->categoria->name}}</p>
-    <p class="lead mb-1"><strong>Descripción:</strong> {{$curso->descripcion}}</p>
-    <p class="lead mb-1"><strong>Palabras clave:</strong> {{$curso->keywords}}</p>
-
 
     <p class="lead"><strong class="mr-2">Estado:</strong>
         

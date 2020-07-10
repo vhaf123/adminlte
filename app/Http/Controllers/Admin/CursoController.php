@@ -40,9 +40,9 @@ class CursoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'descripcion' => 'required',
-            'keywords' => 'required',
+            'name' => 'required | unique:cursos',
+            'title' => 'required',
+            'description' => 'required',
             'categoria_id' => 'required',
             'nivel_id' => 'required',
         ]);
@@ -78,8 +78,6 @@ class CursoController extends Controller
 
         $request->validate([
             'name' => 'required|unique:cursos,name,'.$curso->id,
-            'title' => 'required',
-            /* 'descripcion' => 'required', */
             'categoria_id' => 'required',
             'nivel_id' => 'required',
         ]);
