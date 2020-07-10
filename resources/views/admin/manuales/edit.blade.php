@@ -47,6 +47,11 @@
                             </div>
 
                             <div class="form-group col-12">
+                                {!! Form::label('categoria_id', 'Categoría') !!}
+                                {!! Form::select('categoria_id', $categorias, null, ['class' => 'form-control']) !!}
+                            </div>
+
+                            <div class="form-group col-12">
                                 
                                 {!! Form::label('descripcion', 'Descripción del manual') !!}
                                 {!! Form::textarea('descripcion', null, ['class' => 'form-control'. ( $errors->has('descripcion') ? ' is-invalid' : '' ), 'rows' => '3', 'required']) !!}
@@ -59,10 +64,8 @@
 
                             </div>
 
-                            <div class="form-group col-12">
-                                {!! Form::label('categoria_id', 'Categoría') !!}
-                                {!! Form::select('categoria_id', $categorias, null, ['class' => 'form-control']) !!}
-                            </div>
+                            
+                            
 
                             <div class="form-group col-12">
                                 
