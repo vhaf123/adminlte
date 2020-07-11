@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', '🥇 Los mejores cursos de programación GRATUITOS de internet')
+@section('title', '🥇 Cursos de informática ¡GRATIS! en español')
 
 @section('meta')
     

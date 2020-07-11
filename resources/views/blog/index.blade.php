@@ -3,7 +3,7 @@
 @section('title', '▷ Blog de programación e informática')
 
 @section('meta')
-    <meta name="description" content="⭐⭐⭐⭐⭐ Encuentra los mejores post de programación y desarrollo web. Subimos nuevos contenidos todos los días.">
+    <meta name="description" content="Encuentra los mejores post de programación y desarrollo web. Subimos nuevos contenidos todos los días.">
 @endsection
 
 @section('style')
