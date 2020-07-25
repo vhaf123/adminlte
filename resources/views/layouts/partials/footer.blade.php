@@ -10,7 +10,10 @@
         
         <p class="mb-0 text-secondary">Copyright © 2014-2019 <span class="text-info font-weight-bold">Coders Free</span></p>
 
-        <a href="{{route('politicas')}}">Politicas y privacidad de Coders Free</a>
+        <div>
+            <a href="{{route('politicas')}}">Politicas de privacidad</a>
+            <a href="{{route('terminos')}}" class="ml-3">Terminos y condiciones</a>
+        </div>
         
     </div>
 

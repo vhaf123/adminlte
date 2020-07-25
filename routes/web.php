@@ -44,6 +44,10 @@ Route::get('politicas', function () {
     return view('politicas');
 })->name('politicas');
 
+Route::get('terminos', function () {
+    return view('terminos');
+})->name('terminos');
+
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
