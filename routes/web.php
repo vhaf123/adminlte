@@ -40,9 +40,9 @@ Route::get('politicas', function () {
     
 })->name('politicas.index');
 
-Route::get('condiciones', function () {
-    
-})->name('condiciones.index');
+Route::get('politicas', function () {
+    return view('politicas');
+})->name('politicas');
 
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
