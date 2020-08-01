@@ -61,8 +61,11 @@
 @section('content')
 
 <main>
+
+    
     <div class="container-fluid">
-        <div class="row" id="app">
+        
+        <div class="row">
 
             <div class="col-12 order-1 d-none alerta">
                 <div class="alert alert-danger" role="alert">
@@ -71,6 +74,8 @@
             </div>
 
             <div class="col-12 col-lg-8 order-3 order-lg-2">
+
+                
 
                 {!! Form::model($post, ['route' => ['admin.posts.update', $post], 'method' => 'put', 'id' => 'formulario']) !!}
                     <div class="card">
@@ -111,8 +116,14 @@
                                 Contenido:
                             </h1>
 
+                            
+
                             <div class="form-group">
                                 {!! Form::textarea('body', null, ['class' => 'form-control my-editor'. ( $errors->has('body') ? ' is-invalid' : '' ), 'placeholder' => 'Escriba el contenido principal del post']) !!}
+
+                                {{-- <textarea name="" id="" cols="30" rows="10">{!!$post->body!!}</textarea> --}}
+                                
+
                                 @error('body')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -197,7 +208,7 @@
 
             <div class="col-12 col-lg-4 order-2 order-lg-3">
 
-                <div class="card info">
+                <div class="card info" id="app">
                     <div class="card-body">
                         <div class="d-flex justify-content-between mb-2">
                             <p class="mb-0">
