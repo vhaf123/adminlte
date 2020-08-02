@@ -135,7 +135,7 @@
                                 
                             {{-- Categorias --}}
                             <h1 class="h5">
-                                Categorias:
+                                Etiquetas:
                             </h1>
 
                             <div class="card shadow @error('tags') border border-danger @enderror" style="background-color: #D6DEE8">

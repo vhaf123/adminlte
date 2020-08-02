@@ -126,6 +126,32 @@
                             </li>
                         </ul>
                     </li>
+
+                    <li class="nav-item has-treeview {{setOpen('admin.tags.*')}}">
+                        <a href="#" class="nav-link {{setactive('admin.tags.*')}}">
+                            <i class="nav-icon fas fa-tags"></i>
+                            <p>
+                                Tags
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('admin.tags.index')}}" class="nav-link {{setactive('admin.tags.index')}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Lista de tags</p>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a href="{{route('admin.tags.create')}}" class="nav-link {{setactive('admin.tags.create')}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Crear nuevo tag</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 @endcan
 
             </ul>
