@@ -52802,57 +52802,9 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 window.toastr = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.js");
 
-__webpack_require__(/*! ./autocomplete */ "./resources/js/autocomplete.js");
+__webpack_require__(/*! ./principal/autocomplete */ "./resources/js/principal/autocomplete.js");
 
-__webpack_require__(/*! ./sidebar */ "./resources/js/sidebar.js");
-
-/***/ }),
-
-/***/ "./resources/js/autocomplete.js":
-/*!**************************************!*\
-  !*** ./resources/js/autocomplete.js ***!
-  \**************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery_ui_ui_widgets_autocomplete_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery-ui/ui/widgets/autocomplete.js */ "./node_modules/jquery-ui/ui/widgets/autocomplete.js");
-/* harmony import */ var jquery_ui_ui_widgets_autocomplete_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery_ui_ui_widgets_autocomplete_js__WEBPACK_IMPORTED_MODULE_0__);
-
-$("#search").autocomplete({
-  source: function source(request, response) {
-    $.ajax({
-      url: "api/search/autocomplete",
-      data: {
-        term: request.term
-      },
-      dataType: "json",
-      success: function success(data) {
-        response(data);
-      }
-    });
-  },
-  select: function select(event, ui) {
-    //alert(ui.item.slug);
-    switch (ui.item.type) {
-      case 'curso':
-        $(location).attr('href', 'cursos/' + ui.item.slug);
-        break;
-
-      case 'manual':
-        $(location).attr('href', 'manuales/' + ui.item.slug);
-        break;
-
-      case 'post':
-        $(location).attr('href', 'blog/' + ui.item.slug);
-        break;
-
-      default:
-        break;
-    }
-  }
-});
+__webpack_require__(/*! ./principal/sidebar */ "./resources/js/principal/sidebar.js");
 
 /***/ }),
 
@@ -52901,10 +52853,58 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/sidebar.js":
-/*!*********************************!*\
-  !*** ./resources/js/sidebar.js ***!
-  \*********************************/
+/***/ "./resources/js/principal/autocomplete.js":
+/*!************************************************!*\
+  !*** ./resources/js/principal/autocomplete.js ***!
+  \************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery_ui_ui_widgets_autocomplete_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery-ui/ui/widgets/autocomplete.js */ "./node_modules/jquery-ui/ui/widgets/autocomplete.js");
+/* harmony import */ var jquery_ui_ui_widgets_autocomplete_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery_ui_ui_widgets_autocomplete_js__WEBPACK_IMPORTED_MODULE_0__);
+
+$("#search").autocomplete({
+  source: function source(request, response) {
+    $.ajax({
+      url: "api/search/autocomplete",
+      data: {
+        term: request.term
+      },
+      dataType: "json",
+      success: function success(data) {
+        response(data);
+      }
+    });
+  },
+  select: function select(event, ui) {
+    //alert(ui.item.slug);
+    switch (ui.item.type) {
+      case 'curso':
+        $(location).attr('href', 'cursos/' + ui.item.slug);
+        break;
+
+      case 'manual':
+        $(location).attr('href', 'manuales/' + ui.item.slug);
+        break;
+
+      case 'post':
+        $(location).attr('href', 'blog/' + ui.item.slug);
+        break;
+
+      default:
+        break;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/principal/sidebar.js":
+/*!*******************************************!*\
+  !*** ./resources/js/principal/sidebar.js ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -52916,6 +52916,17 @@ $('.cerrar-sidebar').click(function () {
   $('.sidebar').removeClass('abrir-sidebar');
   $('.cerrar-sidebar').removeClass('abrir-sidebar');
 });
+
+/***/ }),
+
+/***/ "./resources/sass/adminlte.scss":
+/*!**************************************!*\
+  !*** ./resources/sass/adminlte.scss ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -52931,14 +52942,15 @@ $('.cerrar-sidebar').click(function () {
 /***/ }),
 
 /***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
-  \*************************************************************/
+/*!********************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/adminlte.scss ***!
+  \********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\xampp\htdocs\adminlte\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\adminlte\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\adminlte\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\adminlte\resources\sass\adminlte.scss */"./resources/sass/adminlte.scss");
 
 
 /***/ })
