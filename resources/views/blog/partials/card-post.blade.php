@@ -32,7 +32,7 @@
 
     <div class="card-body">
         <h1 class="h4 text-dark">
-            {{$post->name}}
+            <a href="{{route('blog.show', $post)}}" class="text-secondary text-decoration-none">{{$post->name}}</a>
         </h1>
         <p class="text-secondary">{{$post->extracto}}</p>
     </div>

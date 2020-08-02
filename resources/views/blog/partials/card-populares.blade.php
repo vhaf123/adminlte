@@ -7,7 +7,14 @@
                 
                 <div class="tags">
                     @foreach ($post->tags as $tag)
-                        @switch($tag->id)
+
+                        <p class="lead d-inline mr-2">
+                            <span class="badge {{$tag->background}}">
+                                {{$tag->name}}
+                            </span>
+                        </p>
+
+                        {{-- @switch($tag->id)
                             @case(1)
                                 
                                 <p class="lead d-inline mr-2">
@@ -57,7 +64,7 @@
                                 @break
                             @default
                                 
-                        @endswitch
+                        @endswitch --}}
                     @endforeach
                 </div>
 
