@@ -13,4 +13,9 @@ class TagObserver
         $tag->slug = $slug;
 
     }
+
+    public function updating(Tag $tag){
+        $slug = Str::slug($tag->name, '-');
+        $tag->slug = $slug;
+    }
 }
