@@ -6,10 +6,6 @@
     <meta name="description" content="Encuentra los mejores post de programación y desarrollo web. Nuevo contenido todos los días.">
 @endsection
 
-@section('style')
-    
-@endsection
-
 @section('content')
     <section class="buscador bg-oscuro">
         <div class="container">
@@ -79,8 +75,4 @@
 
         {{$posts->links()}}
     </main>
-@endsection
-
-@section('script')
-    
 @endsection

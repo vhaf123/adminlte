@@ -36,6 +36,8 @@ Route::post('contactanos/mensaje', 'ContactanosController@mensaje')->name('conta
 
 Route::resource('blog', 'BlogController')->parameters(['blog' => 'post'])->only('index', 'show');
 
+Route::get('tags/{tag}', 'TagController@show')->name('tags.show');
+
 Route::get('politicas', function () {
     
 })->name('politicas.index');
