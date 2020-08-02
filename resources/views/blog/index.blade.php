@@ -3,7 +3,7 @@
 @section('title', '▷ Blog de programación e informática')
 
 @section('meta')
-    <meta name="description" content="Encuentra los mejores post de programación y desarrollo web. Subimos contenido nuevo todos los días.">
+    <meta name="description" content="Encuentra los mejores post de programación y desarrollo web. Nuevo contenido todos los días.">
 @endsection
 
 @section('style')
@@ -16,7 +16,7 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-md-10 col-lg-8 py-5">
                     <h1 class="text-white text-md-center h2">¿Estás buscando algún artículo en particular?</h1>
-                    <p class="text-white text-md-center">Escribe en el buscador y nosotros te ayudamos a encontrarlo</p>
+                    <p class="text-white text-md-center">Encuentra los mejores post de programación y desarrollo web. Nuevo contenido todos los días.</p>
                     <form action="">
                         <div class="input-group">
                             <input type="text" class="form-control" id= "search" placeholder="Escribe el nombre del artículo" aria-label="" aria-describedby="basic-addon1">

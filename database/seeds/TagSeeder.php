@@ -3,6 +3,8 @@
 use Illuminate\Database\Seeder;
 use App\Tag;
 
+use Illuminate\Support\Str;
+
 class TagSeeder extends Seeder
 {
     /**
@@ -12,24 +14,18 @@ class TagSeeder extends Seeder
      */
     public function run()
     {
-        Tag::create([
-            'name' => 'Actualidad'
-        ]);
+        $tags = Tag::all();
 
-        Tag::create([
-            'name' => 'Tecnología'
-        ]);
 
-        Tag::create([
-            'name' => 'Diseño'
-        ]);
+        foreach ($tags as $tag) {
+            
+            $slug = Str::slug($tag->name, '-');
 
-        Tag::create([
-            'name' => 'Programación'
-        ]);
+            $tag->update([
+                'slug' => $slug
+            ]);
 
-        Tag::create([
-            'name' => 'Informática'
-        ]);
+        }
+
     }
 }

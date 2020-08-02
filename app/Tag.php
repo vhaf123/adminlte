@@ -9,8 +9,14 @@ class Tag extends Model
     /*Relación muchos a muchos*/
 
     protected $fillable = [
-        'name'
+        'name', 'background'
     ];
+
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     public function posts()
     {

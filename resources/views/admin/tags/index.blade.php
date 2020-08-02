@@ -8,6 +8,26 @@
     <link rel="stylesheet" href="{{asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
 @endsection
 
+@section('breadcrumbs')
+
+    <div class="container-fluid">
+        <div class="row mb-2 flex-wrap">
+            <div class="col-12 col-md-4">
+                <a href="{{route('admin.tags.create')}}" class="btn btn-primary">Nuevo tag</a>
+            </div>
+
+            <div class="col-12 col-md-8">
+                <ol class="breadcrumb float-md-right">
+                    <li class="breadcrumb-item"><a href="{{route('admin.home')}}">Dashboard</a></li>
+                    {{-- <li class="breadcrumb-item"><a href="{{route('admin.posts.index')}}">Posts</a></li> --}}
+                    <li class="breadcrumb-item active">Post</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row">
@@ -21,6 +41,8 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
+                                    <th>Slug</th>
+                                    <th>Background</th>
                                     <th>&nbsp;</th>
                                 </tr>
                             </thead>
@@ -30,6 +52,9 @@
                                     <tr>
                                         <td>{{$tag->id}}</td>
                                         <td>{{$tag->name}}</td>
+                                        <td>{{$tag->slug}}</td>
+                                        
+                                        <td><span class="badge {{$tag->background}}">{{$tag->background}}</span></td>
                                       
                                         <td>
                                             <div class="d-flex flex-nowrap justify-content-end">
@@ -37,7 +62,6 @@
                                                
                                             
                                                 <a href="{{route('admin.tags.edit', $tag)}}" class="btn btn-success btn-sm mx-1" role="button">
-                                                    
                                                     Editar
                                                 </a>
                                                
@@ -76,7 +100,31 @@
 
         "responsive": true,
         "autoWidth": false,
-        "order": [ 0, 'desc' ]
+        
+        });
+
+        $(".formulario button").click(function(e) {
+
+            e.preventDefault();
+            form = $(this).parent('form');
+
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "¡No podrás revertir esto!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: '¡Si, elimínalo!',
+                cancelButtonText: '¡No, cancelar!',
+            }).then((result) => {
+
+                if (result.value) {
+                    form.submit();
+                }
+
+            })
+
         });
 
     </script>
