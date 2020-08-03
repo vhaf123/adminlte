@@ -56,7 +56,7 @@
 
     @include('layouts.partials.footer')
 
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{asset('js/app.js')}}"></script>
 
     @if (session('info'))
         <script>

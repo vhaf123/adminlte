@@ -110,6 +110,14 @@
             text-align: center;
         }
 
+        .text-shadow{
+            text-shadow: 2px 2px #282828;
+        }
+
+        .text-shadow-2{
+            text-shadow: 1px 1px #233142;
+        }
+
     </style>
 @endsection
 
@@ -130,12 +138,12 @@
                     @include('blog.partials.categorias-post')
                     
                     <hgroup>
-                        <h1 class="text-white font-weight-bold">
+                        <h1 class="text-white font-weight-bold text-shadow">
                             {{$post->name}}
                         </h1>
                     </hgroup>
 
-                    <p class="text-white d-none d-lg-block lead">{{$post->extracto}}</p>
+                    <p class="text-white d-none d-lg-block lead text-shadow-2">{{$post->extracto}}</p>
 
                     <div class="media align-items-center">
 
