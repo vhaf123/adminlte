@@ -143,7 +143,7 @@
                         </h1>
                     </hgroup>
 
-                    <p class="text-white d-none d-lg-block lead text-shadow-2">{{$post->extracto}}</p>
+                    <p class="text-white d-none d-lg-block lead text-shadow">{{$post->extracto}}</p>
 
                     <div class="media align-items-center">
 
